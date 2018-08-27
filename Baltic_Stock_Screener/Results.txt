@@ -1,0 +1,48 @@
+Stock Symbol: EFT1T
+= P/B: 1.07
+= P/E: 8.86
+= ROE: 17.14
+= Market Cap: 50,593,799.5 EUR
+
+Stock Symbol: HAE1T
+= P/B: 1.37
+= P/E: 23.36
+= ROE: 44.75
+= Market Cap: 91,182,983.2 EUR
+
+Stock Symbol: MRK1T
+= P/B: 1.33
+= P/E: 11.93
+= ROE: 11.62
+= Market Cap: 175,230,000 EUR
+
+Stock Symbol: OLF1R
+= P/B: 1.01
+= P/E: 9.86
+= ROE: 11.1
+= Market Cap: 100,004,053.8 EUR
+
+Stock Symbol: SAF1R
+= P/B: 1.23
+= P/E: 32.03
+= ROE: 14.9
+= Market Cap: 12,177,738 EUR
+
+Stock Symbol: ESO1L
+= P/B: 1.44
+= P/E: 12.59
+= ROE: 12.6
+= Market Cap: 765,803,565.05 EUR
+
+Stock Symbol: SAB1L
+= P/B: 1.33
+= P/E: 10.2
+= ROE: 16.5
+= Market Cap: 279,401,870.68 EUR
+
+Stock Symbol: VLP1L
+= P/B: 1.12
+= P/E: 4.54
+= ROE: 16.77
+= Market Cap: 38,337,030 EUR
+

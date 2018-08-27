@@ -1,0 +1,9 @@
+Kasutan PyChari, ei saa logisid võtta
+
+9:20 - Tutvusin materjalidega
+9:30 - Tutuvusin ülesandega
+9:40 - Lõin delta_vaiba.txt faili
+9:50 - pusisin algoritmiga
+10:00 - andsin viimase lihvi
+10:05 - lisasin viimsed ümardused
+10:07 esitasin programmi
