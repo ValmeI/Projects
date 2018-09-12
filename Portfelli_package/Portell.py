@@ -1,14 +1,10 @@
-from Portfelli_package import Kinnisvara, Funcions, Aktsiad
+from Portfelli_package import Kinnisvara, Funcions, Aktsiad, Morr, Valme
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
 
 '# tänane kuupäev arvutamaks, et mitu makset on tehtud juba'
 Täna = date.today()
-
-'#Akadeemia laenu kuupäevad yyyy.mm.dd'
-Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
-Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
 
 '#Kinnisvara objetktide print'
 Kinnisvara.korterid()
@@ -19,12 +15,12 @@ print(Kinnisvara.Korter1_Nimi, "laenumakse:", PerMonthAka42, "€.")
 print(Kinnisvara.Korter2_Nimi, "laenumakse:", PerMonthAka38, "€.")
 
 '#makstud kuude vahe arvutus'
-KuudMakstudAka42 = Funcions.diff_months(Täna, Aka42_63_Laen_Kuupäev)
-KuudMakstudAka38 = Funcions.diff_months(Täna, Aka38_20_Laen_Kuupäev)
+KuudMakstudAka42 = Funcions.diff_months(Täna, Valme.Aka42_63_Laen_Kuupäev)
+KuudMakstudAka38 = Funcions.diff_months(Täna, Valme.Aka38_20_Laen_Kuupäev)
 
 '# how many years and months each loan is paid already'
-dateAka42 = relativedelta(Täna, Aka42_63_Laen_Kuupäev)
-dateAka38 = relativedelta(Täna, Aka38_20_Laen_Kuupäev)
+dateAka42 = relativedelta(Täna, Valme.Aka42_63_Laen_Kuupäev)
+dateAka38 = relativedelta(Täna, Valme.Aka38_20_Laen_Kuupäev)
 print("\nLaenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
 print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months\n")
 
@@ -40,39 +36,25 @@ print("\nLaenu kohutus kokku:", BalanceAka42 + BalanceAka38)
 KinnisVaraPort = Kinnisvara.KinnisvaraVaartus() - BalanceAka42 - BalanceAka38
 
 print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
+KoikKokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
 
-
-FüsIsikRaha = 0
-FysIsikAktsaid = Aktsiad.stocks_value_combined(Aktsiad.fys_eur_stocks, True)
-
-'# Vaba raha ja aktsiad kokku'
-FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
-
-
-JurAktsiad = Aktsiad.stocks_value_combined(Aktsiad.jur_usa_stocks, False) + \
-             Aktsiad.stocks_value_combined(Aktsiad.jur_eur_stocks, True)
-
-'#jur isiku raha LHV + LYNX RAHA'
-ValCapitalRaha = 2060
-JurRaha = 327.85
-JurLynxRaha = 22.51
-JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + ValCapitalRaha/2)
-
-KoikKokku = FysIsik + JurIsik + KinnisVaraPort
 '#Ehk 1 000 000 Eesti krooni'
 Eesmark = round(1000000/15.6466)
 
-print("Juriidilise isiku väärtus:", JurIsik, "€.")
-print("Füüsilise isiku aktsia portfell:", FysIsik, "€.")
-print("Aktsiad/Raha Jur ja Füs isikud kokku:", FysIsik + JurIsik, "€.")
-
+print("Juriidilise isiku väärtus:", Valme.JurIsik, "€.")
+print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
+print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
 print("Terve portfell kokku:", KoikKokku, "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
-print("Veel minna", Eesmark - KoikKokku, "€.")
+print("Veel minna", Eesmark - KoikKokku)
+print("Mörr-i portfell:", Morr.kokku, "€.")
+Pere = KoikKokku + Morr.kokku
+print("Pere portfell kokku:", Pere, "€.")
+
+Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 
 Funcions.need_new_excel_file("Portfell")
 
-'#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell'
-Funcions.update_excel("Portfell", KinnisVaraPort, FysIsik, JurIsik, FysIsik+JurIsik, KoikKokku)
+'#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
+Funcions.update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Pere)
 
-'#TODO - pere sektor koos väärtuse jälgimisega'
