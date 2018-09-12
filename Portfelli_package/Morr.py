@@ -1,0 +1,3 @@
+from Portfelli_package import Portell
+
+Portell.ValCapitalRaha

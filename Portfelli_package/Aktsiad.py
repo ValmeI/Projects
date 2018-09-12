@@ -13,14 +13,18 @@ fys_eur_stocks = {"OLF1R": 67,
 
 jur_usa_stocks = {"AAPL": 15,
                   "TSLA": 6,
-                  "AMD": 35,
-                  "MSFT": 8
+                  "AMD": 48,
+                  "MSFT": 8,
+                  "FB": 7
                   }
 
 
 jur_eur_stocks = {"EFT1T": 51
                   }
 
+morr_eur_stocks = {""
+
+                    }
 
 def stock_price_from_market_watch(stock, original_currency):
 

@@ -1,5 +1,7 @@
 from urllib.request import urlopen
 
+page_url = "https://clubvillad.ee/"
+
 
 def get_page_source(url):
     '# Get page source of give website'
@@ -7,11 +9,17 @@ def get_page_source(url):
     return page
 
 
-def read_old_source(file):
+def read_old_source(file, url):
     '# read give html filename source'
-    o_file = open(file, "r", encoding='utf-8')
+    try:
+        o_file = open(file, "r", encoding='utf-8')
+        return o_file.read()
 
-    return o_file.read()
+    except OSError:
+        '# when first file does not exist at all, request html and save it then to disk'
+        html = get_page_source(url)
+        save_source(html)
+        return html
 
 
 def save_source(page):
@@ -27,9 +35,13 @@ def compare_sources(old_html, new_html):
     else:
         return False
 
+'''
+print(get_page_source("https://clubvillad.ee/"))
+print(read_old_source("clubvilla_source.html", "https://clubvillad.ee"))
+save_source(get_page_source("https://clubvillad.ee/"))
+'''
 
-
-#print(get_page_source("https://clubvillad.ee/"))
-#print(read_old_source("clubvilla_source.html"))
-#save_source(get_page_source("https://clubvillad.ee/"))
-#print(compare_sources(read_old_source("clubvilla_source.html"), get_page_source("https://clubvillad.ee/")))
+'''print(compare_sources(read_old_source("clubvilla_source.html", page_url),
+                      get_page_source(page_url)
+                      )
+      )'''

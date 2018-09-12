@@ -53,9 +53,10 @@ JurAktsiad = Aktsiad.stocks_value_combined(Aktsiad.jur_usa_stocks, False) + \
              Aktsiad.stocks_value_combined(Aktsiad.jur_eur_stocks, True)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 1340.94
-JurLynxRaha = 197.07
-JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad)
+ValCapitalRaha = 2060
+JurRaha = 327.85
+JurLynxRaha = 22.51
+JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + ValCapitalRaha/2)
 
 KoikKokku = FysIsik + JurIsik + KinnisVaraPort
 '#Ehk 1 000 000 Eesti krooni'
