@@ -1,4 +1,4 @@
-from Portfelli_package import Kinnisvara, Funcions, Aktsiad, Morr, Valme
+from Portfelli_package import Kinnisvara, Funcions, Morr, Valme
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from termcolor import colored
