@@ -21,7 +21,8 @@ headers = {0: "Kuupäev",
            2: "Füüsilise isiku aktsiad",
            3: "Juriidilise isiku aktsiad",
            4: "Aktsiad kokku",
-           5: "Terve portfell kokku"}
+           5: "Terve portfell kokku",
+           6: "Pere portfell kokku"}
 
 
 def what_path_for_excel():
@@ -41,10 +42,21 @@ def diff_months(date2, date1):
     return total_months
 
 
+def freeze_excel_rows(variable, horz_pos, vert_pos):
+    '# freeze excel rows'
+    variable.set_panes_frozen(True)
+    variable.set_horz_split_pos(horz_pos)
+    variable.set_vert_split_pos(vert_pos)
+
+
 def create_excel(excel_name):
 
     wb = Workbook()
     sheet1 = wb.add_sheet("Porfelli Info")
+
+    'freeze rows'
+    freeze_excel_rows(sheet1, 1, 1)
+
     '#lisab file type'
     file_name = excel_name + ".xls"
 
@@ -83,7 +95,7 @@ def need_new_excel_file(excel_name):
         create_excel(excel_name)
 
 
-def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell):
+def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere_kokku):
     '# add file type'
     file_name = excel_name + ".xls"
     '#open excel file'
@@ -93,8 +105,14 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
     '#take the first sheet from excel'
     w_sheet = copy_rb.get_sheet(0)
 
+    'freeze rows'
+    freeze_excel_rows(w_sheet, 1, 1)
+
     '# Indekis järgi võtab open_workbooki esimeses sheeti, vajaduse et kontrolida clowum ja row väärtusi'
     first_sheet = rb.sheet_by_index(0)
+
+
+
 
     '# Et updateiga ei läheks iga kord headeri suurused kaduma ehk need tuleb iga kord uuesti suureks teha'
     for column, value in headers.items():
@@ -123,8 +141,11 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
             passed += 1
         elif check == kokku_portfell:
             passed += 1
+        elif check == pere_kokku:
+            passed += 1
 
     '#ehk 6 kontrolli on. Sama palju kui välju. Kui andmed muutunud siis lisab need, kui ei väljastab lause, et ei ole muutunud'
+
     if passed == first_sheet.ncols:
         print("Tänase päeva andmed pole muutunud.")
     else:
@@ -142,6 +163,8 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
                 value = aktsiad_kokku
             elif c == 5:
                 value = kokku_portfell
+            elif c == 6:
+                value = pere_kokku
 
             '# row, column ja tekst'
             w_sheet.write(max_rows, c, value)
@@ -186,4 +209,3 @@ def get_last_row(excel_name, column_number):
         if column == column_number:
 
             return max_value
-

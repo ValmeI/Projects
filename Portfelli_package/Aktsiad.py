@@ -4,27 +4,6 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-fys_eur_stocks = {"OLF1R": 67,
-                  "SFG1T": 1668,
-                  "TKM1T": 380,
-                  "EFT1T": 66,
-                  "TSM1T": 1000
-                  }
-
-jur_usa_stocks = {"AAPL": 15,
-                  "TSLA": 6,
-                  "AMD": 48,
-                  "MSFT": 8,
-                  "FB": 7
-                  }
-
-
-jur_eur_stocks = {"EFT1T": 51
-                  }
-
-morr_eur_stocks = {""
-
-                    }
 
 def stock_price_from_market_watch(stock, original_currency):
 

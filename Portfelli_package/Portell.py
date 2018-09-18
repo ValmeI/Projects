@@ -1,6 +1,7 @@
 from Portfelli_package import Kinnisvara, Funcions, Aktsiad, Morr, Valme
 from datetime import date
 from dateutil.relativedelta import relativedelta
+from termcolor import colored
 
 
 '# tänane kuupäev arvutamaks, et mitu makset on tehtud juba'
@@ -44,12 +45,12 @@ Eesmark = round(1000000/15.6466)
 print("Juriidilise isiku väärtus:", Valme.JurIsik, "€.")
 print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
 print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
-print("Terve portfell kokku:", KoikKokku, "€.")
+print("Terve portfell kokku:", colored(KoikKokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
-print("Veel minna", Eesmark - KoikKokku)
-print("Mörr-i portfell:", Morr.kokku, "€.")
+print("Veel minna", colored(Eesmark - KoikKokku, 'red'))
+print("Mörr-i portfell:", colored(Morr.kokku, 'red'), "€.")
 Pere = KoikKokku + Morr.kokku
-print("Pere portfell kokku:", Pere, "€.")
+print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 
