@@ -1,5 +1,4 @@
 from sklearn import tree
-import numpy
 
 '''features = [[140, "smooth"],
             [130, "smooth"],
