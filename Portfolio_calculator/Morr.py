@@ -16,14 +16,6 @@ morr_usa_stocks = {"SPYD": 1.214,
 
 ValCapitalRaha = 2060
 
-'''
-for i in morr_eur_stocks.keys():
-    print(i, Aktsiad.stock_amount_value(i, True, morr_eur_stocks))
-
-for i in morr_usa_stocks.keys():
-    print(i, Aktsiad.stock_amount_value(i, False, morr_usa_stocks))
-'''
-
 m_aktsiad = Aktsiad.stocks_value_combined(morr_eur_stocks, True) + \
             Aktsiad.stocks_value_combined(morr_usa_stocks, False)
 
