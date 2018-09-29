@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib
-from Portfelli_package import Funcions
+from Portfolio_calculator import Funcions
 from dateutil.parser import parse
 
 

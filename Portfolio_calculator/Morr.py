@@ -1,4 +1,4 @@
-from Portfelli_package import Aktsiad
+from Portfolio_calculator import Aktsiad
 
 morr_eur_stocks = {"APG1L": 196,
                    "EFT1T": 35,

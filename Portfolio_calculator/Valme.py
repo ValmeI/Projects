@@ -1,4 +1,4 @@
-from Portfelli_package import Aktsiad, Morr
+from Portfolio_calculator import Aktsiad, Morr
 from datetime import date
 
 
