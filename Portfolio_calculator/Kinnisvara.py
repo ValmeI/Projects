@@ -64,12 +64,10 @@ def apr_balance(principle, annual_interest_rate, duration, number_of_payments):
 '#Total value'
 
 
-def KinnisvaraVaartus():
+def kinnisvara_vaartus():
 
     total_value = 0
     for k, v in Korterid.items():
         total_value += v
 
     return total_value
-
-

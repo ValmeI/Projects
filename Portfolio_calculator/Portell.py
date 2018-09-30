@@ -34,7 +34,7 @@ print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.")
 print("\nLaenu kohutus kokku:", BalanceAka42 + BalanceAka38)
 
 '#Kinnisvara kokku. Liidetakse kõik Dics korterite ostu hinnad - balancid ehk palju laenu veel maksta'
-KinnisVaraPort = Kinnisvara.KinnisvaraVaartus() - BalanceAka42 - BalanceAka38
+KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
 
 print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
 KoikKokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
