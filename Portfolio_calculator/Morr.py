@@ -14,7 +14,7 @@ morr_usa_stocks = {"SPYD": 1.214,
                    "IVV": 7.076
                    }
 
-ValCapitalRaha = 2060
+ValCapitalRaha = 2260
 
 m_aktsiad = Aktsiad.stocks_value_combined(morr_eur_stocks, True) + \
             Aktsiad.stocks_value_combined(morr_usa_stocks, False)

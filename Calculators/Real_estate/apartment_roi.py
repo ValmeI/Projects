@@ -1,7 +1,7 @@
 from Portfolio_calculator import Kinnisvara as re
 
 
-def apartment_roi(apartment_price, down_payment_percent, other_costs, interest, loan_years, rent, monthly_insurance):
+def apartment_roi(apartment_price, down_payment_percent, other_costs, interest, loan_years, rent, monthly_insurance, m2):
     '# ROI - apartment_price, down_payment_percent, other_costs, interest, loan_years, rent, monthly_insurance)'
     down_payment_amount = int(apartment_price * (down_payment_percent / 100))
     loan_amount = apartment_price - down_payment_amount
@@ -12,7 +12,9 @@ def apartment_roi(apartment_price, down_payment_percent, other_costs, interest, 
     cash_needed = int(down_payment_amount + other_costs)
     year_roi_percent = year_income / cash_needed * 100
     year_roi_percent = round(year_roi_percent, 1)
-    return apartment_price, down_payment_amount, cash_needed, monthly_sum, monthly_income, year_income, year_roi_percent
+    m2_of_price = round(apartment_price / m2, 1)
+    m2_of_rent = round(rent / m2, 1)
+    return apartment_price, down_payment_amount, cash_needed, monthly_sum, monthly_income, year_income, year_roi_percent, m2_of_price, m2_of_rent
 
 
 def apart_format_print(name, apart_list):
@@ -26,6 +28,8 @@ def apart_format_print(name, apart_list):
           'Igakuine Üüri summa: {} €\n'
           'Igakuine kasum (Tulu): {} €\n'
           'Aastane kasum (Tulu): {} €\n'
+          'Ostu m2 hind: {} €/m2\n'
+          'Rendi m2 hind: {} €/m2\n'
           '----------------------------\n'
           'Tootlus: {} % \n\n'.format(name,
                                       apart_list[0],
@@ -36,7 +40,10 @@ def apart_format_print(name, apart_list):
                                       apart_list[3] + apart_list[4],
                                       apart_list[4],
                                       apart_list[5],
-                                      apart_list[6])
+                                      apart_list[7],
+                                      apart_list[8],
+                                      apart_list[6]
+                                      )
           )
 
 

@@ -31,6 +31,6 @@ JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False)
 
 '#jur isiku raha LHV + LYNX RAHA'
 JurRaha = 977.74
-JurLynxRaha = 24.79
+JurLynxRaha = 25.04
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 

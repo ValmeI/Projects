@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <div lang="en">
 <head>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
     <meta charset="UTF-8">
     <title>Work wage calculator</title>
 </head>
-    Calculate work wage
-    <div>
-        <h3></h3>
-        <input type="number" size="5" name=>
-    </input>
+</div>
+    <body>
 
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <div class="content-section">
+            {{ form.hidden_tag() }}
+            <form method="POST" action="">
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Calculate work wage</legend>
+                    <div class="form-group">
+                        {{ form.pay.label(class="form-control-label") }}
+
+                        {% if form.pay.errors %}
+                            {{ form.pay(class="form-control from-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for errors in from.pay.errors %}
+                                <span>{{ errors }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.pay(class="form-control from-control-lg") }}
+                        {% endif %}
+
+
+                    </div>
+                    <div class="form-group">
+                        {{ form.percent.label(class="form-control-label") }}
+
+                        {% if form.percent.errors %}
+                            {{ form.pay(class="form-control from-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for errors in from.percent.errors %}
+                                <span>{{ errors }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.percent(class="form-control from-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.hours.label(class="form-control-label") }}
+
+                        {% if form.hours.errors %}
+                            {{ form.pay(class="form-control from-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for errors in from.hours.errors %}
+                                <span>{{ errors }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.hours(class="form-control from-control-lg") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                    <div class="form-group">
+                        {{ form.submit(class="btn") }}
+                    </div>
+            </form>>
+        </div>
+    </body>
 </html>
