@@ -1,7 +1,10 @@
 from flask import Flask, render_template, flash
 from Calculators.work_time.forms import WorkForm
+from flask_wtf.csrf import CSRFProtect
 
+csrf = CSRFProtect()
 app = Flask(__name__)
+csrf.init_app(app)
 
 app.config['SECRET_KEY'] = 'secret'
 
