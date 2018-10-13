@@ -1,17 +1,14 @@
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, SubmitField, Form
+from wtforms import IntegerField, SubmitField, FloatField
 from wtforms.validators import DataRequired, NumberRange
 
 
 class WorkForm(FlaskForm):
     pay = IntegerField('Palk',
-                       validators=[DataRequired()])
+                       validators=[DataRequired(), NumberRange(min=500)])
 
-    percent = IntegerField('Protsent',
-                           validators=[DataRequired()])
-
-    hours = IntegerField('Töötunde',
-                         validators=[DataRequired()])
+    percent = FloatField('Protsent',
+                         validators=[DataRequired(), NumberRange(0.1, 100)])
 
     submit = SubmitField('Arvuta')
 

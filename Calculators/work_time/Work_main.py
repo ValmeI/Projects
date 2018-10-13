@@ -1,6 +1,8 @@
-from flask import Flask, render_template, flash
+from flask import Flask, render_template, flash, request
 from Calculators.work_time.forms import WorkForm
 from flask_wtf.csrf import CSRFProtect
+from Calculators.work_time import work_funcions as wf
+
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -16,20 +18,20 @@ def index():
 
 @app.route('/work', methods=['GET', 'POST'])
 def work():
-    form = WorkForm('''csrf_enabled=False''')
-    '''if form.validate_on_submit():
-        flash('Tulemus:', 'success')
-    else:
-        flash('sdasdasdasd', 'danger')
-'''
+    form = WorkForm(csrf_enabled=False)
 
-    print(form.errors)
-    if form.is_submitted():
-        print("submitted")
-    if form.validate():
-        print("valid")
-    if form.validate_on_submit():
-        flash("Successfully created a new book")
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            '# so 0.8 and so on is also accepted input'
+            if form.percent.data < 1:
+                new_percent = form.percent.data * 100
+            else:
+                new_percent = form.percent.data
+
+            new_pay = wf.work_calulator(form.pay.data, new_percent)
+            flash(f'Uus palganumber on { new_pay[0] } € '
+                  f'ja töötunnid on { round(new_pay[1]) }h ', 'success')
+
     return render_template("worktime.html", form=form)
 
 

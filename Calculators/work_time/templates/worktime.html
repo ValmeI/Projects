@@ -37,10 +37,11 @@
 
             <div class="content-section">
                 <form method="POST" action="">
-                <!--    {{ form.csrf_token }}//-->
-                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    {{ form.hidden_tag() }}
+                    {{ form.csrf_token }}
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                     <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Calculate work wage</legend>
+                        <legend class="border-bottom mb-4">Arvuta uus palganumber</legend>
                         <div class="form-group">
                             {{ form.pay.label(class="form-control-label") }}
 
@@ -60,7 +61,7 @@
                             {{ form.percent.label(class="form-control-label") }}
 
                             {% if form.percent.errors %}
-                                {{ form.pay(class="form-control form-control-lg is-invalid") }}
+                                {{ form.percent(class="form-control form-control-lg is-invalid") }}
                                 <div class="invalid-feedback">
                                     {% for error in form.percent.errors %}
                                     <span>{{ error }}</span>
@@ -71,20 +72,6 @@
                             {% endif %}
                         </div>
 
-                        <div class="form-group">
-                            {{ form.hours.label(class="form-control-label") }}
-
-                            {% if form.hours.errors %}
-                                {{ form.pay(class="form-control form-control-lg is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.hours.errors %}
-                                    <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                {{ form.hours(class="form-control form-control-lg") }}
-                            {% endif %}
-                        </div>
 
                     </fieldset>
                         <div class="form-group">

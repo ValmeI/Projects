@@ -1,6 +1,5 @@
-def work_calulator(pay, percent, hours):
+def work_calulator(pay, percent):
+    default_h = 40
     new_pay = pay * (percent/100)
-    #print("New pay is:", new_pay)
-    new_hours = hours * (percent/100)
-    #print("Hours needs to work:", new_hours)
-    return new_pay#, new_hours
+    new_hours = default_h * (percent/100)
+    return new_pay, new_hours
