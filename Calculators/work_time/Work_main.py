@@ -31,7 +31,8 @@ def work():
             new_pay = wf.work_calulator(form.pay.data, new_percent)
             flash(f'Uus palganumber on { new_pay[0] } € '
                   f'ja töötunnid on { round(new_pay[1]) }h ', 'success')
-
+        else:
+            flash('Sisend on vigane', 'danger')
     return render_template("worktime.html", form=form)
 
 
