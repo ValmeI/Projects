@@ -18,6 +18,7 @@ def index():
 
 @app.route('/work', methods=['GET', 'POST'])
 def work():
+    # TODO kuna ei tööta kui true
     form = WorkForm(csrf_enabled=False)
 
     if request.method == 'POST':
@@ -33,6 +34,7 @@ def work():
                   f'ja töötunnid on { round(new_pay[1]) }h ', 'success')
         else:
             flash('Sisend on vigane', 'danger')
+            
     return render_template("worktime.html", form=form)
 
 
