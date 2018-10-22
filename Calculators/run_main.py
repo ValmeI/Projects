@@ -19,7 +19,7 @@ def index():
 
 @app.route('/work', methods=['GET', 'POST'])
 def work():
-    # TODO kuna ei tööta kui true
+    # TODO kuna ei tööta kui true, ei tea miks
     form = WorkForm(csrf_enabled=False)
 
     if request.method == 'POST':
