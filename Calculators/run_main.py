@@ -4,6 +4,7 @@ from flask import Flask, render_template, flash, request
 from Calculators.forms import WorkForm
 from flask_wtf.csrf import CSRFProtect
 from Calculators.work_time import work_funcions as wf
+import Calculators
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -14,7 +15,7 @@ app.config['SECRET_KEY'] = 'secret'
 
 @app.route('/')
 def index():
-    return "This is test"
+    return render_template("index.html")
 
 
 @app.route('/work', methods=['GET', 'POST'])
