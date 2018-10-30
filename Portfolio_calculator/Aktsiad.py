@@ -5,6 +5,16 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
+def replace_comma(stat):
+    '# removes comma in numbers. Is needed to convert to float. Numbers like 1,0000 and so on.'
+    stat = str(stat)
+    if "," in stat:
+        stat = stat.replace(",", "")
+        return stat
+    else:
+        return stat
+
+
 def stock_price_from_market_watch(stock, original_currency):
 
     url = "https://www.marketwatch.com/search?q=" + stock
@@ -20,7 +30,7 @@ def stock_price_from_market_watch(stock, original_currency):
 
     if original_currency:
         '#Returns original currency'
-
+        str_price_org_currency = replace_comma(str_price_org_currency)
         return float(str_price_org_currency)
     else:
         '#Converts and Returns currency in euros'
@@ -42,7 +52,7 @@ def stock_price_from_market_watch(stock, original_currency):
         soup = BeautifulSoup(convert_html, 'lxml')
         '# specify of what tag and what class, to get results in euros'
         to_eur_convert = soup.find('span', class_='converterresult-toAmount').text
-
+        to_eur_convert = replace_comma(to_eur_convert)
         return float(to_eur_convert)
 
 
@@ -96,5 +106,4 @@ print(stock_price_from_market_watch("AAPL", False))
 print(stock_price_from_market_watch("TSLA", False))
 print(stock_price_from_market_watch("AMD", False))
 print(stock_price_from_market_watch("MSFT", False))
-print(stock_price_from_market_watch("EFT1T", True))
-'''
+print(stock_price_from_market_watch("AMZN", False))'''

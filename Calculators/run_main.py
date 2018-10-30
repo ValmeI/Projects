@@ -33,7 +33,9 @@ def work():
                 new_percent = form.percent.data
 
             new_pay = WC.work_calulator(form.pay.data, new_percent)
-            text_success = 'Uus palganumber on ' + str(new_pay[0]) + ' € ja töötunnid on ' + str(round(new_pay[1])) + 'h'
+            '# to fix floating problem in pyhton'
+            new_pay_2 = format(new_pay[0], '.2f')
+            text_success = 'Uus palganumber on ' + str(new_pay_2) + ' € ja töötunnid on ' + str(round(new_pay[1])) + 'h'
             flash(text_success, 'success')
 
         else:
@@ -45,6 +47,6 @@ def work():
 if __name__ == "__main__":
 
     '# 0.0.0.0 = localhost'
-    app.run(host='0.0.0.0', port=9090, debug=True)
+    app.run(host='0.0.0.0', port=9090)#, debug=True)
 
 

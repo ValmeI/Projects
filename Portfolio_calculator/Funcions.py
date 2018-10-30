@@ -22,7 +22,8 @@ headers = {0: "Kuupäev",
            3: "Juriidilise isiku aktsiad",
            4: "Aktsiad kokku",
            5: "Terve portfell kokku",
-           6: "Pere portfell kokku"}
+           6: "Mörr-i portfell",
+           7: "Pere portfell kokku"}
 
 
 def what_path_for_excel():
@@ -95,7 +96,7 @@ def need_new_excel_file(excel_name):
         create_excel(excel_name)
 
 
-def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere_kokku):
+def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, abikaasa_kokku, pere_kokku):
     '# add file type'
     file_name = excel_name + ".xls"
     '#open excel file'
@@ -141,10 +142,12 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
             passed += 1
         elif check == kokku_portfell:
             passed += 1
+        elif check == abikaasa_kokku:
+            passed += 1
         elif check == pere_kokku:
             passed += 1
 
-    '#ehk 6 kontrolli on. Sama palju kui välju. Kui andmed muutunud siis lisab need, kui ei väljastab lause, et ei ole muutunud'
+    '#ehk 8 kontrolli on. Sama palju kui välju. Kui andmed muutunud siis lisab need, kui ei väljastab lause, et ei ole muutunud'
 
     if passed == first_sheet.ncols:
         print("Tänase päeva andmed pole muutunud.")
@@ -164,6 +167,8 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
             elif c == 5:
                 value = kokku_portfell
             elif c == 6:
+                value = abikaasa_kokku
+            elif c == 7:
                 value = pere_kokku
 
             '# row, column ja tekst'
