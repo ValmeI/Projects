@@ -22,7 +22,7 @@ jur_usa_stocks = {"AAPL": 15,
 Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
 Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
 
-FüsIsikRaha = 2015.14
+FüsIsikRaha = 15.14
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -31,7 +31,7 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 211.28
+JurRaha = 329.39
 JurLynxRaha = 80
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 
