@@ -11,7 +11,7 @@ today_str = str(date.today())
 column_extender = 350
 
 '#kodu path'
-excel_path_home = r"D:\PycharmProjects\Projects/"
+excel_path_home = r"D:\PycharmProjects\Projects\Portfolio_calculator/"
 
 '#töö path'
 excel_path_work = r"V:\rik_oigusk\Päringud\Krmr\Ignar Valme\PythonProjects\Projects\Portfolio_calculator/"
