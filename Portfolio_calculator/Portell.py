@@ -22,9 +22,6 @@ dateAka38 = relativedelta(Täna, Valme.Vana_Aka38_20_Laen_Kuupäev)
 print("\nLaenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
 print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months\n")
 
-#Laenu Akadeemia 42-63 makstud: 2 Years, 9 Months #Novb
-#Laenu Akadeemia 38-20 makstud: 1 Years, 6 Months
-
 '#makstud kuude vahe arvutus'
 KuudMakstudAka42 = diff_months(Täna, Valme.Aka42_63_Laen_Kuupäev)
 KuudMakstudAka38 = diff_months(Täna, Valme.Aka38_20_Laen_Kuupäev)
@@ -58,7 +55,7 @@ print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 
-#Funcions.need_new_excel_file("Portfell")
+Funcions.need_new_excel_file("Portfell")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
-#Funcions.update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
+Funcions.update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
