@@ -4,8 +4,8 @@ Korter2_Nimi = "Akadeemia 38-20"
 Korter1_Hind = 24500
 Korter2_Hind = 29900
 
-Korter1_Laen = 19600
-Korter2_Laen = 23920
+Korter1_Laen = 16708.64 #19600
+Korter2_Laen = 22146.08 #23920
 
 Korterid = {Korter1_Nimi: Korter1_Hind,
             Korter2_Nimi: Korter2_Hind}

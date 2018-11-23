@@ -18,9 +18,12 @@ jur_usa_stocks = {"AAPL": 15,
                   }
 
 
-'#Akadeemia laenu kuupäevad yyyy.mm.dd'
-Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
-Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
+'#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
+Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
+Vana_Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
+
+Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
+Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 
 FüsIsikRaha = 15.14
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)

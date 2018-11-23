@@ -1,4 +1,5 @@
 from Portfolio_calculator import Kinnisvara, Funcions, Morr, Valme
+from Portfolio_calculator.Funcions import diff_months
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from termcolor import colored
@@ -9,25 +10,28 @@ Täna = date.today()
 
 '#Kinnisvara objetktide print'
 Kinnisvara.korterid()
-PerMonthAka42 = Kinnisvara.apr_month(Kinnisvara.Korter1_Laen, 2.75, 15)
-PerMonthAka38 = Kinnisvara.apr_month(Kinnisvara.Korter2_Laen, 3.7, 15)
+PerMonthAka42 = Kinnisvara.apr_month(Kinnisvara.Korter1_Laen, 3, 15)
+PerMonthAka38 = Kinnisvara.apr_month(Kinnisvara.Korter2_Laen, 3, 15)
 
 print(Kinnisvara.Korter1_Nimi, "laenumakse:", PerMonthAka42, "€.")
 print(Kinnisvara.Korter2_Nimi, "laenumakse:", PerMonthAka38, "€.")
 
-'#makstud kuude vahe arvutus'
-KuudMakstudAka42 = Funcions.diff_months(Täna, Valme.Aka42_63_Laen_Kuupäev)
-KuudMakstudAka38 = Funcions.diff_months(Täna, Valme.Aka38_20_Laen_Kuupäev)
-
 '# how many years and months each loan is paid already'
-dateAka42 = relativedelta(Täna, Valme.Aka42_63_Laen_Kuupäev)
-dateAka38 = relativedelta(Täna, Valme.Aka38_20_Laen_Kuupäev)
+dateAka42 = relativedelta(Täna, Valme.Vana_Aka42_63_Laen_Kuupäev)
+dateAka38 = relativedelta(Täna, Valme.Vana_Aka38_20_Laen_Kuupäev)
 print("\nLaenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
 print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months\n")
 
-'#diffMonths annab natuke erineva tulemuse, kui aastad vs kuud, ei tea miks, sp ka -1'
-BalanceAka42 = Kinnisvara.apr_balance(Kinnisvara.Korter1_Laen, 2.75, 15, KuudMakstudAka42-1)
-BalanceAka38 = Kinnisvara.apr_balance(Kinnisvara.Korter2_Laen, 3.7, 15, KuudMakstudAka38)
+#Laenu Akadeemia 42-63 makstud: 2 Years, 9 Months #Novb
+#Laenu Akadeemia 38-20 makstud: 1 Years, 6 Months
+
+'#makstud kuude vahe arvutus'
+KuudMakstudAka42 = diff_months(Täna, Valme.Aka42_63_Laen_Kuupäev)
+KuudMakstudAka38 = diff_months(Täna, Valme.Aka38_20_Laen_Kuupäev)
+
+'#diffMonths annab natuke erineva tulemuse, kui aastad vs kuud'
+BalanceAka42 = Kinnisvara.apr_balance(Kinnisvara.Korter1_Laen, 3, 15, KuudMakstudAka42)
+BalanceAka38 = Kinnisvara.apr_balance(Kinnisvara.Korter2_Laen, 3, 15, KuudMakstudAka38)
 print(Kinnisvara.Korter1_Nimi, "laenu jääk", BalanceAka42, "€.")
 print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.")
 
@@ -54,7 +58,7 @@ print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 
-Funcions.need_new_excel_file("Portfell")
+#Funcions.need_new_excel_file("Portfell")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
-Funcions.update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
+#Funcions.update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)

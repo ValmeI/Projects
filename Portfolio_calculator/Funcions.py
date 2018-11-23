@@ -9,11 +9,12 @@ import os.path
 today_str = str(date.today())
 '# how much extend excel columns'
 column_extender = 350
+
 '#kodu path'
-excel_path_home = r"D:\PycharmProjects\Projects\Portfolio_calculator/" \
+excel_path_home = r"D:\PycharmProjects\Projects\Portfolio_calculator/"
 
 '#töö path'
-excel_path_work = r"V:\rik_oigusk\Päringud\Krmr\Ignar Valme\PythonProjects\Portfolio_calculator/"
+excel_path_work = r"V:\rik_oigusk\Päringud\Krmr\Ignar Valme\PythonProjects\Projects\Portfolio_calculator/"
 
 '# headrid mida exceli loogmisel ja updateimisel kasutatakse'
 headers = {0: "Kuupäev",
