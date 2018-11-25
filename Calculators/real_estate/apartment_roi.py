@@ -19,18 +19,18 @@ def apartment_roi(apartment_price, down_payment_percent, other_costs, interest, 
 
 def apart_format_print(name, apart_list):
     print('----------------------------\n'
-          'Korter: {}\n'
-          'Hind: {} €\n'
-          'Laenu summa: {} €\n'
-          'Sissemakse summa: {} €\n'
-          'Esmane kulu kokku: {} €\n'
-          'Igakuine laenumakse (Kulu): {} €\n'
-          'Igakuine Üüri summa: {} €\n'
-          'Igakuine kasum (Tulu): {} €\n'
-          'Aastane kasum (Tulu): {} €\n'
-          'Ostu m2 hind: {} €/m2\n'
-          'Rendi m2 hind: {} €/m2\n'
-          '----------------------------\n'
+          'Korter: {}\n'\
+          'Hind: {} €\n'\
+          'Laenu summa: {} €\n'\
+          'Sissemakse summa: {} €\n'\
+          'Esmane kulu kokku: {} €\n'\
+          'Igakuine laenumakse (Kulu): {} €\n'\
+          'Igakuine Üüri summa: {} €\n'\
+          'Igakuine kasum (Tulu): {} €\n'\
+          'Aastane kasum (Tulu): {} €\n'\
+          'Ostu m2 hind: {} €/m2\n'\
+          'Rendi m2 hind: {} €/m2\n'\
+          '----------------------------\n'\
           'Tootlus: {} % \n\n'.format(name,
                                       apart_list[0],
                                       apart_list[0] - apart_list[1],
@@ -47,8 +47,97 @@ def apart_format_print(name, apart_list):
           )
 
 
-'''
-Akad42_63 = apartment_roi(re.Korter1_Hind, 20, 1500, 2.75, 15, 220, 7)
-print(Akad42_63)
-apart_format_print('X', Akad42_63)
-'''
+def format_for_page(name, apart_list):
+
+    dic_of_values = {0: 'Korter:',
+                        1: 'Hind:',
+                        2: 'Laenu summa:',
+                        3: 'Sissemakse summa:',
+                        4: 'Esmane kulu kokku:',
+                        5: 'Igakuine laenumakse (Kulu):',
+                        6: 'Igakuine Üüri summa:',
+                        7: 'Igakuine kasum (Tulu):',
+                        8: 'Aastane kasum (Tulu):',
+                        9: 'Ostu m2 hind:',
+                        10: 'Rendi m2 hind:',
+                        11: 'Tootlus:'
+                     }
+
+    outer_list = []
+    for x in range(0, len(dic_of_values)):
+        inner_list = []
+        if x == 0:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(name)
+            inner_list.append('-')
+            outer_list.append(inner_list)
+
+        elif x == 1:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[0])
+            inner_list.append('€')
+            outer_list.append(inner_list)
+
+        elif x == 2:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[0] - apart_list[1])
+            inner_list.append('€')
+            outer_list.append(inner_list)
+
+        elif x == 3:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[1])
+            inner_list.append('€')
+            outer_list.append(inner_list)
+
+        elif x == 4:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[2])
+            inner_list.append('€')
+            outer_list.append(inner_list)
+
+        elif x == 5:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[3])
+            inner_list.append('€')
+            outer_list.append(inner_list)
+
+        elif x == 6:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[3] + apart_list[4])
+            inner_list.append('€')
+            outer_list.append(inner_list)
+
+        elif x == 7:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[4])
+            inner_list.append('€')
+            outer_list.append(inner_list)
+
+        elif x == 8:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[5])
+            inner_list.append('€')
+            outer_list.append(inner_list)
+
+        elif x == 9:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[7])
+            inner_list.append('€/m2')
+            outer_list.append(inner_list)
+
+        elif x == 10:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[8])
+            inner_list.append('€/m2')
+            outer_list.append(inner_list)
+
+        elif x == 11:
+            inner_list.append(dic_of_values[x])
+            inner_list.append(apart_list[6])
+            inner_list.append('%')
+            outer_list.append(inner_list)
+
+    return outer_list
+
+

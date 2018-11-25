@@ -28,6 +28,8 @@ def real_estate():
     if request.method == 'POST':
         if form.validate_on_submit():
 
+            #results = request.form
+
             new_aprt = roi.apartment_roi(form.price.data,
                                          form.finance.data,
                                          form.side_costs.data,
@@ -37,9 +39,12 @@ def real_estate():
                                          form.insurance.data,
                                          form.m2.data)
 
-            # TODO formating in results result_format = roi.apart_format_print('X', new_aprt)
 
-            flash(str(new_aprt), 'success')
+            flash('Arvutatud', 'success')
+
+            results = roi.format_for_page('Aadress X', new_aprt)
+
+            return render_template('realestate.html', form=form, results=results)
 
         else:
             flash('Sisend on vigane', 'danger')

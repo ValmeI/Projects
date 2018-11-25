@@ -16,11 +16,14 @@ Laenu_aastad = 15
 Kindlustus = 7
 m2 = 12
 
-#new_aprt = roi.apartment_roi(Hind, Sissemakse, Kõrvalkulud, Intress, Laenu_aastad, Üür, Kindlustus, m2)
+new_aprt = roi.apartment_roi(Hind, Sissemakse, Kõrvalkulud, Intress, Laenu_aastad, Üür, Kindlustus, m2)
 
 '# name, apart_list'
 #roi.apart_format_print(Re.Korter1_Nimi, Akad42_63)
 #roi.apart_format_print(Re.Korter2_Nimi, Akad38_20)
 #roi.apart_format_print('X', new_aprt)
 
+
+#Akad42_63 = roi.apartment_roi(Re.Korter1_Hind, 20, 1500, 3, 15, 220, 7, 12)
+#roi.format_for_page('X', Akad42_63)
 
