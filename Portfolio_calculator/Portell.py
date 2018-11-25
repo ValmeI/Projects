@@ -1,5 +1,5 @@
-from Portfolio_calculator import Kinnisvara, Funcions, Morr, Valme
-from Portfolio_calculator.Funcions import diff_months
+from Portfolio_calculator import Kinnisvara, Morr, Valme
+from Portfolio_calculator.Funcions import diff_months, need_new_excel_file, update_excel
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from termcolor import colored
@@ -55,7 +55,7 @@ print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 
-Funcions.need_new_excel_file("Portfell")
+need_new_excel_file("Portfell")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
-Funcions.update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
+update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
