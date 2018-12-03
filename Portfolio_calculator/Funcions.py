@@ -13,6 +13,9 @@ column_extender = 350
 '#kodu path'
 excel_path_home = r"D:\PycharmProjects\Projects\Portfolio_calculator/"
 
+'#Laptop path'
+excel_path_laptop = r"C:\PycharmProjects/"
+
 '#töö path'
 excel_path_work = r"V:\rik_oigusk\Päringud\Krmr\Ignar Valme\PythonProjects\Projects\Portfolio_calculator/"
 
@@ -29,11 +32,13 @@ headers = {0: "Kuupäev",
 
 def what_path_for_excel():
     if os.path.exists(excel_path_home):
-
         return excel_path_home
-    elif os.path.exists(excel_path_work):
 
+    elif os.path.exists(excel_path_work):
         return excel_path_work
+
+    elif os.path.exists(excel_path_laptop):
+        return excel_path_laptop
 
 
 def diff_months(date2, date1):
