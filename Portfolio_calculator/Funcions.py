@@ -14,7 +14,7 @@ column_extender = 350
 excel_path_home = r"D:\PycharmProjects\Projects\Portfolio_calculator/"
 
 '#Laptop path'
-excel_path_laptop = r"C:\PycharmProjects/"
+excel_path_laptop = r"C:\PycharmProjects\Portfolio_calculator/"
 
 '#töö path'
 excel_path_work = r"V:\rik_oigusk\Päringud\Krmr\Ignar Valme\PythonProjects\Projects\Portfolio_calculator/"

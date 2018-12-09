@@ -7,7 +7,7 @@ Akad42_63 = roi.apartment_roi(Re.Korter1_Hind, 20, 1500, 3, 15, 220, 7, 12)
 Akad38_20 = roi.apartment_roi(Re.Korter2_Hind, 20, 1000, 3, 15, 260, 7, 16)
 
 '#Jooksev arvutus'
-Hind = 31500
+Hind = 29500
 Sissemakse = 20
 Kõrvalkulud = 600
 Intress = 3
@@ -21,7 +21,7 @@ new_aprt = roi.apartment_roi(Hind, Sissemakse, Kõrvalkulud, Intress, Laenu_aast
 '# name, apart_list'
 #roi.apart_format_print(Re.Korter1_Nimi, Akad42_63)
 #roi.apart_format_print(Re.Korter2_Nimi, Akad38_20)
-#roi.apart_format_print('X', new_aprt)
+roi.apart_format_print('X', new_aprt)
 
 
 #Akad42_63 = roi.apartment_roi(Re.Korter1_Hind, 20, 1500, 3, 15, 220, 7, 12)
