@@ -18,6 +18,7 @@ def apartment_roi(apartment_price, down_payment_percent, other_costs, interest, 
 
 
 def apart_format_print(name, apart_list):
+    '# for consol format'
     print('----------------------------\n'
           'Korter: {}\n'\
           'Hind: {} €\n'\
