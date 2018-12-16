@@ -39,7 +39,6 @@ def real_estate():
                                          form.insurance.data,
                                          form.m2.data)
 
-
             flash('Arvutatud', 'success')
 
             results = roi.format_for_page('Aadress X', new_aprt)

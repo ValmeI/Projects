@@ -50,6 +50,21 @@
                             <fieldset class="form-group">
                                 <legend class="border-bottom mb-4">Real estate ROI calculator</legend>
 
+                                <!--test1-->
+                                <div class="form-group">
+                                    {{ form.test1.label(class="form-control-label") }}
+
+                                    {% if form.test1.errors %}
+                                    {{ form.test1(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.test1.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.test1(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
 
                                 <!--Price-->
                                 <div class="form-group">
