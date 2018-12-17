@@ -43,7 +43,32 @@ def real_estate():
 
             results = roi.format_for_page('Aadress X', new_aprt)
 
-            return render_template('realestate.html', form=form, results=results)
+            #print(form.choices.choices)
+            #print(form.choices.data)
+            '# Selected is only Akadeemia tee 42-63'
+            if form.choices.data == ['1']:
+                acquired_estate = roi.format_for_page('Akadeemia 42-63',
+                                                      roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
+                return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate)
+
+            '# Selected is only Akadeemia tee 38-20'
+            if form.choices.data == ['2']:
+                acquired_estate = roi.format_for_page('Akadeemia 38-20',
+                                                  roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
+                return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate)
+
+            '# Both acquired apartments are selected'
+            if form.choices.data == ['1', '2']:
+                acquired_estate_1 = roi.format_for_page('Akadeemia 42-63',
+                                                      roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
+                acquired_estate_2 = roi.format_for_page('Akadeemia 38-20',
+                                                      roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
+
+                return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate_1,
+                                       acquired_estate2=acquired_estate_2)
+
+            else:
+                return render_template('realestate.html', form=form, results=results)
 
         else:
             flash('Sisend on vigane', 'danger')

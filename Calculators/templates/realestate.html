@@ -50,19 +50,19 @@
                             <fieldset class="form-group">
                                 <legend class="border-bottom mb-4">Real estate ROI calculator</legend>
 
-                                <!--test1-->
+                                <!--choices-->
                                 <div class="form-group">
-                                    {{ form.test1.label(class="form-control-label") }}
+                                    {{ form.choices.label(class="form-control-label") }}
 
-                                    {% if form.test1.errors %}
-                                    {{ form.test1(class="form-control form-control-lg is-invalid") }}
+                                    {% if form.choices.errors %}
+                                    {{ form.choices(class="form-control form-control-lg is-invalid") }}
                                     <div class="invalid-feedback">
-                                        {% for error in form.test1.errors %}
+                                        {% for error in form.choices.errors %}
                                         <span>{{ error }}</span>
                                         {% endfor %}
                                     </div>
                                     {% else %}
-                                    {{ form.test1(class="form-control form-control-lg") }}
+                                    {{ form.choices(class="form-control form-control-lg") }}
                                     {% endif %}
                                 </div>
 
@@ -208,6 +208,7 @@
 
 
                  <div class="col-sm-5 col-sm-offset-1">
+                     <!--Apartment X-->
                       {% if results %}
                      <br><br><br>
 
@@ -231,7 +232,58 @@
                           </table>
                         </div>
                      {% endif %}
+
+                     <!--Acquired Apartments on or another-->
+                      {% if acquired_estate %}
+                     <br><br><br>
+
+                     <legend class="border-bottom mb-4">Acquired Estate Result</legend>
+                        <div id="acquired_estate">
+                          <table class="table table-striped" style="max-width: 500px;"><!-- max size -->
+                            <thead>
+                              <tr>
+                                <th>Kategooria</th>
+                                <th>Tulem</th>
+                                <th>Tüüp</th>
+                              </tr>
+                            </thead>
+                            {% for x in range((acquired_estate| length)) %}
+                              <tr>
+                                <td>{{ acquired_estate[x][0] }}</td>
+                                <td>{{ acquired_estate[x][1] }}</td>
+                                <td>{{ acquired_estate[x][2] }}</td>
+                              </tr>
+                            #{% endfor %}
+                          </table>
+                        </div>
+                     {% endif %}
+
+                     <!--Both-->
+                      {% if acquired_estate2 %}
+                     <br><br><br>
+
+                     <legend class="border-bottom mb-4">Acquired Estate Result</legend>
+                        <div id="acquired_estate2">
+                          <table class="table table-striped" style="max-width: 500px;"><!-- max size -->
+                            <thead>
+                              <tr>
+                                <th>Kategooria</th>
+                                <th>Tulem</th>
+                                <th>Tüüp</th>
+                              </tr>
+                            </thead>
+                            {% for x in range((acquired_estate2| length)) %}
+                              <tr>
+                                <td>{{ acquired_estate2[x][0] }}</td>
+                                <td>{{ acquired_estate2[x][1] }}</td>
+                                <td>{{ acquired_estate2[x][2] }}</td>
+                              </tr>
+                            #{% endfor %}
+                          </table>
+                        </div>
+                     {% endif %}
                 </div>
+
             </div>
         </div>
     </body>

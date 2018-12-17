@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, SubmitField, BooleanField, SelectMultipleField
+from wtforms import IntegerField, SubmitField, SelectMultipleField
 from wtforms.validators import DataRequired, NumberRange
 
 'My float that it would accept both , and .'
@@ -8,8 +8,7 @@ from Calculators.work_time import MyFloatField
 
 class RealEstateFrom(FlaskForm):
 
-    #test1 = BooleanField('BooleanField')
-    test1 = SelectMultipleField('Kinnisvara', choices=[('1', 'Akadeemia tee 42-63'), ('2', 'Akadeemia tee 38-20')], option_widget=None)
+    choices = SelectMultipleField('Kinnisvara', choices=[('1', 'Akadeemia tee 42-63'), ('2', 'Akadeemia tee 38-20')])
 
     price = MyFloatField('Objekti hind',
                          validators=[DataRequired(), NumberRange(min=500)])
