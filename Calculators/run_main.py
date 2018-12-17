@@ -43,8 +43,6 @@ def real_estate():
 
             results = roi.format_for_page('Aadress X', new_aprt)
 
-            #print(form.choices.choices)
-            #print(form.choices.data)
             '# Selected is only Akadeemia tee 42-63'
             if form.choices.data == ['1']:
                 acquired_estate = roi.format_for_page('Akadeemia 42-63',
