@@ -15,14 +15,14 @@
     </div>
 
     <body>
-        <div class="row">
-            <div class="container"><!-- Center of page -->
 
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+                <!-- Optional JavaScript -->
+                <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
 
@@ -41,248 +41,257 @@
                     {% if form.errors %}
                     {{ form.errors }}
                     {% endif %}
-                <div class="col-sm-5 col-sm-offset-1">
-                    <div class="content-section">
-                        <form method="POST" action="">
-                            {{ form.hidden_tag() }}
-                            {{ form.csrf_token }}
-                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                            <fieldset class="form-group">
-                                <legend class="border-bottom mb-4">Real estate ROI calculator</legend>
 
-                                <!--choices-->
-                                <div class="form-group">
-                                    {{ form.choices.label(class="form-control-label") }}
+        <div class="container">  <!-- Center of page -->
+            <div class="row">
 
-                                    {% if form.choices.errors %}
-                                    {{ form.choices(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.choices.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
+
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="content-section">
+                            <form method="POST" action="">
+                                {{ form.hidden_tag() }}
+                                {{ form.csrf_token }}
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Real estate ROI calculator</legend>
+
+                                    <!--choices-->
+                                    <div class="form-group">
+                                        {{ form.choices.label(class="form-control-label") }}
+
+                                        {% if form.choices.errors %}
+                                        {{ form.choices(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.choices.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.choices(class="form-control form-control-lg") }}
+                                        {% endif %}
                                     </div>
-                                    {% else %}
-                                    {{ form.choices(class="form-control form-control-lg") }}
-                                    {% endif %}
+
+                                    <!--Price-->
+                                    <div class="form-group">
+                                        {{ form.price.label(class="form-control-label") }}
+
+                                        {% if form.price.errors %}
+                                        {{ form.price(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.price.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.price(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+                                    <!--Finance-->
+                                    <div class="form-group">
+                                        {{ form.finance.label(class="form-control-label") }}
+
+                                        {% if form.finance.errors %}
+                                        {{ form.finance(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.finance.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.finance(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+                                    <!--side_costs-->
+                                    <div class="form-group">
+                                        {{ form.side_costs.label(class="form-control-label") }}
+
+                                        {% if form.side_costs.errors %}
+                                        {{ form.side_costs(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.side_costs.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.side_costs(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+                                    <!--rate-->
+                                    <div class="form-group">
+                                        {{ form.rate.label(class="form-control-label") }}
+
+                                        {% if form.rate.errors %}
+                                        {{ form.rate(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.rate.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.rate(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+                                    <!--period-->
+                                    <div class="form-group">
+                                        {{ form.period.label(class="form-control-label") }}
+
+                                        {% if form.period.errors %}
+                                        {{ form.period(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.period.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.period(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+                                    <!--rent_per_month-->
+                                    <div class="form-group">
+                                        {{ form.rent_per_month.label(class="form-control-label") }}
+
+                                        {% if form.rent_per_month.errors %}
+                                        {{ form.rent_per_month(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.rent_per_month.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.rent_per_month(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+                                    <!--insurance-->
+                                    <div class="form-group">
+                                        {{ form.insurance.label(class="form-control-label") }}
+
+                                        {% if form.insurance.errors %}
+                                        {{ form.insurance(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.insurance.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.insurance(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+                                    <!--m2-->
+                                    <div class="form-group">
+                                        {{ form.m2.label(class="form-control-label") }}
+
+                                        {% if form.m2.errors %}
+                                        {{ form.m2(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.m2.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.m2(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+                                </fieldset>
+
+                                <div class="form-group">
+                                    {{ form.submit(class="btn") }}
                                 </div>
 
-                                <!--Price-->
-                                <div class="form-group">
-                                    {{ form.price.label(class="form-control-label") }}
-
-                                    {% if form.price.errors %}
-                                    {{ form.price(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.price.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.price(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
-
-                                <!--Finance-->
-                                <div class="form-group">
-                                    {{ form.finance.label(class="form-control-label") }}
-
-                                    {% if form.finance.errors %}
-                                    {{ form.finance(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.finance.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.finance(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
-
-                                <!--side_costs-->
-                                <div class="form-group">
-                                    {{ form.side_costs.label(class="form-control-label") }}
-
-                                    {% if form.side_costs.errors %}
-                                    {{ form.side_costs(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.side_costs.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.side_costs(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
-
-                                <!--rate-->
-                                <div class="form-group">
-                                    {{ form.rate.label(class="form-control-label") }}
-
-                                    {% if form.rate.errors %}
-                                    {{ form.rate(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.rate.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.rate(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
-
-                                <!--period-->
-                                <div class="form-group">
-                                    {{ form.period.label(class="form-control-label") }}
-
-                                    {% if form.period.errors %}
-                                    {{ form.period(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.period.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.period(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
-
-                                <!--rent_per_month-->
-                                <div class="form-group">
-                                    {{ form.rent_per_month.label(class="form-control-label") }}
-
-                                    {% if form.rent_per_month.errors %}
-                                    {{ form.rent_per_month(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.rent_per_month.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.rent_per_month(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
-
-                                <!--insurance-->
-                                <div class="form-group">
-                                    {{ form.insurance.label(class="form-control-label") }}
-
-                                    {% if form.insurance.errors %}
-                                    {{ form.insurance(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.insurance.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.insurance(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
-
-                                <!--m2-->
-                                <div class="form-group">
-                                    {{ form.m2.label(class="form-control-label") }}
-
-                                    {% if form.m2.errors %}
-                                    {{ form.m2(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.m2.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.m2(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
-
-                            </fieldset>
-
-                            <div class="form-group">
-                                {{ form.submit(class="btn") }}
-                            </div>
-
-                            <p><a href="{{ url_for('index') }}">Back to homepage</a></p>
-                        </form>
+                                <p><a href="{{ url_for('index') }}">Back to homepage</a></p>
+                            </form>
+                        </div>
                     </div>
-                </div>
 
 
 
-                 <div class="col-sm-5 col-sm-offset-1">
-                     <!--Apartment X-->
-                      {% if results %}
-                     <br><br><br>
+                        <div class="col-sm-5 col-sm-offset-1">
+                         <!--Apartment X-->
+                          {% if results %}
+                         <br><br><br>
 
-                     <legend class="border-bottom mb-4">Results</legend>
-                        <div id="results">
-                          <table class="table table-striped" style="max-width: 500px;"><!-- max size -->
-                            <thead>
-                              <tr>
-                                <th>Kategooria</th>
-                                <th>Tulem</th>
-                                <th>Tüüp</th>
-                              </tr>
-                            </thead>
-                            {% for x in range((results| length)) %}
-                              <tr>
-                                <td>{{ results[x][0] }}</td>
-                                <td>{{ results[x][1] }}</td>
-                                <td>{{ results[x][2] }}</td>
-                              </tr>
-                            #{% endfor %}
-                          </table>
+                         <legend class="border-bottom mb-4">Results</legend>
+                            <div id="results">
+                              <table class="table table-striped" style="max-width: 500px;"><!-- max size -->
+                                <thead>
+                                  <tr>
+                                    <th>Kategooria</th>
+                                    <th>Tulem</th>
+                                    <th>Tüüp</th>
+                                  </tr>
+                                </thead>
+                                {% for x in range((results| length)) %}
+                                  <tr>
+                                    <td>{{ results[x][0] }}</td>
+                                    <td>{{ results[x][1] }}</td>
+                                    <td>{{ results[x][2] }}</td>
+                                  </tr>
+                                #{% endfor %}
+                              </table>
+                            </div>
+                         {% endif %}
                         </div>
-                     {% endif %}
 
-                     <!--Acquired Apartments on or another-->
-                      {% if acquired_estate %}
-                     <br><br><br>
+                                          <div class="col-sm-5 col-sm-offset-1">
+                                             <!--Acquired Apartments on or another-->
+                                              {% if acquired_estate %}
+                                             <br><br><br>
 
-                     <legend class="border-bottom mb-4">Acquired Estate Result</legend>
-                        <div id="acquired_estate">
-                          <table class="table table-striped" style="max-width: 500px;"><!-- max size -->
-                            <thead>
-                              <tr>
-                                <th>Kategooria</th>
-                                <th>Tulem</th>
-                                <th>Tüüp</th>
-                              </tr>
-                            </thead>
-                            {% for x in range((acquired_estate| length)) %}
-                              <tr>
-                                <td>{{ acquired_estate[x][0] }}</td>
-                                <td>{{ acquired_estate[x][1] }}</td>
-                                <td>{{ acquired_estate[x][2] }}</td>
-                              </tr>
-                            #{% endfor %}
-                          </table>
-                        </div>
-                     {% endif %}
+                                             <legend class="border-bottom mb-4">Acquired Estate Result</legend>
+                                                <div id="acquired_estate">
+                                                  <table class="table table-striped" style="max-width: 500px;"><!-- max size -->
+                                                    <thead>
+                                                      <tr>
+                                                        <th>Kategooria</th>
+                                                        <th>Tulem</th>
+                                                        <th>Tüüp</th>
+                                                      </tr>
+                                                    </thead>
+                                                    {% for x in range((acquired_estate| length)) %}
+                                                      <tr>
+                                                        <td>{{ acquired_estate[x][0] }}</td>
+                                                        <td>{{ acquired_estate[x][1] }}</td>
+                                                        <td>{{ acquired_estate[x][2] }}</td>
+                                                      </tr>
+                                                    #{% endfor %}
+                                                  </table>
+                                                </div>
+                                             {% endif %}
+                                          </div>
 
-                     <!--Both-->
-                      {% if acquired_estate2 %}
-                     <br><br><br>
+                                                  <div class="col-sm-5 col-sm-offset-1">
+                                                     <!--Both-->
+                                                      {% if acquired_estate2 %}
+                                                     <br><br><br>
 
-                     <legend class="border-bottom mb-4">Acquired Estate Result</legend>
-                        <div id="acquired_estate2">
-                          <table class="table table-striped" style="max-width: 500px;"><!-- max size -->
-                            <thead>
-                              <tr>
-                                <th>Kategooria</th>
-                                <th>Tulem</th>
-                                <th>Tüüp</th>
-                              </tr>
-                            </thead>
-                            {% for x in range((acquired_estate2| length)) %}
-                              <tr>
-                                <td>{{ acquired_estate2[x][0] }}</td>
-                                <td>{{ acquired_estate2[x][1] }}</td>
-                                <td>{{ acquired_estate2[x][2] }}</td>
-                              </tr>
-                            #{% endfor %}
-                          </table>
-                        </div>
-                     {% endif %}
-                </div>
+                                                     <legend class="border-bottom mb-4">Acquired Estate Result</legend>
+                                                        <div id="acquired_estate2">
+                                                          <table class="table table-striped" style="max-width: 500px;"><!-- max size -->
+                                                            <thead>
+                                                              <tr>
+                                                                <th>Kategooria</th>
+                                                                <th>Tulem</th>
+                                                                <th>Tüüp</th>
+                                                              </tr>
+                                                            </thead>
+                                                            {% for x in range((acquired_estate2| length)) %}
+                                                              <tr>
+                                                                <td>{{ acquired_estate2[x][0] }}</td>
+                                                                <td>{{ acquired_estate2[x][1] }}</td>
+                                                                <td>{{ acquired_estate2[x][2] }}</td>
+                                                              </tr>
+                                                            #{% endfor %}
+                                                          </table>
+                                                        </div>
+                                                     {% endif %}
+                                                </div>
 
             </div>
         </div>
