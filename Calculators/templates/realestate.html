@@ -42,11 +42,11 @@
                     {{ form.errors }}
                     {% endif %}
 
-        <div class="container">  <!-- Center of page -->
+        <div class="container-fluid">  <!-- Fixes view, makes everything decent :) -->
             <div class="row">
 
-
-                    <div class="col-sm-5 col-sm-offset-1">
+                    <!-- Can't really understand how it still works -->
+                    <div class="col-xs-6 col-sm-3">
                         <div class="content-section">
                             <form method="POST" action="">
                                 {{ form.hidden_tag() }}
@@ -212,10 +212,9 @@
 
 
 
-                        <div class="col-sm-5 col-sm-offset-1">
+                        <div class="col-xs-6 col-sm-3">
                          <!--Apartment X-->
                           {% if results %}
-                         <br><br><br>
 
                          <legend class="border-bottom mb-4">Results</legend>
                             <div id="results">
@@ -239,10 +238,9 @@
                          {% endif %}
                         </div>
 
-                                          <div class="col-sm-5 col-sm-offset-1">
+                                          <div class="col-xs-6 col-sm-3">
                                              <!--Acquired Apartments on or another-->
                                               {% if acquired_estate %}
-                                             <br><br><br>
 
                                              <legend class="border-bottom mb-4">Acquired Estate Result</legend>
                                                 <div id="acquired_estate">
@@ -266,10 +264,9 @@
                                              {% endif %}
                                           </div>
 
-                                                  <div class="col-sm-5 col-sm-offset-1">
+                                                  <div class="col-xs-6 col-sm-3">
                                                      <!--Both-->
                                                       {% if acquired_estate2 %}
-                                                     <br><br><br>
 
                                                      <legend class="border-bottom mb-4">Acquired Estate Result</legend>
                                                         <div id="acquired_estate2">
