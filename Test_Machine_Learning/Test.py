@@ -1,5 +1,6 @@
 from sklearn import tree
-
+import pandas_datareader.data as web
+import datetime as dt
 '''features = [[140, "smooth"],
             [130, "smooth"],
             [150, "bumpy"],
@@ -19,4 +20,7 @@ clf = tree.DecisionTreeClassifier()
 clf = clf.fit(features, labels)
 
 'bumpy'
-print(clf.predict([[150, 0]]))
+#print(clf.predict([[150, 0]]))
+#print(dt.date.today())
+df = web.DataReader('TAL1T', 'av-daily', start=dt.date.today())
+print(df)
