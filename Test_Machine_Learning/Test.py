@@ -19,4 +19,5 @@ clf = tree.DecisionTreeClassifier()
 clf = clf.fit(features, labels)
 
 'bumpy'
-print(clf.predict([[150, 0]]))
+#print(clf.predict([[150, 0]]))
+
