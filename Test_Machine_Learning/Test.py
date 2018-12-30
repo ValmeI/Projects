@@ -22,5 +22,5 @@ clf = clf.fit(features, labels)
 'bumpy'
 #print(clf.predict([[150, 0]]))
 #print(dt.date.today())
-df = web.DataReader('TAL1T', 'av-daily', start=dt.date.today())
+df = web.DataReader('tsla', 'yahoo', start=dt.date.today())
 print(df)
