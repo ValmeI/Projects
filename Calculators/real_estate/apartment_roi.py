@@ -99,7 +99,8 @@ def format_for_page(name, apart_list):
 
         elif x == 5:
             inner_list.append(dic_of_values[x])
-            inner_list.append(apart_list[3])
+            '# to fix floating problem in pyhton'
+            inner_list.append(format(apart_list[3], '.2f'))
             inner_list.append('€')
             outer_list.append(inner_list)
 
@@ -111,31 +112,36 @@ def format_for_page(name, apart_list):
 
         elif x == 7:
             inner_list.append(dic_of_values[x])
-            inner_list.append(apart_list[4])
+            '# to fix floating problem in pyhton'
+            inner_list.append(format(apart_list[4], '.2f'))
             inner_list.append('€')
             outer_list.append(inner_list)
 
         elif x == 8:
             inner_list.append(dic_of_values[x])
-            inner_list.append(apart_list[5])
+            '# to fix floating problem in pyhton'
+            inner_list.append(format(apart_list[5], '.2f'))
             inner_list.append('€')
             outer_list.append(inner_list)
 
         elif x == 9:
             inner_list.append(dic_of_values[x])
-            inner_list.append(apart_list[7])
+            '# to fix floating problem in pyhton'
+            inner_list.append(format(apart_list[7], '.2f'))
             inner_list.append('€/m2')
             outer_list.append(inner_list)
 
         elif x == 10:
             inner_list.append(dic_of_values[x])
-            inner_list.append(apart_list[8])
+            '# to fix floating problem in pyhton'
+            inner_list.append(format(apart_list[8], '.2f'))
             inner_list.append('€/m2')
             outer_list.append(inner_list)
 
         elif x == 11:
             inner_list.append(dic_of_values[x])
-            inner_list.append(apart_list[6])
+            '# to fix floating problem in pyhton'
+            inner_list.append(format(apart_list[6], '.2f'))
             inner_list.append('%')
             outer_list.append(inner_list)
 
