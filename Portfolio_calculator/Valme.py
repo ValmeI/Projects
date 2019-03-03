@@ -20,7 +20,7 @@ jur_usa_stocks = {"AAPL": 15,
 
 jur_eur_stocks = {"SXR8": 2}
 
-
+# TODO how to calculate dividens, add needed funcions
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
 Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
 Vana_Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
@@ -40,4 +40,5 @@ JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stoc
 JurRaha = 103.97
 JurLynxRaha = 16
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
+#Mörr on väike karu
 
