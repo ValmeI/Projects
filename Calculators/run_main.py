@@ -33,6 +33,13 @@ def calender():
     # TODO kuna ei tööta kui true, ei tea miks
     form = CalenderFrom(csrf_enabled=False)
     display_months = total
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            flash('OK', 'success')
+        else:
+            flash('Sisend on vigane', 'danger')
+
     return render_template("calender.html", form=form, display_months=display_months)
 
 

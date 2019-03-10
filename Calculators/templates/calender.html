@@ -57,14 +57,14 @@
                     </div>
                  {% endif %}
                     <br><br>
+
+
                     <p><a href="{{ url_for('index') }}">Back to homepage</a></p>
                 </div>
 
 
-
-
                     <!-- Can't really understand how it still works -->
-                    <div class="col-xs-6 col-sm-1">
+                    <div class="col-xs-6 col-sm-2">
                         <div class="content-section">
                             <form method="POST" action="">
                                 {{ form.hidden_tag() }}
@@ -105,7 +105,6 @@
                                         {{ form.end_date(class="form-control form-control-lg") }}
                                         {% endif %}
                                     </div>
-
 
 
                                 </fieldset>
