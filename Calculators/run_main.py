@@ -4,9 +4,12 @@ from flask import Flask, render_template, flash, request
 from flask_wtf.csrf import CSRFProtect
 from Calculators.work_time.forms import WorkForm
 from Calculators.work_time.work_funcions import WorkClass as Wc
+
 from Calculators.real_estate.form import RealEstateFrom
 from Calculators.real_estate import apartment_roi as roi
 
+from Calculators.calender.calender_form import CalenderFrom
+from Calculators.calender.months import total
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -14,21 +17,37 @@ csrf.init_app(app)
 
 app.config['SECRET_KEY'] = 'secret'
 
+'''Start page and index html'''
+
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
 
+'''calender part of page'''
+
+
+@app.route('/calender', methods=['GET', 'POST'])
+def calender():
+    # TODO kuna ei tööta kui true, ei tea miks
+    form = CalenderFrom(csrf_enabled=False)
+    display_months = total
+    return render_template("calender.html", form=form, display_months=display_months)
+
+
+'''real estate part of the page'''
+
+
 @app.route('/real_estate', methods=['GET', 'POST'])
 def real_estate():
     # TODO kuna ei tööta kui true, ei tea miks
-    form = RealEstateFrom(csrf_enabled=False)
+    form = RealEstateFrom(csrf_enabled=False, )
 
     if request.method == 'POST':
         if form.validate_on_submit():
 
-            #results = request.form
+            '#results = request.form #dont know why it is needed or not needed'
 
             new_aprt = roi.apartment_roi(form.price.data,
                                          form.finance.data,
@@ -72,6 +91,9 @@ def real_estate():
             flash('Sisend on vigane', 'danger')
 
     return render_template("realestate.html", form=form)
+
+
+'''work time part of page'''
 
 
 @app.route('/work', methods=['GET', 'POST'])
