@@ -10,7 +10,7 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
             <meta charset="UTF-8">
-            <title>TEST TITLE</title>
+            <title>Calender</title>
         </head>
     </div>
 
@@ -51,7 +51,7 @@
                  <!--Months, need safe to display html or it will just display text-->
                   {% if display_months %}
 
-                 <legend class="border-bottom mb-4">Test LEGEND</legend>
+                 <legend class="border-bottom mb-4">3 Months</legend>
                     <div id="display_months">
                         {{ display_months|safe }}
                     </div>
@@ -71,7 +71,7 @@
                                 {{ form.csrf_token }}
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                                 <fieldset class="form-group">
-                                    <!--<legend class="border-bottom mb-4">TEST LEGEND</legend>-->
+                                    <legend class="border-bottom mb-4">Date picker</legend>
 
                                     <!--BEGIN Date field-->
                                     <div class="form-group">

@@ -36,7 +36,10 @@ def calender():
 
     if request.method == 'POST':
         if form.validate_on_submit():
-            flash('OK', 'success')
+
+            if form.beginning_date.data >= form.end_date.data:
+                flash('Viga: Algus kuupäev on suurem või võrdne lõpp kuupäevaga', 'danger')
+            flash('Sisestus oli eduakas', 'success')
         else:
             flash('Sisend on vigane', 'danger')
 
