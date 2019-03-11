@@ -35,6 +35,16 @@ class MyCustomCalendar(calendar.HTMLCalendar):
         a('\n')
         return ''.join(v)
 
+    def formatday(self, day, weekday):
+        """
+        Return a day as a table cell.
+        """
+        if day == 0:
+            # day outside month
+            return '<td class="%s">&nbsp;</td>' % self.cssclass_noday
+        else:
+            #print(self.cssclasses[weekday], day)
+            return '<td class="%s">%d</td>' % (self.cssclasses[weekday], day)
 
 def get_month(year, month, cellspacing):
     #html_month = calendar.HTMLCalendar(firstweekday=0).formatmonth(year, month)
