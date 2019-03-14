@@ -1,6 +1,6 @@
 from Project_Baltic_Stocks import Baltic_List, Funcions
 
-'Porgrammi kasutamiseks pane Main.py tööle'
+'#rgrammi kasutamiseks pane Main.py tööle'
 
 
 print("\nBalti aktsiate filtreeria (hinna/kasumi suhe, "
