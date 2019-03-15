@@ -67,7 +67,7 @@ update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_k
 Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nEesmärk krooni miljonär " + str(Eesmark) + " €." + \
           "\nVeel minna: " + str(Eesmark - KoikKokku) + " €." + \
-          "\nMörr-i portfell: " + str(Morr.kokku) + " €." + \
+          "\nMörr-i portfell: " + str(Morr.kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €."
 
 '#if friday then send e-mail'
