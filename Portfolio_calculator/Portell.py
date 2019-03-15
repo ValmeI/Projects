@@ -1,9 +1,11 @@
 from Portfolio_calculator import Kinnisvara, Morr, Valme
+from Portfolio_calculator.FileWriter import write_to_file, empty_file
 from Portfolio_calculator.Funcions import diff_months, need_new_excel_file, update_excel
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from termcolor import colored
 
+file_name = "Results"
 
 '# tänane kuupäev arvutamaks, et mitu makset on tehtud juba'
 Täna = date.today()
@@ -48,7 +50,7 @@ print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
 print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
 print("Terve portfell kokku:", colored(KoikKokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
-print("Veel minna", colored(Eesmark - KoikKokku, 'red'))
+print("Veel minna:", colored(Eesmark - KoikKokku, 'red'), "€.")
 print("Mörr-i portfell:", colored(Morr.kokku, 'red'), "€.")
 Pere = KoikKokku + Morr.kokku
 print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
@@ -59,3 +61,13 @@ need_new_excel_file("Portfell")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
 update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
+'# Empty a file'
+empty_file(file_name)
+'# Write to file'
+write_to_file(file_name,
+                "\nTerve portfell kokku: " + str(KoikKokku) + " €.",
+                "\nEesmärk krooni miljonär " + str(Eesmark) + " €.",
+                "\nVeel minna: " + str(Eesmark - KoikKokku) + " €.",
+                "\nMörr-i portfell: " + str(Morr.kokku) + " €.",
+                "\nPere portfell kokku: " + str(Pere) + " €.",
+              )
