@@ -4,11 +4,11 @@ morr_eur_stocks = {"APG1L": 196,
                    "EFT1T": 35,
                    "TKM1T": 53,
                    "TSM1T": 560,
-                   "EXS1": 0.093,
-                   "EXSA": 0.512,
-                   "EXXT": 0.308,
-                   "SPYD": 0.389,
-                   "SPYW": 1.25
+                   "EXS1": 0.153,
+                   "EXSA": 0.837,
+                   "EXXT": 0.502,
+                   "SPYD": 0.639,
+                   "SPYW": 2.043
                    }
 
 '''morr_usa_stocks = {}'''
