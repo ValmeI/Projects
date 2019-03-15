@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from Portfolio_calculator.Funcions import what_path_for_excel
+from Portfolio_calculator.Funcions import what_path_for_file
 
 
 def replace_comma(stat):
@@ -44,7 +44,7 @@ def stock_price_from_market_watch(stock, original_currency):
         '# add options to chrome, to run it headless as not opening it'
         options = Options()
         options.add_argument("--headless")
-        driver = webdriver.Chrome(str(what_path_for_excel()) + "chromedriver.exe", options=options)
+        driver = webdriver.Chrome(str(what_path_for_file()) + "chromedriver.exe", options=options)
         driver.get(convert_url)
 
         convert_html = driver.page_source

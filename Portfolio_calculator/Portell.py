@@ -1,11 +1,12 @@
 from Portfolio_calculator import Kinnisvara, Morr, Valme
-from Portfolio_calculator.FileWriter import write_to_file, empty_file
 from Portfolio_calculator.Funcions import diff_months, need_new_excel_file, update_excel
 from datetime import date
+import time
 from dateutil.relativedelta import relativedelta
 from termcolor import colored
+from Send_Email import Send
+from Portfolio_calculator.Funcions import what_path_for_file
 
-file_name = "Results"
 
 '# tänane kuupäev arvutamaks, et mitu makset on tehtud juba'
 Täna = date.today()
@@ -61,13 +62,21 @@ need_new_excel_file("Portfell")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
 update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
-'# Empty a file'
-empty_file(file_name)
-'# Write to file'
-write_to_file(file_name,
-                "\nTerve portfell kokku: " + str(KoikKokku) + " €.",
-                "\nEesmärk krooni miljonär " + str(Eesmark) + " €.",
-                "\nVeel minna: " + str(Eesmark - KoikKokku) + " €.",
-                "\nMörr-i portfell: " + str(Morr.kokku) + " €.",
-                "\nPere portfell kokku: " + str(Pere) + " €.",
-              )
+
+'# for combining results to send in e-mail'
+Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
+          "\nEesmärk krooni miljonär " + str(Eesmark) + " €." + \
+          "\nVeel minna: " + str(Eesmark - KoikKokku) + " €." + \
+          "\nMörr-i portfell: " + str(Morr.kokku) + " €." + \
+          "\nPere portfell kokku: " + str(Pere) + " €."
+
+'#if friday then send e-mail'
+if date.today().weekday() == 4:
+    '# Variables are: STMP, username, password file, send from, send to, email title and email body'
+    Send.send_email('valme.noip.me',
+                    'email',
+                    str(what_path_for_file()) + r'Send_Email\synology_pass',
+                    'email@valme.noip.me',
+                    'margit1986@gmail.com',
+                    'Portfelli seis: ' + time.strftime('%d-%m-%Y'),
+                    Tulemus)

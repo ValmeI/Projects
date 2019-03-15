@@ -11,13 +11,13 @@ today_str = str(date.today())
 column_extender = 350
 
 '#kodu path'
-excel_path_home = r"D:\PycharmProjects\Projects\Portfolio_calculator/"
+path_home = r"D:\PycharmProjects\Projects/"
 
 '#Laptop path'
-excel_path_laptop = r"C:\PycharmProjects\Portfolio_calculator/"
+path_laptop = r"C:\PycharmProjects/"
 
 '#töö path'
-excel_path_work = r"V:\rik_oigusk\Päringud\Krmr\Ignar Valme\PythonProjects\Projects\Portfolio_calculator/"
+path_work = r"V:\rik_oigusk\Päringud\Krmr\Ignar Valme\PythonProjects\Projects/"
 
 '# headrid mida exceli loogmisel ja updateimisel kasutatakse'
 headers = {0: "Kuupäev",
@@ -30,15 +30,15 @@ headers = {0: "Kuupäev",
            7: "Pere portfell kokku"}
 
 
-def what_path_for_excel():
-    if os.path.exists(excel_path_home):
-        return excel_path_home
+def what_path_for_file():
+    if os.path.exists(path_home):
+        return path_home
 
-    elif os.path.exists(excel_path_work):
-        return excel_path_work
+    elif os.path.exists(path_work):
+        return path_work
 
-    elif os.path.exists(excel_path_laptop):
-        return excel_path_laptop
+    elif os.path.exists(path_laptop):
+        return path_laptop
 
 
 def diff_months(date2, date1):
@@ -85,7 +85,7 @@ def create_excel(excel_name):
 def check_if_excel_exists(excel_name):
 
     '#kodu path ja töö path viidud muutujasse'
-    if os.path.isfile(what_path_for_excel() + excel_name + ".xls"):
+    if os.path.isfile(what_path_for_file() + 'Portfolio_calculator/' + excel_name + ".xls"):
         return True
     else:
         return False
@@ -117,9 +117,6 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
 
     '# Indekis järgi võtab open_workbooki esimeses sheeti, vajaduse et kontrolida clowum ja row väärtusi'
     first_sheet = rb.sheet_by_index(0)
-
-
-
 
     '# Et updateiga ei läheks iga kord headeri suurused kaduma ehk need tuleb iga kord uuesti suureks teha'
     for column, value in headers.items():
