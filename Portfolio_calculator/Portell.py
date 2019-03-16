@@ -85,4 +85,4 @@ if date.today().weekday() == 4\
                     Tulemus)
 
 else:
-    print('Pole reede või parooli faili ei ole kataloogis:', what_path_for_file())
+    print(colored('Pole reede või parooli faili ei ole kataloogis:', what_path_for_file(), 'red'))
