@@ -84,7 +84,7 @@ elif date.today().weekday() == 4:
                     'email',
                     str(what_path_for_file()) + r'Send_Email\synology_pass',
                     'email@valme.noip.me',
-                    'ignarvalme@gmail.com',
+                    'margit1986@gmail.com',
                     'Portfelli seis: ' + time.strftime('%d-%m-%Y'),
                     Tulemus)
 
