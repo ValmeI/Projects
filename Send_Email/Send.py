@@ -1,5 +1,6 @@
 import smtplib
 from email.message import EmailMessage
+from termcolor import colored
 
 
 def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subject, sent_body):
@@ -7,9 +8,9 @@ def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subj
     server = smtplib.SMTP_SSL(stmp_variable, 465)
     '# get password form file, read only'
     open_file = open(password_file + ".txt", 'r')
-    for pword in open_file:
+    for password in open_file:
 
-        server.login(user, pword)
+        server.login(user, password)
 
         msg = EmailMessage()
         msg['From'] = sent_from
@@ -19,7 +20,7 @@ def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subj
 
         server.send_message(msg)
 
-        print("\nMail Send Successfully")
+        print(colored('\nMail Send Successfully', 'green'))
         server.quit()
 
 
