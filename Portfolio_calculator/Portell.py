@@ -71,7 +71,7 @@ Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nMörr-i portfell: " + str(Morr.kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €."
 
-'#if friday and pass file is in directory, then send e-mail'
+'#if it is friday and password file is in directory, then send e-mail'
 if date.today().weekday() == 4\
         and os.path.isfile(what_path_for_file() + r'Send_Email\synology_pass'):
 
@@ -85,4 +85,6 @@ if date.today().weekday() == 4\
                     Tulemus)
 
 else:
-    print(colored('Pole reede või parooli faili ei ole kataloogis:', what_path_for_file(), 'red'))
+    email_result = 'E-maili saatmine: Pole reede või parooli faili ei ole kataloogis: ' + str(what_path_for_file())
+    email_result = colored(email_result, 'red')
+    print(email_result)

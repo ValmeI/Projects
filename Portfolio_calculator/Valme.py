@@ -6,7 +6,8 @@ fys_eur_stocks = {"OLF1R": 67,
                   "SFG1T": 1668,
                   "TKM1T": 316,
                   "EFT1T": 66,
-                  "TSM1T": 1000
+                  "TSM1T": 1000,
+                  "BLT1T": 333
                   }
 
 jur_usa_stocks = {"AAPL": 15,
