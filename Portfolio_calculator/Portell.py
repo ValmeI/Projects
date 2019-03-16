@@ -2,6 +2,7 @@ from Portfolio_calculator import Kinnisvara, Morr, Valme
 from Portfolio_calculator.Funcions import diff_months, need_new_excel_file, update_excel
 from datetime import date
 import time
+import os
 from dateutil.relativedelta import relativedelta
 from termcolor import colored
 from Send_Email import Send
@@ -70,8 +71,10 @@ Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nMörr-i portfell: " + str(Morr.kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €."
 
-'#if friday then send e-mail'
-if date.today().weekday() == 4:
+'#if friday and pass file is in directory, then send e-mail'
+if date.today().weekday() == 4\
+        and os.path.isfile(what_path_for_file() + r'Send_Email\synology_pass'):
+
     '# Variables are: STMP, username, password file, send from, send to, email title and email body'
     Send.send_email('valme.noip.me',
                     'email',
@@ -80,3 +83,6 @@ if date.today().weekday() == 4:
                     'margit1986@gmail.com',
                     'Portfelli seis: ' + time.strftime('%d-%m-%Y'),
                     Tulemus)
+
+else:
+    print('Pole reede või parooli faili ei ole kataloogis:', what_path_for_file())
