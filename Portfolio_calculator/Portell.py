@@ -87,7 +87,5 @@ elif date.today().weekday() == 4:
                     'margit1986@gmail.com',
                     'Portfelli seis: ' + time.strftime('%d-%m-%Y'),
                     Tulemus)
-
 else:
-
     print(colored('E-maili saatmine: Pole reede', 'green'))
