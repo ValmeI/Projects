@@ -16,27 +16,35 @@ Täna = date.today()
 Kinnisvara.korterid()
 PerMonthAka42 = Kinnisvara.apr_month(Kinnisvara.Korter1_Laen, 3, 15)
 PerMonthAka38 = Kinnisvara.apr_month(Kinnisvara.Korter2_Laen, 3, 15)
+PerMonthVilde90 = Kinnisvara.apr_month(Kinnisvara.Korter3_Laen, 2.39, 11)
 
-print(Kinnisvara.Korter1_Nimi, "laenumakse:", PerMonthAka42, "€.")
-print(Kinnisvara.Korter2_Nimi, "laenumakse:", PerMonthAka38, "€.")
+print('\n', Kinnisvara.Korter1_Nimi, "laenumakse:", PerMonthAka42, "€ + kindlustus.")
+print(Kinnisvara.Korter2_Nimi, "laenumakse:", PerMonthAka38, "€ + kindlustus.")
+print(Kinnisvara.Korter3_Nimi, "laenumakse:", PerMonthVilde90, "€ + kindlustus.")
 
 '# how many years and months each loan is paid already'
 dateAka42 = relativedelta(Täna, Valme.Vana_Aka42_63_Laen_Kuupäev)
 dateAka38 = relativedelta(Täna, Valme.Vana_Aka38_20_Laen_Kuupäev)
+dateVilde90 = relativedelta(Täna, Valme.Vilde90_193_Laen_Kuupäev)
+
 print("\nLaenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
-print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months\n")
+print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months")
+print("Laenu Vilde 90-193 makstud:", dateVilde90.years, "Years,", dateVilde90.months, "Months\n")
 
 '#makstud kuude vahe arvutus'
 KuudMakstudAka42 = diff_months(Täna, Valme.Aka42_63_Laen_Kuupäev)
 KuudMakstudAka38 = diff_months(Täna, Valme.Aka38_20_Laen_Kuupäev)
+KuudMakstudVilde90 = diff_months(Täna, Valme.Vilde90_193_Laen_Kuupäev)
 
 '#diffMonths annab natuke erineva tulemuse, kui aastad vs kuud'
 BalanceAka42 = Kinnisvara.apr_balance(Kinnisvara.Korter1_Laen, 3, 15, KuudMakstudAka42)
 BalanceAka38 = Kinnisvara.apr_balance(Kinnisvara.Korter2_Laen, 3, 15, KuudMakstudAka38)
+BalanceVilde90 = Kinnisvara.apr_balance(Kinnisvara.Korter3_Laen, 2.39, 11, KuudMakstudVilde90)
 print(Kinnisvara.Korter1_Nimi, "laenu jääk", BalanceAka42, "€.")
 print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.")
+print(Kinnisvara.Korter3_Nimi, "laenu jääk", BalanceVilde90, "€.")
 
-print("\nLaenu kohutus kokku:", BalanceAka42 + BalanceAka38)
+print("\nLaenu kohutus kokku(ainult Akadeemia):", BalanceAka42 + BalanceAka38)
 
 '#Kinnisvara kokku. Liidetakse kõik Dics korterite ostu hinnad - balancid ehk palju laenu veel maksta'
 KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
@@ -62,7 +70,7 @@ Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 need_new_excel_file("Portfell")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
-update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
+#update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
 
 #TODO saata emale ja isale igakuine ülevaade
 '# for combining results to send in e-mail'

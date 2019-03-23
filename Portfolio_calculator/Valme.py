@@ -28,6 +28,7 @@ Vana_Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
 
 Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
+Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
 FüsIsikRaha = 48.75
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
