@@ -45,6 +45,7 @@ print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.")
 print(Kinnisvara.Korter3_Nimi, "laenu jääk", BalanceVilde90, "€.")
 
 print("\nLaenu kohutus kokku(ainult Akadeemia):", BalanceAka42 + BalanceAka38)
+print("\nLaenu kohutus kokku(Kõik):", BalanceAka42 + BalanceAka38 + BalanceVilde90)
 
 '#Kinnisvara kokku. Liidetakse kõik Dics korterite ostu hinnad - balancid ehk palju laenu veel maksta'
 KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
