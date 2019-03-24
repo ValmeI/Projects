@@ -18,16 +18,16 @@ PerMonthAka42 = Kinnisvara.apr_month(Kinnisvara.Korter1_Laen, 3, 15)
 PerMonthAka38 = Kinnisvara.apr_month(Kinnisvara.Korter2_Laen, 3, 15)
 PerMonthVilde90 = Kinnisvara.apr_month(Kinnisvara.Korter3_Laen, 2.39, 11)
 
-print('\n', Kinnisvara.Korter1_Nimi, "laenumakse:", PerMonthAka42, "€ + kindlustus.")
+print('\n' + Kinnisvara.Korter1_Nimi, "laenumakse:", PerMonthAka42, "€ + kindlustus.")
 print(Kinnisvara.Korter2_Nimi, "laenumakse:", PerMonthAka38, "€ + kindlustus.")
-print(Kinnisvara.Korter3_Nimi, "laenumakse:", PerMonthVilde90, "€ + kindlustus.")
+print(Kinnisvara.Korter3_Nimi, "laenumakse:", PerMonthVilde90, "€ + kindlustus.\n")
 
 '# how many years and months each loan is paid already'
 dateAka42 = relativedelta(Täna, Valme.Vana_Aka42_63_Laen_Kuupäev)
 dateAka38 = relativedelta(Täna, Valme.Vana_Aka38_20_Laen_Kuupäev)
 dateVilde90 = relativedelta(Täna, Valme.Vilde90_193_Laen_Kuupäev)
 
-print("\nLaenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
+print("Laenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
 print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months")
 print("Laenu Vilde 90-193 makstud:", dateVilde90.years, "Years,", dateVilde90.months, "Months\n")
 
@@ -45,7 +45,7 @@ print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.")
 print(Kinnisvara.Korter3_Nimi, "laenu jääk", BalanceVilde90, "€.")
 
 print("\nLaenu kohutus kokku(ainult Akadeemia):", BalanceAka42 + BalanceAka38)
-print("\nLaenu kohutus kokku(Kõik):", BalanceAka42 + BalanceAka38 + BalanceVilde90)
+print("Laenu kohutus kokku(Kõik):", BalanceAka42 + BalanceAka38 + BalanceVilde90)
 
 '#Kinnisvara kokku. Liidetakse kõik Dics korterite ostu hinnad - balancid ehk palju laenu veel maksta'
 KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
