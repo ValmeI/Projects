@@ -8,10 +8,8 @@ from termcolor import colored
 from Send_Email import Send
 from Portfolio_calculator.Funcions import what_path_for_file
 
-
 '# tänane kuupäev arvutamaks, et mitu makset on tehtud juba'
 Täna = date.today()
-
 '#Kinnisvara objetktide print'
 Kinnisvara.korterid()
 PerMonthAka42 = Kinnisvara.apr_month(Kinnisvara.Korter1_Laen, 3, 15)
