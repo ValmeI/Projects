@@ -56,10 +56,10 @@ def freeze_excel_rows(variable, horz_pos, vert_pos):
     variable.set_vert_split_pos(vert_pos)
 
 
-def create_excel(excel_name):
+def create_excel(excel_name, sheet_name):
 
     wb = Workbook()
-    sheet1 = wb.add_sheet("Porfelli Info")
+    sheet1 = wb.add_sheet(sheet_name)
 
     'freeze rows'
     freeze_excel_rows(sheet1, 1, 1)
@@ -94,12 +94,12 @@ def check_if_excel_exists(excel_name):
 '#kontroll kas ülemine faili kontroll tagastab, et fail olemas, kui ei siis käivitab üleval oleval exceli faili loomise'
 
 
-def need_new_excel_file(excel_name):
+def need_new_excel_file(excel_name, sheet_name):
     if check_if_excel_exists(excel_name):
         print("========================")
         print("Fail juba kaustas olemas.")
     else:
-        create_excel(excel_name)
+        create_excel(excel_name, sheet_name)
 
 
 def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, abikaasa_kokku, pere_kokku):

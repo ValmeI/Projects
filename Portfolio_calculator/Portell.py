@@ -66,7 +66,7 @@ print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 
-need_new_excel_file("Portfell")
+need_new_excel_file("Portfell", "Porfelli Info")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
 update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
