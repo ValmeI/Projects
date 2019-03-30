@@ -10,9 +10,9 @@ from Calculators.real_estate import apartment_roi as roi
 
 from Calculators.calender.calender_form import CalenderFrom
 from Calculators.calender.months import total
-import sqlite3
+
 from datetime import date
-from Calculators.calender.gather_data import table_existst, create_table
+from Calculators.calender.gather_data import table_existst, create_table, insert_data
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -37,10 +37,11 @@ def calender():
     form = CalenderFrom(csrf_enabled=False)
     display_months = total
 
-    conn = sqlite3.connect("Calender.db")
-    c = conn.cursor()
-    if table_existst("Kuupaevad") is False:
-        create_table("Kuupaevad")
+    table_name = "Kuupaevad"
+
+    #TODO midagi if järjestusega pekkis
+    if table_existst(table_name) is False:
+        create_table(table_name)
 
     if request.method == 'POST':
 
@@ -49,10 +50,8 @@ def calender():
             flash('Viga: Algus kuupäev on suurem või võrdne lõpp kuupäevaga', 'danger')
 
         elif form.validate_on_submit():
-
-            c.execute("INSERT INTO Kuupaevad VALUES (" + str(date.today()) + ',' +
-                                                          str(form.beginning_date.data) + ',' +
-                                                          str(form.end_date.data) + ")")
+            print(date.today(), form.beginning_date.data, form.end_date.data, table_name)
+            insert_data(date.today(), form.beginning_date.data, form.end_date.data, table_name)
 
             flash('Sisestus oli eduakas, kuupäevad lisatud', 'success')
 
