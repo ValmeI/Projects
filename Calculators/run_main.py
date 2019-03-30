@@ -20,7 +20,7 @@ csrf.init_app(app)
 
 app.config['SECRET_KEY'] = 'secret'
 
-'''Start page and index html'''
+"""index html"""
 
 
 @app.route('/')
@@ -28,7 +28,7 @@ def index():
     return render_template("index.html")
 
 
-'''calender part of page'''
+"""calender part of page"""
 
 
 @app.route('/calender', methods=['GET', 'POST'])
@@ -60,7 +60,7 @@ def calender():
     return render_template("calender.html", form=form, display_months=display_months)
 
 
-'''real estate part of the page'''
+"""real estate part of the page"""
 
 
 @app.route('/real_estate', methods=['GET', 'POST'])
@@ -117,7 +117,7 @@ def real_estate():
     return render_template("realestate.html", form=form)
 
 
-'''work time part of page'''
+"""work time part of page"""
 
 
 @app.route('/work', methods=['GET', 'POST'])
