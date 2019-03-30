@@ -14,7 +14,7 @@ def table_exists(table_name):
     for tb in all_tables.fetchall():
         for new_tab in range(0, len(tb)):
             if table_name in tb[new_tab]:
-                print(tb[new_tab])
+                #print(tb[new_tab])
                 return True
             else:
                 return False
@@ -47,16 +47,3 @@ def insert_data(insert_date, begin_date, end_date, table_name):
     print(select.fetchall())
     c.commit()
     c.close()
-
-
-#insert_data('1-1-2019', '2019-03-30', '2019-03-30', 'Kuupaevad')
-#print(table_existst("Kuupaevad"))
-'''
-c = connect_db("Calender.db")
-c.cursor()
-c.execute("INSERT INTO Kuupaevad VALUES ( '2019-03-31', '2019-03-31', '2019-03-31', 'Kuupaevad')")
-'''
-
-
-#print(table_exists("Kuupaevad"))
-#print(create_table("Kuupaevad"))
