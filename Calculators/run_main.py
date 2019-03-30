@@ -38,7 +38,6 @@ def calender():
     display_months = total
     table_name = "Kuupaevad"
 
-    #TODO midagi if järjestusega pekkis
     if table_exists(table_name):
         pass
     else:
