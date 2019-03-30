@@ -12,7 +12,7 @@ from Calculators.calender.calender_form import CalenderFrom
 from Calculators.calender.months import total
 
 from datetime import date
-from Calculators.calender.gather_data import table_existst, create_table, insert_data
+from Calculators.calender.gather_data import table_exists, create_table, insert_data
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -36,11 +36,12 @@ def calender():
     # TODO kuna ei tööta kui true, ei tea miks
     form = CalenderFrom(csrf_enabled=False)
     display_months = total
-
     table_name = "Kuupaevad"
 
     #TODO midagi if järjestusega pekkis
-    if table_existst(table_name) is False:
+    if table_exists(table_name):
+        pass
+    else:
         create_table(table_name)
 
     if request.method == 'POST':
@@ -50,7 +51,6 @@ def calender():
             flash('Viga: Algus kuupäev on suurem või võrdne lõpp kuupäevaga', 'danger')
 
         elif form.validate_on_submit():
-            print(date.today(), form.beginning_date.data, form.end_date.data, table_name)
             insert_data(date.today(), form.beginning_date.data, form.end_date.data, table_name)
 
             flash('Sisestus oli eduakas, kuupäevad lisatud', 'success')

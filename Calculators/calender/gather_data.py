@@ -6,7 +6,7 @@ def connect_db(database_name):
     return conn
 
 
-def table_existst(table_name):
+def table_exists(table_name):
     c = connect_db("Calender.db")
     c.cursor()
     all_tables = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
@@ -37,8 +37,14 @@ def create_table(table_name):
 def insert_data(insert_date, begin_date, end_date, table_name):
     c = connect_db("Calender.db")
     c.cursor()
-    c.execute("INSERT INTO " + str(table_name) + " VALUES (" + str(insert_date) + ", " + str(begin_date) + ", " + str(end_date) + ")")
-    #print("Select * from " + table_name.fetchall())
+    #print(insert_date, begin_date, end_date, table_name)
+    c.execute("INSERT INTO " + str(table_name) +
+              " VALUES (" + "'" + str(insert_date) + "'" + ", " +
+              "'" + str(begin_date) + "'" + ", " +
+              "'" + str(end_date) + "'" +
+              ")")
+    select = c.execute("Select * from " + str(table_name))
+    print(select.fetchall())
     c.commit()
     c.close()
 
@@ -52,5 +58,5 @@ c.execute("INSERT INTO Kuupaevad VALUES ( '2019-03-31', '2019-03-31', '2019-03-3
 '''
 
 
-#print(table_existst("Kuupaevad"))
+#print(table_exists("Kuupaevad"))
 #print(create_table("Kuupaevad"))
