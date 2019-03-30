@@ -11,7 +11,7 @@ from Calculators.real_estate import apartment_roi as roi
 from Calculators.calender.calender_form import CalenderFrom
 from Calculators.calender.months import total
 
-from datetime import date
+from datetime import date, timedelta
 from Calculators.calender.gather_data import table_exists, create_table, insert_data
 
 csrf = CSRFProtect()
@@ -37,6 +37,7 @@ def calender():
     form = CalenderFrom(csrf_enabled=False)
     display_months = total
     table_name = "Kuupaevad"
+    days_to_add = timedelta(days=28)
 
     if table_exists(table_name):
         pass
@@ -50,9 +51,16 @@ def calender():
             flash('Viga: Algus kuupäev on suurem või võrdne lõpp kuupäevaga', 'danger')
 
         elif form.validate_on_submit():
-            insert_data(date.today(), form.beginning_date.data, form.end_date.data, table_name)
-
-            flash('Sisestus oli eduakas, kuupäevad lisatud', 'success')
+            insert_data(table_name,
+                        date.today(),
+                        form.beginning_date.data, 
+                        form.end_date.data, 
+                        form.beginning_date.data + days_to_add,
+                        form.end_date.data + days_to_add
+                        )
+            new_begin = "{:%d.%m.%Y}".format(form.beginning_date.data + days_to_add)
+            text_success = 'OK - Kuupäevad lisatud. Ennustatav algus kuupäev ' + new_begin
+            flash(text_success, 'success')
 
         else:
             flash('Sisend on vigane', 'danger')

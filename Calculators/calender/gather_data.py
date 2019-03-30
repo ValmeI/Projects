@@ -28,25 +28,23 @@ def create_table(table_name):
     c = connect_db("Calender.db")
     c.cursor()
     c.execute("""CREATE TABLE """ + table_name + """ (
-                Sisestus_kuupäev TEXT ,
-                Algus_kuupäev TEXT  ,
-                Lõpp_kuupäev TEXT  
+                Insert_date TEXT ,
+                Begin_date TEXT  ,
+                End_date TEXT ,
+                Predict_begin_date TEXT,
+                Predict_end_date TEXT
                 )""")
 
     c.commit()
     c.close()
 
 
-def insert_data(insert_date, begin_date, end_date, table_name):
+def insert_data(table_name, insert_date, begin_date, end_date, predict_begin, predict_end):
     """insert data to table but cant change columns"""
     c = connect_db("Calender.db")
     c.cursor()
-    #print(insert_date, begin_date, end_date, table_name)
-    c.execute("INSERT INTO " + str(table_name) +
-              " VALUES (" + "'" + str(insert_date) + "'" + ", " +
-              "'" + str(begin_date) + "'" + ", " +
-              "'" + str(end_date) + "'" +
-              ")")
+    c.execute("INSERT INTO {} VALUES ('{}', '{}', '{}','{}','{}')"
+              .format(table_name, insert_date, begin_date, end_date, predict_begin, predict_end))
     select = c.execute("Select * from " + str(table_name))
     print(select.fetchall())
     c.commit()
