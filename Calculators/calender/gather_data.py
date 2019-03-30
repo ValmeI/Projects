@@ -2,11 +2,13 @@ import sqlite3
 
 
 def connect_db(database_name):
+    """connect or create database"""
     conn = sqlite3.connect(database_name)
     return conn
 
 
 def table_exists(table_name):
+    """find all tables form database and if needed table exist then True"""
     c = connect_db("Calender.db")
     c.cursor()
     all_tables = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
@@ -22,6 +24,7 @@ def table_exists(table_name):
 
 
 def create_table(table_name):
+    """create table but cant change columns"""
     c = connect_db("Calender.db")
     c.cursor()
     c.execute("""CREATE TABLE """ + table_name + """ (
@@ -35,6 +38,7 @@ def create_table(table_name):
 
 
 def insert_data(insert_date, begin_date, end_date, table_name):
+    """insert data to table but cant change columns"""
     c = connect_db("Calender.db")
     c.cursor()
     #print(insert_date, begin_date, end_date, table_name)
