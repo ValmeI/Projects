@@ -12,7 +12,6 @@ def table_exists(table_name):
     c = connect_db("Calender.db")
     c.cursor()
     all_tables = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
-    #print(all_tables.fetchall())
     for tb in all_tables.fetchall():
         for new_tab in range(0, len(tb)):
             if table_name in tb[new_tab]:
