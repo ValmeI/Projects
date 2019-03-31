@@ -2,10 +2,12 @@ import numpy as np
 import plotly.graph_objs as go
 import plotly.offline as ply
 
+from Calculators.calender.gather_data import get_data_from_table
+
 # sample data
-n = 20
-x = np.linspace(0, 20)
-y = np.sin(x)
+
+x = get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date")
+y = [10, 20, 30, 40, 50, 60, 70, 80]
 
 # data collection
 trace1 = go.Scatter(x=x, y=y)
@@ -15,7 +17,7 @@ data = [trace1]
 
 
 layout = dict(
-    title='Time Series with Rangeslider',
+    title='Ajatelg',
     xaxis=dict(
         rangeselector=dict(
             buttons=list([
@@ -35,7 +37,7 @@ layout = dict(
             ])
         ),
         rangeslider=dict(
-            visible=True
+            visible=False
         ),
         type='date'
     )

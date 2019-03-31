@@ -1,5 +1,5 @@
 import sqlite3
-import itertools
+from datetime import timedelta
 
 
 def connect_db(database_name):
@@ -54,28 +54,29 @@ def get_data_from_table(db, table, column1, column2):
     c = connect_db(db)
     c.cursor()
     select_column = c.execute("SELECT {}, {} FROM {}".format(column1, column2, table))
-    print(select_column.fetchall())
-    '''column_list = []
+    #print(select_column.fetchall())
+    column_list = []
     for col in select_column:
         for x in range(0, len(col)):
-            # print(col[x])
             column_list.append(col[x])
     c.close()
-    return column_list'''
+    return column_list
 
 
-begin = get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date")
-#end = get_data_from_table("Calender.db", "Kuupaevad", "End_date")
-print(begin)
+def create_fictitious_dates(right_list):
+    add_one_day = timedelta(days=1)
+    high_y = 30
+    low_y = 10
+    for x in right_list:
+        print(x, high_y)
 
 
-'''2018-09-01
-2018-09-29
-2018-10-27
-2018-11-24
 
-2018-09-08
-2018-10-06
-2018-11-03
-2018-12-01
+create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
+
+'''
+[('2018-09-01', '2018-09-08'), 
+('2018-09-29', '2018-10-06'), 
+('2018-10-27', '2018-11-03'), 
+('2018-11-24', '2018-12-01')]
 '''
