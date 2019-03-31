@@ -1,6 +1,7 @@
 import sqlite3
 import itertools
 
+
 def connect_db(database_name):
     """connect or create database"""
     conn = sqlite3.connect(database_name)
@@ -15,7 +16,7 @@ def table_exists(table_name):
     for tb in all_tables.fetchall():
         for new_tab in range(0, len(tb)):
             if table_name in tb[new_tab]:
-                #print(tb[new_tab])
+                # print(tb[new_tab])
                 return True
             else:
                 return False
@@ -33,7 +34,6 @@ def create_table(table_name):
                 Predict_begin_date TEXT,
                 Predict_end_date TEXT
                 )""")
-
     c.commit()
     c.close()
 
@@ -50,15 +50,25 @@ def insert_data(table_name, insert_date, begin_date, end_date, predict_begin, pr
     c.close()
 
 
-def get_data_from_table(db, table, column):
+def get_data_from_table(db, table, column1, column2):
     c = connect_db(db)
     c.cursor()
-    select_column = c.execute("SELECT {} FROM {}".format(column, table))
-    #print(select_column.fetchall())
-    return select_column.fetchall()
+    select_column = c.execute("SELECT {}, {} FROM {}".format(column1, column2, table))
+    print(select_column.fetchall())
+    '''column_list = []
+    for col in select_column:
+        for x in range(0, len(col)):
+            # print(col[x])
+            column_list.append(col[x])
+    c.close()
+    return column_list'''
 
 
-#[('2018-09-01',), ('2018-09-29',), ('2018-10-27',), ('2018-11-24',)]
+begin = get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date")
+#end = get_data_from_table("Calender.db", "Kuupaevad", "End_date")
+print(begin)
+
+
 '''2018-09-01
 2018-09-29
 2018-10-27
