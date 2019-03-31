@@ -1,5 +1,5 @@
 import sqlite3
-
+import itertools
 
 def connect_db(database_name):
     """connect or create database"""
@@ -48,3 +48,24 @@ def insert_data(table_name, insert_date, begin_date, end_date, predict_begin, pr
     print(select.fetchall())
     c.commit()
     c.close()
+
+
+def get_data_from_table(db, table, column):
+    c = connect_db(db)
+    c.cursor()
+    select_column = c.execute("SELECT {} FROM {}".format(column, table))
+    #print(select_column.fetchall())
+    return select_column.fetchall()
+
+
+#[('2018-09-01',), ('2018-09-29',), ('2018-10-27',), ('2018-11-24',)]
+'''2018-09-01
+2018-09-29
+2018-10-27
+2018-11-24
+
+2018-09-08
+2018-10-06
+2018-11-03
+2018-12-01
+'''
