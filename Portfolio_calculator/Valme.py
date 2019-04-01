@@ -43,10 +43,10 @@ JurLynxRaha = 19
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 #Mörr on väike karu
 
-vilde_isa = 230
+vilde_isa = 230 # üür
 vilde_laen = 154.88
 vilde_kindlustus = 6.91
-arvutamise_kp = 1
+arvutamise_kp = 1 # ehk kuu päev millal
 # TODO is it worth it?
 
 Uus_vilde_summa = f.vilde_calculation(arvutamise_kp,

@@ -10,6 +10,7 @@ x = Funcions.get_excel_column("Portfell", 1)
 y = Funcions.get_excel_column("Portfell", 6)
 
 
+
 '# str to list of dates for axis X, converting to date also removes the problem of too many str date values'
 new_list1 = []
 for i in x:
