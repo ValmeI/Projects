@@ -33,8 +33,8 @@ headers = {0: "Kuupäev",
 #TODO kontrollida et summa ei muutu kui samal päeval mitu korda runnida
 
 
-def vilde_calculation(input_day, last_input_excel_day, last_calculation_sum, new_sum_to_add):
-    if date.today().day == input_day and date.today().day != last_input_excel_day:
+def vilde_calculation(input_day, last_calculation_sum, new_sum_to_add, last_input_excel_date):
+    if date.today().day == input_day and date.today().day != last_input_excel_date:
         new_vilde = float(last_calculation_sum)
         new_vilde += float(new_sum_to_add)
         return new_vilde
