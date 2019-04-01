@@ -51,5 +51,6 @@ arvutamise_kp = 1 # ehk kuu päev millal
 
 Uus_vilde_summa = f.vilde_calculation(arvutamise_kp,
                                       f.get_last_row("Portfell", 9),
-                                      round(f.dividend_with_certain_date(vilde_isa) - vilde_laen - vilde_kindlustus, 2)
+                                      round(f.dividend_with_certain_date(vilde_isa) - vilde_laen - vilde_kindlustus, 2),
+                                      f.get_last_row("Portfell", 1)
                                       )

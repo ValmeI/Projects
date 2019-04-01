@@ -35,11 +35,11 @@ headers = {0: "Kuupäev",
 
 def vilde_calculation(input_day, last_input_excel_day, last_calculation_sum, new_sum_to_add):
     if date.today().day == input_day and date.today().day != last_input_excel_day:
-        new_vilde = last_calculation_sum
-        new_vilde += new_sum_to_add
+        new_vilde = float(last_calculation_sum)
+        new_vilde += float(new_sum_to_add)
         return new_vilde
     else:
-        return last_calculation_sum
+        return float(last_calculation_sum)
 
 
 def dividend_with_certain_date(sum):
