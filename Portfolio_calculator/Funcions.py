@@ -30,8 +30,6 @@ headers = {0: "Kuupäev",
            7: "Pere portfell kokku",
            8: "Vilde after Tax"}
 
-#TODO kontrollida et summa ei muutu kui samal päeval mitu korda runnida
-
 
 def vilde_calculation(input_day, last_calculation_sum, new_sum_to_add, last_input_excel_date):
     if date.today().day == input_day and str(date.today()) != last_input_excel_date:
