@@ -1,4 +1,4 @@
-from Portfolio_calculator import Aktsiad, Morr, Funcions
+from Portfolio_calculator import Aktsiad, Morr, Funcions as f
 from datetime import date
 
 
@@ -20,12 +20,6 @@ jur_usa_stocks = {"AAPL": 15,
                   }
 
 jur_eur_stocks = {"SXR8": 2}
-
-vilde_isa = 230
-vilde_laen = 154.88
-vilde_kindlustus = 6.91
-# TODO is it worth it?
-järel_summa = round(Funcions.dividend_with_certain_date(vilde_isa) - vilde_laen - vilde_kindlustus, 2)
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
 Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
@@ -49,3 +43,13 @@ JurLynxRaha = 19
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 #Mörr on väike karu
 
+vilde_isa = 230
+vilde_laen = 154.88
+vilde_kindlustus = 6.91
+arvutamise_kp = 1
+# TODO is it worth it?
+
+Uus_vilde_summa = f.vilde_calculation(arvutamise_kp,
+                                      f.get_last_row("Portfell", 9),
+                                      round(f.dividend_with_certain_date(vilde_isa) - vilde_laen - vilde_kindlustus, 2)
+                                      )

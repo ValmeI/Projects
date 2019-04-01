@@ -27,12 +27,23 @@ headers = {0: "Kuupäev",
            4: "Aktsiad kokku",
            5: "Terve portfell kokku",
            6: "Mörr-i portfell",
-           7: "Pere portfell kokku"}
+           7: "Pere portfell kokku",
+           8: "Vilde after Tax"}
+
+
+def vilde_calculation(input_day, last_calculation_sum, new_sum_to_add):
+    if date.today().day == input_day:
+        new_vilde = last_calculation_sum
+        new_vilde += new_sum_to_add
+        return new_vilde
+    else:
+        return last_calculation_sum
 
 
 def dividend_with_certain_date(sum):
     after_tax = sum - (sum * 0.2)
     return after_tax
+
 
 def what_path_for_file():
     if os.path.exists(path_home):
@@ -106,7 +117,7 @@ def need_new_excel_file(excel_name, sheet_name):
         create_excel(excel_name, sheet_name)
 
 
-def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, abikaasa_kokku, pere_kokku):
+def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, abikaasa_kokku, pere_kokku, vildeAfterTax):
     '# add file type'
     file_name = excel_name + ".xls"
     '#open excel file'
@@ -153,6 +164,8 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
             passed += 1
         elif check == pere_kokku:
             passed += 1
+        elif check == vildeAfterTax:
+            passed += 1
 
     '#ehk 8 kontrolli on. Sama palju kui välju. Kui andmed muutunud siis lisab need, kui ei väljastab lause, et ei ole muutunud'
 
@@ -177,6 +190,8 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
                 value = abikaasa_kokku
             elif c == 7:
                 value = pere_kokku
+            elif c == 8:
+                value = vildeAfterTax
 
             '# row, column ja tekst'
             w_sheet.write(max_rows, c, value)

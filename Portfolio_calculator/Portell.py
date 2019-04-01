@@ -54,6 +54,8 @@ KoikKokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
 '#Ehk 1 000 000 Eesti krooni'
 Eesmark = round(1000000/15.6466)
 
+print("Vilde peale makse Isale:", colored(Valme.Uus_vilde_summa, 'red'))
+
 print("Juriidilise isiku väärtus:", Valme.JurIsik, "€.")
 print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
 print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
@@ -64,12 +66,13 @@ print("Mörr-i portfell:", colored(Morr.kokku, 'red'), "€.")
 Pere = KoikKokku + Morr.kokku
 print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
+
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 
 need_new_excel_file("Portfell", "Porfelli Info")
 
-'#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell'
-update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere)
+'#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde '
+update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere, Valme.Uus_vilde_summa)
 
 #TODO saata emale ja isale igakuine ülevaade
 '# for combining results to send in e-mail'
