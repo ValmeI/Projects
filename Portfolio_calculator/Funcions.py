@@ -30,6 +30,10 @@ headers = {0: "Kuupäev",
            7: "Pere portfell kokku"}
 
 
+def dividend_with_certain_date(sum):
+    after_tax = sum - (sum * 0.2)
+    return after_tax
+
 def what_path_for_file():
     if os.path.exists(path_home):
         return path_home

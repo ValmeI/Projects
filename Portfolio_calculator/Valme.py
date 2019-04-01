@@ -1,4 +1,4 @@
-from Portfolio_calculator import Aktsiad, Morr
+from Portfolio_calculator import Aktsiad, Morr, Funcions
 from datetime import date
 
 
@@ -21,7 +21,12 @@ jur_usa_stocks = {"AAPL": 15,
 
 jur_eur_stocks = {"SXR8": 2}
 
-# TODO how to calculate dividens, add needed funcions
+vilde_isa = 230
+vilde_laen = 154.88
+vilde_kindlustus = 6.91
+# TODO is it worth it?
+järel_summa = round(Funcions.dividend_with_certain_date(vilde_isa) - vilde_laen - vilde_kindlustus, 2)
+
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
 Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
 Vana_Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
