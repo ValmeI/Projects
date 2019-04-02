@@ -1,7 +1,4 @@
 from Portfolio_calculator import Aktsiad
-from Send_Email import Send
-from datetime import date
-
 
 morr_eur_stocks = {"APG1L": 196,
                    "EFT1T": 35,
@@ -16,7 +13,7 @@ morr_eur_stocks = {"APG1L": 196,
 
 '''morr_usa_stocks = {}'''
 
-ValCapitalRaha = 3440
+ValCapitalRaha = 3640
 
 m_aktsiad = Aktsiad.stocks_value_combined(morr_eur_stocks, True)
 
