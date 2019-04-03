@@ -62,9 +62,22 @@
                     <p><a href="{{ url_for('index') }}">Back to homepage</a></p>
                 </div>
 
+                    <!--to display plot and 10 is how wide it is-->
+                <div class="col-xs-6 col-sm-10">
+                 <!--Months, need safe to display html or it will just display text-->
+                  {% if plot %}
+
+                 <legend class="border-bottom mb-4">Chart</legend>
+                    <div id="plot">
+                        {{ plot|safe }}
+                    </div>
+                 {% endif %}
+                    <br><br>
+
+
 
                     <!-- Can't really understand how it still works -->
-                    <div class="col-xs-6 col-sm-2">
+                    <div class="col-xs-6 col-sm-3">
                         <div class="content-section">
                             <form method="POST" action="">
                                 {{ form.hidden_tag() }}

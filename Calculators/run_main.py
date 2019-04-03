@@ -12,7 +12,8 @@ from Calculators.calender.calender_form import CalenderFrom
 from Calculators.calender.months import total
 
 from datetime import date, timedelta
-from Calculators.calender.gather_data import table_exists, create_table, insert_data
+from Calculators.calender.gather_data import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table
+from Calculators.calender.plot import draw_plot
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -44,6 +45,15 @@ def calender():
     else:
         create_table(table_name)
 
+    plot = draw_plot(
+        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
+        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
+        create_fictitious_dates(
+            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
+        create_fictitious_dates(
+            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
+        )
+
     if request.method == 'POST':
 
         '# validate that end date is not same or smaller than begin date'
@@ -62,10 +72,12 @@ def calender():
             text_success = 'OK - Kuupäevad lisatud. Ennustatav algus kuupäev ' + new_begin
             flash(text_success, 'success')
 
+            return render_template("calender.html", form=form, display_months=display_months, plot=plot)
+
         else:
             flash('Sisend on vigane', 'danger')
 
-    return render_template("calender.html", form=form, display_months=display_months)
+    return render_template("calender.html", form=form, display_months=display_months, plot=plot)
 
 
 """real estate part of the page"""

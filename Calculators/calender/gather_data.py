@@ -1,5 +1,6 @@
 import sqlite3
 from datetime import timedelta
+from dateutil.parser import parse
 
 
 def connect_db(database_name):
@@ -64,15 +65,44 @@ def get_data_from_table(db, table, column1, column2):
 
 
 def create_fictitious_dates(right_list):
-    add_one_day = timedelta(days=1)
-    high_y = 30
-    low_y = 10
+    add_1_day = timedelta(days=0)
+    add_2_day = timedelta(days=20)
+    high_y = 5
+    low_y = 2
+    nr = 1
+    fictitious_dates_list = []
+    fictitious_values_list = []
+
     for x in right_list:
-        print(x, high_y)
+        #print(parse(x), nr, nr%2)
+        nr += 1
+        if nr % 2 == 1:
+            fictitious_dates_list.append(parse(x))
+            new_fictitious_date = parse(x) + add_1_day
+            fictitious_dates_list.append(new_fictitious_date)
+            fictitious_dates_list.append(new_fictitious_date + add_2_day)
+
+            fictitious_values_list.append(high_y)
+            fictitious_values_list.append(low_y)
+            fictitious_values_list.append(low_y)
+
+            '''print(parse(x), high_y)
+            print(new_fictitious_date, low_y)
+            print(new_fictitious_date + add_n_day, low_y)'''
+        else:
+            fictitious_dates_list.append(parse(x))
+            fictitious_values_list.append(high_y)
+
+            '''print(parse(x), high_y)'''
+
+    return fictitious_dates_list, fictitious_values_list
 
 
+#test = create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
+#print(test[0])
 
-create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
+print(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
+print(get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))
 
 '''
 [('2018-09-01', '2018-09-08'), 
