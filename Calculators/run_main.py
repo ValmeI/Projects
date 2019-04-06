@@ -41,18 +41,20 @@ def calender():
     days_to_add = timedelta(days=28)
 
     if table_exists(table_name):
+        print("test")
         pass
     else:
+        print("test2")
         create_table(table_name)
 
-    plot = draw_plot(
-        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
-        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
-        create_fictitious_dates(
-            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
-        create_fictitious_dates(
-            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
-        )
+        plot = draw_plot(
+            create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
+            create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
+            create_fictitious_dates(
+                get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
+            create_fictitious_dates(
+                get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
+            )
 
     if request.method == 'POST':
 

@@ -101,8 +101,8 @@ def create_fictitious_dates(right_list):
 #test = create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
 #print(test[0])
 
-print(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
-print(get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))
+#print(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
+#print(get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))
 
 '''
 [('2018-09-01', '2018-09-08'), 
