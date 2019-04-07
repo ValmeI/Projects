@@ -15,6 +15,8 @@ from datetime import date, timedelta
 from Calculators.calender.gather_data import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table
 from Calculators.calender.plot import draw_plot
 
+from Calculators.portfolio_result.portfolio_funcion import file_result_to_list
+
 csrf = CSRFProtect()
 app = Flask(__name__)
 csrf.init_app(app)
@@ -80,6 +82,13 @@ def calender():
             flash('Sisend on vigane', 'danger')
 
     return render_template("calender.html", form=form, display_months=display_months, plot=plot)
+
+
+@app.route('/portfolio', methods=['GET', 'POST'])
+def portfolio():
+    portfolio_result = file_result_to_list("portfolio_result/Print_result.html")
+    print(portfolio_result)
+    return render_template("portfolio.html", portfolio_result=portfolio_result)
 
 
 """real estate part of the page"""

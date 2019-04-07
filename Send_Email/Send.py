@@ -16,6 +16,7 @@ def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subj
         msg['From'] = sent_from
         msg['To'] = sent_to
         msg['Subject'] = sent_subject
+        msg.set_type('text/html')
         msg.set_content(sent_body)
 
         server.send_message(msg)

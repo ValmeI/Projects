@@ -1,15 +1,25 @@
-from Portfolio_calculator import Kinnisvara, Morr, Valme
+from Portfolio_calculator import Kinnisvara, Morr, Valme, txt_write_move
 from Portfolio_calculator.Funcions import diff_months, need_new_excel_file, update_excel
 from datetime import date
+import datetime
 import time
 import os
+import sys
 from dateutil.relativedelta import relativedelta
 from termcolor import colored
 from Send_Email import Send
 from Portfolio_calculator.Funcions import what_path_for_file
+from shutil import copy2
+
+'# Copy previously created file to Calculators directory'
+copy2(str(what_path_for_file()) + r'Portfolio_calculator\Print_result.html',
+      str(what_path_for_file()) + r'Calculators\portfolio_result')
+
+sys.stdout = txt_write_move.Logger()
 
 '# tänane kuupäev arvutamaks, et mitu makset on tehtud juba'
 Täna = date.today()
+print(datetime.datetime.now())
 '#Kinnisvara objetktide print'
 Kinnisvara.korterid()
 PerMonthAka42 = Kinnisvara.apr_month(Kinnisvara.Korter1_Laen, 3, 15)
