@@ -16,6 +16,7 @@ from Calculators.calender.gather_data import table_exists, create_table, insert_
 from Calculators.calender.plot import draw_plot
 
 from Calculators.portfolio_result.portfolio_funcion import file_result_to_list
+from Portfolio_calculator.Funcions import what_path_for_file
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -84,10 +85,13 @@ def calender():
     return render_template("calender.html", form=form, display_months=display_months, plot=plot)
 
 
+"""Displays portfolio results"""
+
+
 @app.route('/portfolio', methods=['GET', 'POST'])
 def portfolio():
-    portfolio_result = file_result_to_list("portfolio_result/Print_result.html")
-    print(portfolio_result)
+    path = str(what_path_for_file()) + r'Calculators\portfolio_result/'
+    portfolio_result = file_result_to_list(path, "Print_result.txt")
     return render_template("portfolio.html", portfolio_result=portfolio_result)
 
 

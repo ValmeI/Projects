@@ -4,7 +4,7 @@ import sys
 class Logger(object):
     def __init__(self):
         self.terminal = sys.stdout
-        self.log = open("Print_result.html", "w", encoding="utf8")
+        self.log = open("Print_result.txt", "w", encoding="utf8")
 
     def write(self, message):
         self.terminal.write(message)

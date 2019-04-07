@@ -9,12 +9,17 @@ from dateutil.relativedelta import relativedelta
 from termcolor import colored
 from Send_Email import Send
 from Portfolio_calculator.Funcions import what_path_for_file
-from shutil import copy2
+from shutil import copy
 
-'# Copy previously created file to Calculators directory'
-copy2(str(what_path_for_file()) + r'Portfolio_calculator\Print_result.html',
-      str(what_path_for_file()) + r'Calculators\portfolio_result')
 
+if os.path.isfile(str(what_path_for_file()) + r'Portfolio_calculator\Print_result.txt'):
+    '# Copy previously created file to Calculators directory'
+    copy(str(what_path_for_file()) + r'Portfolio_calculator\Print_result.txt',
+         str(what_path_for_file()) + r'Calculators\portfolio_result')
+else:
+    pass
+
+'# create file from output'
 sys.stdout = txt_write_move.Logger()
 
 '# tänane kuupäev arvutamaks, et mitu makset on tehtud juba'
