@@ -9,7 +9,7 @@ from Calculators.real_estate.form import RealEstateFrom
 from Calculators.real_estate import apartment_roi as roi
 
 from Calculators.calender.calender_form import CalenderFrom
-from Calculators.calender.months import total
+#from Calculators.calender.months import total
 
 from datetime import date, timedelta
 from Calculators.calender.gather_data import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table
@@ -39,7 +39,7 @@ def index():
 def calender():
     # TODO kuna ei tööta kui true, ei tea miks
     form = CalenderFrom(csrf_enabled=False)
-    display_months = total
+    display_months = '1' #TODO
     table_name = "Kuupaevad"
     days_to_add = timedelta(days=28)
 
@@ -90,6 +90,7 @@ def calender():
 
 @app.route('/portfolio', methods=['GET', 'POST'])
 def portfolio():
+    #path = path = '/volume1/Python/Calculators/portfolio_result/'
     path = str(what_path_for_file()) + r'Calculators\portfolio_result/'
     portfolio_result = file_result_to_list(path, "Print_result.txt")
     return render_template("portfolio.html", portfolio_result=portfolio_result)
