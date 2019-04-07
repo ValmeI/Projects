@@ -9,7 +9,7 @@ from Calculators.real_estate.form import RealEstateFrom
 from Calculators.real_estate import apartment_roi as roi
 
 from Calculators.calender.calender_form import CalenderFrom
-#from Calculators.calender.months import total
+from Calculators.calender.months import total
 
 from datetime import date, timedelta
 from Calculators.calender.gather_data import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table
@@ -39,7 +39,7 @@ def index():
 def calender():
     # TODO kuna ei tööta kui true, ei tea miks
     form = CalenderFrom(csrf_enabled=False)
-    display_months = '1' #TODO
+    display_months = total #TODO
     table_name = "Kuupaevad"
     days_to_add = timedelta(days=28)
 
