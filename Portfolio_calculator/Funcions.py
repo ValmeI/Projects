@@ -47,13 +47,13 @@ def dividend_with_certain_date(sum):
 
 def what_path_for_file():
     if os.path.exists(path_home):
-        return path_home
+        return str(path_home)
 
     elif os.path.exists(path_work):
-        return path_work
+        return str(path_work)
 
     elif os.path.exists(path_laptop):
-        return path_laptop
+        return str(path_laptop)
 
 
 def diff_months(date2, date1):
@@ -200,14 +200,14 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
         print("Tänane seis lisatud.")
 
 
-def get_excel_column(excel_name, column_number):
+def get_excel_column(path, excel_name, column_number):
     column_list = []
     '# Kergem anda sisendisse 1 tulp ning hiljem -1 teha kuna lugemine hakkab 0ist'
     column_number = column_number-1
     '# lisab file type'
     file_name = excel_name + ".xls"
     '# open excel file'
-    rb = xlrd.open_workbook(file_name)
+    rb = xlrd.open_workbook(path + file_name)
     first_sheet = rb.sheet_by_index(0)
 
     for col in first_sheet.col_values(column_number):

@@ -12,9 +12,9 @@ from Portfolio_calculator.Funcions import what_path_for_file
 from shutil import copy
 
 'copy to nas webserver'
-txt_source = str(what_path_for_file()) + r'Portfolio_calculator\Print_result.txt'
-excel_source = str(what_path_for_file()) + r'Portfolio_calculator\Portfell.xls'
-pc_des_path = str(what_path_for_file()) + r'Calculators\portfolio_result'
+txt_source = what_path_for_file() + r'Portfolio_calculator\Print_result.txt'
+excel_source = what_path_for_file() + r'Portfolio_calculator\Portfell.xls'
+pc_des_path = what_path_for_file() + r'Calculators\portfolio_result'
 nas_des_path = r'\\192.168.0.20\Python\Calculators\portfolio_result'
 
 '# Copy txt result and excel file to Nas server'
@@ -106,7 +106,7 @@ Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
 '#if it is friday and password file is in directory, then send e-mail'
 if os.path.isfile(what_path_for_file() + r'Send_Email\synology_pass'):
 
-    no_file = 'E-maili saatmine: Parooli faili ei ole kataloogis: ' + str(what_path_for_file())
+    no_file = 'E-maili saatmine: Parooli faili ei ole kataloogis: ' + what_path_for_file()
     no_file = colored(no_file, 'red')
 
 elif date.today().weekday() == 4:
@@ -114,7 +114,7 @@ elif date.today().weekday() == 4:
     '# Variables are: STMP, username, password file, send from, send to, email title and email body'
     Send.send_email('valme.noip.me',
                     'email',
-                    str(what_path_for_file()) + r'Send_Email\synology_pass',
+                    what_path_for_file()+ r'Send_Email\synology_pass',
                     'email@valme.noip.me',
                     'margit1986@gmail.com',
                     'Portfelli seis: ' + time.strftime('%d-%m-%Y'),

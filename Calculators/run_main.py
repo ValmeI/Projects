@@ -46,20 +46,18 @@ def calender():
     days_to_add = timedelta(days=28)
 
     if table_exists(table_name):
-        print("test")
         pass
     else:
-        print("test2")
         create_table(table_name)
 
-        plot = draw_plot(
-            create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
-            create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
-            create_fictitious_dates(
-                get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
-            create_fictitious_dates(
-                get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
-            )
+    plot = draw_plot(
+        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
+        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
+        create_fictitious_dates(
+            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
+        create_fictitious_dates(
+            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
+        )
 
     if request.method == 'POST':
 
@@ -93,11 +91,12 @@ def calender():
 @app.route('/portfolio', methods=['GET', 'POST'])
 def portfolio():
     #path = '/volume1/Python/Calculators/portfolio_result/'
-    chart_plot = draw_plot(str_date_to_list(Funcions.get_excel_column("Portfell", 1)),
-                           Funcions.get_excel_column("Portfell", 6),
-                           str_date_to_list(Funcions.get_excel_column("Portfell", 1)),
-                           Funcions.get_excel_column("Portfell", 8))
-    path = str(what_path_for_file()) + r'Calculators\portfolio_result/'
+    path = what_path_for_file() + r'Calculators\portfolio_result/'
+    chart_plot = draw_plot(str_date_to_list(Funcions.get_excel_column(path, "Portfell", 1)),
+                           Funcions.get_excel_column(path, "Portfell", 6),
+                           str_date_to_list(Funcions.get_excel_column(path, "Portfell", 1)),
+                           Funcions.get_excel_column(path, "Portfell", 8))
+
     portfolio_result = file_result_to_list(path, "Print_result.txt")
     return render_template("portfolio.html", portfolio_result=portfolio_result, chart_plot=chart_plot)
 
