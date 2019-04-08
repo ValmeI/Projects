@@ -22,7 +22,9 @@ if os.path.isfile(txt_source) and os.path.isfile(excel_source):
     '# Copy previously created file to Calculators directory'
     copy(txt_source, nas_des_path)
     copy(excel_source, nas_des_path)
+    print("Kopeeritud edukalt")
 else:
+    print("Ei kopeeritud")
     pass
 
 '# create file from consol output'
