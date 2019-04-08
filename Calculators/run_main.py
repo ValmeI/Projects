@@ -16,8 +16,9 @@ from Calculators.calender.gather_data \
     import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table
 from Calculators.calender.plot import draw_plot
 
-from Calculators.portfolio_result.portfolio_funcion import file_result_to_list
+from Calculators.portfolio_result.portfolio_funcion import file_result_to_list, str_date_to_list
 from Portfolio_calculator.Funcions import what_path_for_file
+from Portfolio_calculator import Funcions
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -92,9 +93,13 @@ def calender():
 @app.route('/portfolio', methods=['GET', 'POST'])
 def portfolio():
     #path = '/volume1/Python/Calculators/portfolio_result/'
+    chart_plot = draw_plot(str_date_to_list(Funcions.get_excel_column("Portfell", 1)),
+                           Funcions.get_excel_column("Portfell", 6),
+                           str_date_to_list(Funcions.get_excel_column("Portfell", 1)),
+                           Funcions.get_excel_column("Portfell", 8))
     path = str(what_path_for_file()) + r'Calculators\portfolio_result/'
     portfolio_result = file_result_to_list(path, "Print_result.txt")
-    return render_template("portfolio.html", portfolio_result=portfolio_result)
+    return render_template("portfolio.html", portfolio_result=portfolio_result, chart_plot=chart_plot)
 
 
 """real estate part of the page"""
