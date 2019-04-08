@@ -12,7 +12,8 @@ from Calculators.calender.calender_form import CalenderFrom
 from Calculators.calender.months import total
 
 from datetime import date, timedelta
-from Calculators.calender.gather_data import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table
+from Calculators.calender.gather_data \
+    import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table
 from Calculators.calender.plot import draw_plot
 
 from Calculators.portfolio_result.portfolio_funcion import file_result_to_list
@@ -90,7 +91,7 @@ def calender():
 
 @app.route('/portfolio', methods=['GET', 'POST'])
 def portfolio():
-    #path = path = '/volume1/Python/Calculators/portfolio_result/'
+    #path = '/volume1/Python/Calculators/portfolio_result/'
     path = str(what_path_for_file()) + r'Calculators\portfolio_result/'
     portfolio_result = file_result_to_list(path, "Print_result.txt")
     return render_template("portfolio.html", portfolio_result=portfolio_result)

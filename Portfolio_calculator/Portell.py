@@ -12,15 +12,20 @@ from Portfolio_calculator.Funcions import what_path_for_file
 from shutil import copy
 
 'copy to nas webserver'
-if os.path.isfile(str(what_path_for_file()) + r'Portfolio_calculator\Print_result.txt'):
+txt_source = str(what_path_for_file()) + r'Portfolio_calculator\Print_result.txt'
+excel_source = str(what_path_for_file()) + r'Portfolio_calculator\Portfell.xls'
+pc_des_path = str(what_path_for_file()) + r'Calculators\portfolio_result'
+nas_des_path = r'\\192.168.0.20\Python\Calculators\portfolio_result'
+
+'# Copy txt result and excel file to Nas server'
+if os.path.isfile(txt_source) and os.path.isfile(excel_source):
     '# Copy previously created file to Calculators directory'
-    copy(str(what_path_for_file()) + r'Portfolio_calculator\Print_result.txt',
-         #str(what_path_for_file()) + r'Calculators\portfolio_result') #
-         r'\\192.168.0.20\Python\Calculators\portfolio_result')
+    copy(txt_source, nas_des_path)
+    copy(excel_source, nas_des_path)
 else:
     pass
 
-'# create file from output'
+'# create file from consol output'
 sys.stdout = txt_write_move.Logger()
 
 '# tänane kuupäev arvutamaks, et mitu makset on tehtud juba'

@@ -1,4 +1,4 @@
-2019-04-07 16:05:11.240765
+2019-04-08 19:53:25.427773
 
 Portfell kinnisvara:
  
@@ -21,15 +21,15 @@ Laenu kohutus kokku(ainult Akadeemia): 38167
 Laenu kohutus kokku(Kõik): 56107
 
 Hetkel korterite puhas väärtus kokku: 16233 €.
-Vilde peale makse Isale: [31m22.21[0m
-Juriidilise isiku väärtus: 12182 €.
-Füüsilise isiku aktsia portfell: 10998 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 23180 €.
-Terve portfell kokku: [31m39413[0m €.
+Vilde peale makse Isale: [31m22.21[0m €.
+Juriidilise isiku väärtus: 12124 €.
+Füüsilise isiku aktsia portfell: 10951 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 23075 €.
+Terve portfell kokku: [31m39308[0m €.
 Eesmärk krooni miljonär 63912 €.
-Veel minna: [31m24499[0m €.
-Mörr-i portfell: [31m4786[0m €.
-Pere portfell kokku: [31m44199[0m €.
+Veel minna: [31m24604[0m €.
+Mörr-i portfell: [31m4789[0m €.
+Pere portfell kokku: [31m44097[0m €.
 ========================
 Fail juba kaustas olemas.
 Tänane seis lisatud.
