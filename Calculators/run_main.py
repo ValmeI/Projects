@@ -98,6 +98,7 @@ def portfolio():
                            Funcions.get_excel_column(path, "Portfell", 8))
 
     portfolio_result = file_result_to_list(path, "Print_result.txt")
+
     return render_template("portfolio.html", portfolio_result=portfolio_result, chart_plot=chart_plot)
 
 
