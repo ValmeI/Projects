@@ -95,7 +95,9 @@ Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 need_new_excel_file("Portfell", "Porfelli Info")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde '
-update_excel("Portfell", KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku, KoikKokku, Morr.kokku, Pere, Valme.Uus_vilde_summa)
+update_excel("Portfell",
+             KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku,
+             KoikKokku, Morr.kokku, Pere, Valme.Uus_vilde_summa)
 
 #TODO saata emale ja isale igakuine ülevaade
 '# for combining results to send in e-mail'
