@@ -49,7 +49,7 @@ def calender():
         pass
     else:
         create_table(table_name)
-
+    '#plot opening the page'
     plot = draw_plot(
         create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
         create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
@@ -76,6 +76,16 @@ def calender():
             new_begin = "{:%d.%m.%Y}".format(form.beginning_date.data + days_to_add)
             text_success = 'OK - Kuupäevad lisatud. Ennustatav algus kuupäev ' + new_begin
             flash(text_success, 'success')
+
+            '# generate again after successful post'
+            plot = draw_plot(
+                create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
+                create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
+                create_fictitious_dates(
+                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
+                create_fictitious_dates(
+                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
+            )
 
             return render_template("calender.html", form=form, display_months=display_months, plot=plot)
 
