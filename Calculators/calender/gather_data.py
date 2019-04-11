@@ -1,12 +1,24 @@
 import sqlite3
 from datetime import timedelta
 from dateutil.parser import parse
+import csv
 
 
 def connect_db(database_name):
     """connect or create database"""
     conn = sqlite3.connect(database_name)
     return conn
+
+#TODO pooleli
+def backup_to_csv(db, table):
+    c = connect_db(db)
+    c.cursor()
+    select_column = c.execute("SELECT * FROM {}".format(table))
+    print(select_column.fetchall())
+    with open('eggs.csv', 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile, delimiter=' ',
+                                quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        writer.writerow(select_column.fetchall())
 
 
 def table_exists(table_name):
@@ -46,7 +58,7 @@ def insert_data(table_name, insert_date, begin_date, end_date, predict_begin, pr
     c.execute("INSERT INTO {} VALUES ('{}', '{}', '{}','{}','{}')"
               .format(table_name, insert_date, begin_date, end_date, predict_begin, predict_end))
     select = c.execute("Select * from " + str(table_name))
-    print(select.fetchall())
+    #print(select.fetchall())
     c.commit()
     c.close()
 
@@ -104,9 +116,4 @@ def create_fictitious_dates(right_list):
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))
 
-'''
-[('2018-09-01', '2018-09-08'), 
-('2018-09-29', '2018-10-06'), 
-('2018-10-27', '2018-11-03'), 
-('2018-11-24', '2018-12-01')]
-'''
+backup_to_csv("Calender.db", "Kuupaevad")
