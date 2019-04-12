@@ -3,7 +3,7 @@ import plotly.offline as ply
 from Calculators.calender.gather_data import get_data_from_table, create_fictitious_dates
 
 
-def draw_plot(input_x1, input_y1, input_x2, input_y2):
+def draw_plot(input_x1, input_y1, input_x2, input_y2, scatter_name1, scatter_name2):
     # only dates
     x = input_x1
     # only values
@@ -15,8 +15,8 @@ def draw_plot(input_x1, input_y1, input_x2, input_y2):
     y2 = input_y2
 
     # data collection
-    trace1 = go.Scatter(x=x, y=y)
-    trace2 = go.Scatter(x=x2, y=y2)
+    trace1 = go.Scatter(x=x, y=y, name=scatter_name1)
+    trace2 = go.Scatter(x=x2, y=y2, name=scatter_name2)
 
     # pack the data
     data = [trace1, trace2]
