@@ -113,6 +113,7 @@ def create_fictitious_dates(right_list):
     return fictitious_dates_list, fictitious_values_list
 
 
+#TODO Delete data rows
 
 
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
