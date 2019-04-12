@@ -9,16 +9,19 @@ def connect_db(database_name):
     conn = sqlite3.connect(database_name)
     return conn
 
-#TODO pooleli
+
 def backup_to_csv(db, table):
     c = connect_db(db)
     c.cursor()
-    select_column = c.execute("SELECT * FROM {}".format(table))
-    print(select_column.fetchall())
-    with open('eggs.csv', 'a', newline='') as csvfile:
-        writer = csv.writer(csvfile, delimiter=' ',
-                                quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        writer.writerow(select_column.fetchall())
+    select_column = c.execute("SELECT * FROM {} ORDER BY 1".format(table))
+    #print(select_column.fetchone())
+
+    '# a as append, w as overwrite'
+    with open('backup.csv', 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        for row in select_column.fetchall():
+            #print(row)
+            writer.writerow(row)
 
 
 def table_exists(table_name):
@@ -100,7 +103,7 @@ def create_fictitious_dates(right_list):
 
             '''print(parse(x), high_y)
             print(new_fictitious_date, low_y)
-            print(new_fictitious_date + add_n_day, low_y)'''
+            print(new_fictitious_date + add_1_day, low_y)'''
         else:
             fictitious_dates_list.append(parse(x))
             fictitious_values_list.append(high_y)
@@ -110,10 +113,8 @@ def create_fictitious_dates(right_list):
     return fictitious_dates_list, fictitious_values_list
 
 
-#test = create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
-#print(test[0])
+
 
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))
 
-backup_to_csv("Calender.db", "Kuupaevad")

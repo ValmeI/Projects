@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 
 Korter1_Nimi = "Akadeemia 42-63"
@@ -26,11 +24,11 @@ dict = {"Korter": ["Brazil", "Russia", "India", "China", "South Africa"],
         }
 '''
 
-dict = {"Korter": Korteri_nimed,
+data = {"Korter": Korteri_nimed,
         "Laen": Korteri_laenu_summad,
         "Laen refinants": Korteri_laenu_summad_refinants,
         "Ostu hind": Korteri_ostu_hind
         }
 
-brics = pd.DataFrame(dict)
-print(brics)
+brics = pd.DataFrame(data)
+print(brics.iloc[0])

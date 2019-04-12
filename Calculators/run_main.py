@@ -13,7 +13,7 @@ from Calculators.calender.months import total
 
 from datetime import date, timedelta
 from Calculators.calender.gather_data \
-    import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table
+    import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table, backup_to_csv
 from Calculators.calender.plot import draw_plot
 
 from Calculators.portfolio_result.portfolio_funcion import file_result_to_list, str_date_to_list
@@ -41,7 +41,7 @@ def index():
 def calender():
     # TODO kuna ei tööta kui true, ei tea miks
     form = CalenderFrom(csrf_enabled=False)
-    display_months = total #TODO
+    display_months = total
     table_name = "Kuupaevad"
     days_to_add = timedelta(days=28)
 
@@ -86,6 +86,9 @@ def calender():
                 create_fictitious_dates(
                     get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
             )
+
+            '# backup to csv file, to prevent data loss'
+            backup_to_csv("Calender.db", "Kuupaevad")
 
             return render_template("calender.html", form=form, display_months=display_months, plot=plot)
 
