@@ -1,6 +1,6 @@
 import calendar
 import datetime
-import locale
+#import locale
 
 
 '# Create global variable to display the correct month'
@@ -8,7 +8,7 @@ month_to_display = datetime.date.today().month
 year_to_display = datetime.date.today().year
 
 '# set local to estonia so calender would be in estonian'
-locale.setlocale(locale.LC_ALL, 'et_EE.utf8')
+#locale.setlocale(locale.LC_ALL, 'et_EE.utf8')
 
 
 '''so I can change cellspacing and assiene value to it'''
