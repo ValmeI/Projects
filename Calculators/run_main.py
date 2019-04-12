@@ -49,14 +49,16 @@ def calender():
         pass
     else:
         create_table(table_name)
-    '#plot opening the page'
+    '#plot opening the page, input needed is x1, y1, x2, y2, name of x and name of y'
     plot = draw_plot(
         create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
         create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
         create_fictitious_dates(
             get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
         create_fictitious_dates(
-            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
+            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1],
+        'Actual Dates',
+        'Predictable Dates'
         )
 
     if request.method == 'POST':
@@ -77,14 +79,16 @@ def calender():
             text_success = 'OK - Kuupäevad lisatud. Ennustatav algus kuupäev ' + new_begin
             flash(text_success, 'success')
 
-            '# generate again after successful post'
+            '# generate again after successful post, input needed is x1, y1, x2, y2, name of x and name of y'
             plot = draw_plot(
                 create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
                 create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
                 create_fictitious_dates(
                     get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
                 create_fictitious_dates(
-                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1]
+                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1],
+                'Actual Dates',
+                'Predictable Dates'
             )
 
             '# backup to csv file, to prevent data loss'
@@ -105,10 +109,13 @@ def calender():
 def portfolio():
     #path = '/volume1/Python/Calculators/portfolio_result/'
     path = what_path_for_file() + r'Calculators\portfolio_result/'
+    '#input needed is x1, y1, x2, y2, name of x and name of y'
     chart_plot = draw_plot(str_date_to_list(Funcions.get_excel_column(path, "Portfell", 1)),
                            Funcions.get_excel_column(path, "Portfell", 6),
                            str_date_to_list(Funcions.get_excel_column(path, "Portfell", 1)),
-                           Funcions.get_excel_column(path, "Portfell", 8))
+                           Funcions.get_excel_column(path, "Portfell", 8),
+                           'Ignar Portfell',
+                           'Pere Portfell')
 
     portfolio_result = file_result_to_list(path, "Print_result.txt")
 
