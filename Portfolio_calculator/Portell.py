@@ -15,7 +15,7 @@ from shutil import copy
 txt_source = what_path_for_file() + r'Portfolio_calculator\Print_result.txt'
 excel_source = what_path_for_file() + r'Portfolio_calculator\Portfell.xls'
 pc_des_path = what_path_for_file() + r'Calculators\portfolio_result'
-nas_des_path = r'\\192.168.0.20\Python\Calculators\portfolio_result'
+nas_des_path = r'\\RMI_NAS\Python\Calculators\portfolio_result'
 
 '# Copy txt result and excel file to Nas server'
 if os.path.isfile(txt_source) and os.path.isfile(excel_source):
