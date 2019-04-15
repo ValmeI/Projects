@@ -17,8 +17,8 @@ excel_source = what_path_for_file() + r'Portfolio_calculator\Portfell.xls'
 pc_des_path = what_path_for_file() + r'Calculators\portfolio_result'
 nas_des_path = r'\\RMI_NAS\Python\Calculators\portfolio_result'
 
-'# Copy txt result and excel file to Nas server'
-if os.path.isfile(txt_source) and os.path.isfile(excel_source):
+'# Copy txt result and excel file to Nas server, if all the files or path exists'
+if os.path.isfile(txt_source) and os.path.isfile(excel_source) and os.path.isdir(nas_des_path):
     '# Copy previously created file to Calculators directory'
     copy(txt_source, nas_des_path)
     copy(excel_source, nas_des_path)
