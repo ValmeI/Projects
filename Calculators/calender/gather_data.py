@@ -48,28 +48,29 @@ def create_table(table_name):
                 Begin_date TEXT  ,
                 End_date TEXT ,
                 Predict_begin_date TEXT,
-                Predict_end_date TEXT
+                Predict_end_date TEXT,
+                IsDeleted INTEGER
                 )""")
     c.commit()
     c.close()
 
 
-def insert_data(table_name, insert_date, begin_date, end_date, predict_begin, predict_end):
+def insert_data(table_name, insert_date, begin_date, end_date, predict_begin, predict_end, is_deleted):
     """insert data to table but cant change columns"""
     c = connect_db("Calender.db")
     c.cursor()
-    c.execute("INSERT INTO {} VALUES ('{}', '{}', '{}','{}','{}')"
-              .format(table_name, insert_date, begin_date, end_date, predict_begin, predict_end))
-    select = c.execute("Select * from " + str(table_name))
+    c.execute("INSERT INTO {} VALUES ('{}', '{}', '{}','{}','{}','{}')"
+              .format(table_name, insert_date, begin_date, end_date, predict_begin, predict_end, is_deleted))
+    #select = c.execute("Select * from " + str(table_name))
     #print(select.fetchall())
     c.commit()
     c.close()
 
 
-def get_data_from_table(db, table, column1, column2):
+def get_data_from_table(db, table, column1, column2, is_deleted):
     c = connect_db(db)
     c.cursor()
-    select_column = c.execute("SELECT {}, {} FROM {}".format(column1, column2, table))
+    select_column = c.execute("SELECT {}, {} FROM {} WHERE IsDeleted = {}".format(column1, column2, table, is_deleted))
     #print(select_column.fetchall())
     column_list = []
     for col in select_column:
@@ -113,7 +114,17 @@ def create_fictitious_dates(right_list):
     return fictitious_dates_list, fictitious_values_list
 
 
-#TODO Delete data rows
+def delete_row(db, table, begin, end, predict_begin, predict_end):
+    c = connect_db(db)
+    c.cursor()
+    delete_column = c.execute("UPDATE {} SET is_deleted = 1 "
+                              "WHERE is_deleted = 0 "
+                              "AND Begin_date = {}"
+                              "AND End_date = {}"
+                              "AND Predict_begin_date = {}"
+                              "AND Predict_end_date = {}".format(table, begin, end, predict_begin, predict_end))
+    c.commit()
+    c.close()
 
 
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))

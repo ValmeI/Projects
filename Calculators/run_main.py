@@ -51,12 +51,12 @@ def calender():
         create_table(table_name)
     '#plot opening the page, input needed is x1, y1, x2, y2, name of x and name of y'
     plot = draw_plot(
-        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
-        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
+        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))[0],
+        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))[1],
         create_fictitious_dates(
-            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
+            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0))[0],
         create_fictitious_dates(
-            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1],
+            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0))[1],
         'Actual Dates',
         'Predictable Dates'
         )
@@ -73,7 +73,8 @@ def calender():
                         form.beginning_date.data, 
                         form.end_date.data, 
                         form.beginning_date.data + days_to_add,
-                        form.end_date.data + days_to_add
+                        form.end_date.data + days_to_add,
+                        0
                         )
             new_begin = "{:%d.%m.%Y}".format(form.beginning_date.data + days_to_add)
             text_success = 'OK - Kuupäevad lisatud. Ennustatav algus kuupäev ' + new_begin
@@ -81,12 +82,12 @@ def calender():
 
             '# generate again after successful post, input needed is x1, y1, x2, y2, name of x and name of y'
             plot = draw_plot(
-                create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[0],
-                create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))[1],
+                create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))[0],
+                create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))[1],
                 create_fictitious_dates(
-                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[0],
+                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0))[0],
                 create_fictitious_dates(
-                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))[1],
+                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0))[1],
                 'Actual Dates',
                 'Predictable Dates'
             )
