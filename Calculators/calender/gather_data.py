@@ -81,10 +81,15 @@ def get_data_from_table(db, table, column1, column2, is_deleted):
     return column_list
 
 
-def get_data_for_dropdown(db, table, column1, column2, is_deleted):
+def get_data_for_dropdown(db, table, is_deleted):
     c = connect_db(db)
     c.cursor()
-    select_column = c.execute("SELECT {}, {} FROM {} WHERE IsDeleted = {}".format(column1, column2, table, is_deleted))
+    select_column = c.execute("SELECT "
+                              "Begin_date, "
+                              "End_date, "
+                              "Predict_begin_date, "
+                              "Predict_end_date "
+                              "FROM {} WHERE IsDeleted = {}".format(table, is_deleted))
     #print(select_column.fetchall())
     return select_column.fetchall()
 
@@ -126,12 +131,14 @@ def create_fictitious_dates(right_list):
 def delete_row(db, table, begin, end, predict_begin, predict_end):
     c = connect_db(db)
     c.cursor()
-    delete_column = c.execute("UPDATE {} SET is_deleted = 1 "
-                              "WHERE is_deleted = 0 "
-                              "AND Begin_date = {}"
-                              "AND End_date = {}"
-                              "AND Predict_begin_date = {}"
-                              "AND Predict_end_date = {}".format(table, begin, end, predict_begin, predict_end))
+    c.execute("UPDATE {} SET IsDeleted = 1 "
+              "WHERE IsDeleted = 0 "
+              "AND Begin_date = {} "
+              "AND End_date = {} "
+              "AND Predict_begin_date = {} "
+              "AND Predict_end_date = {}".format(table, str(begin), str(end), str(predict_begin), str(predict_end)))
+    select_column = c.execute("SELECT * FROM {}".format(table))
+    print(select_column.fetchall())
     c.commit()
     c.close()
 

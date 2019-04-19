@@ -15,14 +15,14 @@ from datetime import date, timedelta
 
 from Calculators.calender.gather_data \
     import table_exists, create_table, insert_data, create_fictitious_dates, \
-    get_data_from_table, backup_to_csv, get_data_for_dropdown
+    get_data_from_table, backup_to_csv, get_data_for_dropdown, delete_row
 
 from Calculators.calender.plot import draw_plot
 
 from Calculators.portfolio_result.portfolio_funcion import file_result_to_list, str_date_to_list
 from Portfolio_calculator.Funcions import what_path_for_file
 from Portfolio_calculator import Funcions
-
+from dateutil.parser import parse
 csrf = CSRFProtect()
 app = Flask(__name__)
 csrf.init_app(app)
@@ -66,21 +66,41 @@ def calender():
 
     # Clear the SelectField on page load and add choices form database
     # form.delete_row.choices = []
-    for row in get_data_for_dropdown("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0):
-        stock = str(row)
-        form.delete_row.choices += [(stock, stock)]
+    for row in get_data_for_dropdown("Calender.db", "Kuupaevad", 0):
+        #print("{:%d.%m.%Y}".format(parse(row[0])))
+
+        # parse to date and then format to dd.mm.yyyy
+        new_row0 = "{:%d.%m.%Y}".format(parse(row[0]))
+        new_row1 = "{:%d.%m.%Y}".format(parse(row[1]))
+        new_row2 = "{:%d.%m.%Y}".format(parse(row[2]))
+        new_row3 = "{:%d.%m.%Y}".format(parse(row[3]))
+        form.delete_row.choices += [(row, 'Begin: ' + new_row0 +
+                                     ' End: ' + new_row1 +
+                                     ' Predict Begin: ' + new_row2 +
+                                     ' Predict End: ' + new_row3
+                                     )]
 
     if request.method == 'POST':
 
-        '# validate that end date is not same or smaller than begin date'
+        # begin and end dates is not picked and Delete row is used
+        if form.beginning_date.data is None and form.end_date.data is None and form.delete_row.data is not None:
 
-        if form.beginning_date.data is None and form.end_date.data is None:
-            print('tes')
+            # Easiest way to get values as dates for input to delete funcion
+            for y in get_data_for_dropdown("Calender.db", "Kuupaevad", 0):
+                if str(y) == form.delete_row.data:
+                    #print(y[0], y[1], y[2], y[3], form.delete_row.data)
+                    delete_row("Calender.db", "Kuupaevad", y[0], y[1], y[2], y[3])
+                    text_success = 'Kustutatud rida ' + form.delete_row.data
+                    flash(text_success, 'success')
 
+                    return render_template("calender.html", form=form, display_months=display_months, plot=plot)
+
+
+        # validate that end date is not same or smaller than begin date
         elif form.beginning_date.data >= form.end_date.data:
-            print(form.beginning_date.data)
             flash('Viga: Algus kuupäev on suurem või võrdne lõpp kuupäevaga', 'danger')
 
+        # plot a graph
         elif form.validate_on_submit():
             insert_data(table_name,
                         date.today(),
@@ -178,9 +198,9 @@ def real_estate():
             '# Both acquired apartments are selected'
             if form.choices.data == ['1', '2']:
                 acquired_estate_1 = roi.format_for_page('Akadeemia 42-63',
-                                                      roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
+                                                        roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
                 acquired_estate_2 = roi.format_for_page('Akadeemia 38-20',
-                                                      roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
+                                                        roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
 
                 return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate_1,
                                        acquired_estate2=acquired_estate_2)
