@@ -149,7 +149,7 @@ def portfolio():
 @app.route('/real_estate', methods=['GET', 'POST'])
 def real_estate():
     # TODO kuna ei tööta kui true, ei tea miks
-    form = RealEstateFrom(csrf_enabled=False, )
+    form = RealEstateFrom(csrf_enabled=False)
 
     if request.method == 'POST':
         if form.validate_on_submit():
