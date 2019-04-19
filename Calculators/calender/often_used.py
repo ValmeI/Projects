@@ -3,11 +3,12 @@ from Calculators.calender.gather_data import create_fictitious_dates, get_data_f
 from Calculators.calender.calender_form import CalenderFromDelete
 from dateutil.parser import parse
 
-get_actual_data = get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0)
-get_predict_data = get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0)
-
 
 def plot_often_calender():
+
+    get_actual_data = get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0)
+    get_predict_data = get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0)
+
     often_plot = draw_plot(
                     create_fictitious_dates(get_actual_data)[0],
                     create_fictitious_dates(get_actual_data)[1],

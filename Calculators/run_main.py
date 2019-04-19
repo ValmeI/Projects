@@ -219,7 +219,7 @@ def work():
 
 if __name__ == "__main__":
 
-    '# 0.0.0.0 = localhost'
+    '# 0.0.0.0 = localhost and debug=False for NAS'
     app.run(host='0.0.0.0', port=9090, debug=True)
 
 
