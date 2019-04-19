@@ -133,10 +133,10 @@ def delete_row(db, table, begin, end, predict_begin, predict_end):
     c.cursor()
     c.execute("UPDATE {} SET IsDeleted = 1 "
               "WHERE IsDeleted = 0 "
-              "AND Begin_date = {} "
-              "AND End_date = {} "
-              "AND Predict_begin_date = {} "
-              "AND Predict_end_date = {}".format(table, str(begin), str(end), str(predict_begin), str(predict_end)))
+              "AND Begin_date = '{}' "
+              "AND End_date = '{}' "
+              "AND Predict_begin_date = '{}' "
+              "AND Predict_end_date = '{}'".format(table, begin, end, predict_begin, predict_end))
     select_column = c.execute("SELECT * FROM {}".format(table))
     print(select_column.fetchall())
     c.commit()

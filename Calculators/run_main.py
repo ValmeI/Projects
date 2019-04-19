@@ -8,21 +8,20 @@ from Calculators.work_time.work_funcions import WorkClass as Wc
 from Calculators.real_estate.form import RealEstateFrom
 from Calculators.real_estate import apartment_roi as roi
 
-from Calculators.calender.calender_form import CalenderFrom
+from Calculators.calender.calender_form import CalenderFrom, CalenderFromDelete
 from Calculators.calender.months import total
 
 from datetime import date, timedelta
-
-from Calculators.calender.gather_data \
-    import table_exists, create_table, insert_data, create_fictitious_dates, \
-    get_data_from_table, backup_to_csv, get_data_for_dropdown, delete_row
-
+from Calculators.calender.gather_data import table_exists, create_table, insert_data, backup_to_csv, get_data_for_dropdown, delete_row
 from Calculators.calender.plot import draw_plot
 
 from Calculators.portfolio_result.portfolio_funcion import file_result_to_list, str_date_to_list
 from Portfolio_calculator.Funcions import what_path_for_file
 from Portfolio_calculator import Funcions
-from dateutil.parser import parse
+
+from Calculators.calender.often_used import plot_often_calender, drop_down_often_calender
+
+
 csrf = CSRFProtect()
 app = Flask(__name__)
 csrf.init_app(app)
@@ -43,7 +42,9 @@ def index():
 @app.route('/calender', methods=['GET', 'POST'])
 def calender():
     # TODO kuna ei tööta kui true, ei tea miks
+    # 2 forms so adding dates and deleting rows would not affect each other
     form = CalenderFrom(csrf_enabled=False)
+    form_1 = CalenderFromDelete(csrf_enabled=False)
     display_months = total
     table_name = "Kuupaevad"
     days_to_add = timedelta(days=28)
@@ -53,48 +54,30 @@ def calender():
     else:
         create_table(table_name)
     '#plot opening the page, input needed is x1, y1, x2, y2, name of x and name of y'
-    plot = draw_plot(
-        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))[0],
-        create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))[1],
-        create_fictitious_dates(
-            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0))[0],
-        create_fictitious_dates(
-            get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0))[1],
-        'Actual Dates',
-        'Predictable Dates'
-        )
+    plot = plot_often_calender()
 
-    # Clear the SelectField on page load and add choices form database
-    # form.delete_row.choices = []
-    for row in get_data_for_dropdown("Calender.db", "Kuupaevad", 0):
-        #print("{:%d.%m.%Y}".format(parse(row[0])))
-
-        # parse to date and then format to dd.mm.yyyy
-        new_row0 = "{:%d.%m.%Y}".format(parse(row[0]))
-        new_row1 = "{:%d.%m.%Y}".format(parse(row[1]))
-        new_row2 = "{:%d.%m.%Y}".format(parse(row[2]))
-        new_row3 = "{:%d.%m.%Y}".format(parse(row[3]))
-        form.delete_row.choices += [(row, 'Begin: ' + new_row0 +
-                                     ' End: ' + new_row1 +
-                                     ' Predict Begin: ' + new_row2 +
-                                     ' Predict End: ' + new_row3
-                                     )]
+    # fill and refresh the delete drop down list
+    form_1.delete_row.choices = drop_down_often_calender()
 
     if request.method == 'POST':
 
-        # begin and end dates is not picked and Delete row is used
-        if form.beginning_date.data is None and form.end_date.data is None and form.delete_row.data is not None:
+        # begin and end dates is not picked and Delete row is used/picked
+        if form.beginning_date.data is None and form.end_date.data is None and form_1.delete_row.data is not None:
 
-            # Easiest way to get values as dates for input to delete funcion
+            # Easiest way to get values as dates for input to delete function
             for y in get_data_for_dropdown("Calender.db", "Kuupaevad", 0):
-                if str(y) == form.delete_row.data:
-                    #print(y[0], y[1], y[2], y[3], form.delete_row.data)
+                if str(y) == form_1.delete_row.data:
                     delete_row("Calender.db", "Kuupaevad", y[0], y[1], y[2], y[3])
-                    text_success = 'Kustutatud rida ' + form.delete_row.data
+                    text_success = 'Kustutatud rida ' + form_1.delete_row.data
                     flash(text_success, 'success')
 
-                    return render_template("calender.html", form=form, display_months=display_months, plot=plot)
+            '# generate again after successful post, input needed is x1, y1, x2, y2, name of x and name of y'
+            plot = plot_often_calender()
 
+            # fill and refresh the delete drop down list
+            form_1.delete_row.choices = drop_down_often_calender()
+
+            return render_template("calender.html", form=form, form_1=form_1,  display_months=display_months, plot=plot)
 
         # validate that end date is not same or smaller than begin date
         elif form.beginning_date.data >= form.end_date.data:
@@ -115,26 +98,20 @@ def calender():
             flash(text_success, 'success')
 
             '# generate again after successful post, input needed is x1, y1, x2, y2, name of x and name of y'
-            plot = draw_plot(
-                create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))[0],
-                create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))[1],
-                create_fictitious_dates(
-                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0))[0],
-                create_fictitious_dates(
-                    get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date", 0))[1],
-                'Actual Dates',
-                'Predictable Dates'
-            )
+            plot = plot_often_calender()
+
+            '# fill and refresh the delete drop down list'
+            form_1.delete_row.choices = drop_down_often_calender()
 
             '# backup to csv file, to prevent data loss'
             backup_to_csv("Calender.db", "Kuupaevad")
 
-            return render_template("calender.html", form=form, display_months=display_months, plot=plot)
+            return render_template("calender.html", form=form, form_1=form_1, display_months=display_months, plot=plot)
 
         else:
             flash('Sisend on vigane', 'danger')
 
-    return render_template("calender.html", form=form, display_months=display_months, plot=plot)
+    return render_template("calender.html", form=form, form_1=form_1, display_months=display_months, plot=plot)
 
 
 """Displays portfolio results"""
@@ -185,22 +162,18 @@ def real_estate():
 
             '# Selected is only Akadeemia tee 42-63'
             if form.choices.data == ['1']:
-                acquired_estate = roi.format_for_page('Akadeemia 42-63',
-                                                      roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
+                acquired_estate = roi.format_for_page('Akadeemia 42-63', roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
                 return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate)
 
             '# Selected is only Akadeemia tee 38-20'
             if form.choices.data == ['2']:
-                acquired_estate = roi.format_for_page('Akadeemia 38-20',
-                                                  roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
+                acquired_estate = roi.format_for_page('Akadeemia 38-20', roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
                 return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate)
 
             '# Both acquired apartments are selected'
             if form.choices.data == ['1', '2']:
-                acquired_estate_1 = roi.format_for_page('Akadeemia 42-63',
-                                                        roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
-                acquired_estate_2 = roi.format_for_page('Akadeemia 38-20',
-                                                        roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
+                acquired_estate_1 = roi.format_for_page('Akadeemia 42-63', roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
+                acquired_estate_2 = roi.format_for_page('Akadeemia 38-20', roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
 
                 return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate_1,
                                        acquired_estate2=acquired_estate_2)
@@ -232,7 +205,8 @@ def work():
                 new_percent = form.percent.data
 
             new_pay = Wc.work_calulator(form.pay.data, new_percent)
-            '# to fix floating problem in pyhton'
+
+            '# to fix floating problem in Python'
             new_pay_2 = format(new_pay[0], '.2f')
             text_success = 'Uus palganumber on ' + str(new_pay_2) + ' € ja töötunnid on ' + str(round(new_pay[1])) + 'h'
             flash(text_success, 'success')

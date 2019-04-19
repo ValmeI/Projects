@@ -12,10 +12,11 @@ class CalenderFrom(FlaskForm):
 
     end_date = DateField('Lõpp kuupäev', validators=[DataRequired()], format='%Y-%m-%d')
 
-    delete_row = SelectField('Select what row to delete', choices=[('', '')])
-
     submit = SubmitField('Lisa')
 
+
+class CalenderFromDelete(FlaskForm):
+
+    delete_row = SelectField('Select what row to delete', choices=[])
+
     delete = SubmitField('Delete')
-
-

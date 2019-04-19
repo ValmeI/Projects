@@ -140,25 +140,25 @@
                     <div class="col-xs-6 col-sm-5">
                         <div class="content-section">
                             <form method="POST" action="">
-                                {{ form.hidden_tag() }}
-                                {{ form.csrf_token }}
+                                {{ form_1.hidden_tag() }}
+                                {{ form_1.csrf_token }}
                                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
                                 <fieldset class="form-group">
                                     <legend class="border-bottom mb-4">Delete a row</legend>
 
                                     <!--delete rows choice field-->
                                     <div class="form-group">
-                                        {{ form.delete_row.label(class="form-control-label") }}
+                                        {{ form_1.delete_row.label(class="form-control-label") }}
 
-                                        {% if form.delete_row.errors %}
-                                        {{ form.delete_row(class="form-control form-control-lg is-invalid") }}
+                                        {% if form_1.delete_row.errors %}
+                                        {{ form_1.delete_row(class="form-control form-control-lg is-invalid") }}
                                         <div class="invalid-feedback">
-                                            {% for error in form.delete_row.errors %}
+                                            {% for error in form_1.delete_row.errors %}
                                             <span>{{ error }}</span>
                                             {% endfor %}
                                         </div>
                                         {% else %}
-                                        {{ form.delete_row(class="form-control form-control-lg") }}
+                                        {{ form_1.delete_row(class="form-control form-control-lg") }}
                                         {% endif %}
                                     </div>
 
@@ -169,7 +169,7 @@
 
                                 <!--Delete button-->
                                 <div class="form-group">
-                                    {{ form.delete(class="btn") }}
+                                    {{ form_1.delete(class="btn") }}
                                 </div>
 
 
