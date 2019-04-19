@@ -16,7 +16,6 @@ from Calculators.calender.gather_data import table_exists, create_table, insert_
 from Calculators.calender.plot import draw_plot
 
 from Calculators.portfolio_result.portfolio_funcion import file_result_to_list, str_date_to_list
-from Portfolio_calculator.Funcions import what_path_for_file
 from Portfolio_calculator import Funcions
 
 from Calculators.calender.often_used import plot_often_calender, drop_down_often_calender
@@ -122,13 +121,16 @@ def calender():
 def portfolio():
 
     nas_path = '/volume1/Python/Calculators/portfolio_result/'
-    pc_path = what_path_for_file() + r'Calculators\portfolio_result/'
+    home_pc_path = r'D:\PycharmProjects\Projects\Calculators\portfolio_result/'
+    laptop_path = r'C:\PycharmProjects\Projects\Calculators\portfolio_result/'
 
     '# chooses path depending on the machine that it is on'
-    if pc_path:
-        path = pc_path
+    if os.path.isdir(home_pc_path):
+        path = home_pc_path
     elif os.path.isdir(nas_path):
         path = nas_path
+    elif os.path.isdir(laptop_path):
+        path = laptop_path
 
     '#input needed is x1, y1, x2, y2, name of x and name of y'
     chart_plot = draw_plot(str_date_to_list(Funcions.get_excel_column(path, "Portfell", 1)),
@@ -228,7 +230,19 @@ def work():
 
 if __name__ == "__main__":
 
+    nas_path = '/volume1/Python/Calculators/portfolio_result/'
+    home_pc_path = r'D:\PycharmProjects\Projects\Calculators\portfolio_result/'
+    laptop_path = r'C:\PycharmProjects\Projects\Calculators\portfolio_result/'
+
+    '# chooses debug value depending on the machine that it is on'
+    if os.path.isdir(home_pc_path):
+        debug_value = True
+    elif os.path.isdir(nas_path):
+        debug_value = False
+    elif os.path.isdir(laptop_path):
+        debug_value = True
+
     '# 0.0.0.0 = localhost and False for NAS'
-    app.run(host='0.0.0.0', port=9090, debug=True)
+    app.run(host='0.0.0.0', port=9090, debug=debug_value)
 
 
