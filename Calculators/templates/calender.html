@@ -132,6 +132,57 @@
                         </div>
                     </div>
 
+
+
+
+
+                    <!-- Can't really understand how it still works -->
+                    <div class="col-xs-6 col-sm-4">
+                        <div class="content-section">
+                            <form method="POST" action="">
+                                {{ form.hidden_tag() }}
+                                {{ form.csrf_token }}
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Delete a row</legend>
+
+                                    <!--delete rows choice field-->
+                                    <div class="form-group">
+                                        {{ form.delete_row.label(class="form-control-label") }}
+
+                                        {% if form.delete_row.errors %}
+                                        {{ form.delete_row(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.delete_row.errors %}
+                                            <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        {% else %}
+                                        {{ form.delete_row(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                    </div>
+
+
+
+
+                                </fieldset>
+
+                                <!--Delete button-->
+                                <div class="form-group">
+                                    {{ form.delete(class="btn") }}
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
             </div>
         </div>
     </body>

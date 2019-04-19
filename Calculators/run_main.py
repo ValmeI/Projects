@@ -12,8 +12,11 @@ from Calculators.calender.calender_form import CalenderFrom
 from Calculators.calender.months import total
 
 from datetime import date, timedelta
+
 from Calculators.calender.gather_data \
-    import table_exists, create_table, insert_data, create_fictitious_dates, get_data_from_table, backup_to_csv
+    import table_exists, create_table, insert_data, create_fictitious_dates, \
+    get_data_from_table, backup_to_csv, get_data_for_dropdown
+
 from Calculators.calender.plot import draw_plot
 
 from Calculators.portfolio_result.portfolio_funcion import file_result_to_list, str_date_to_list
@@ -61,10 +64,21 @@ def calender():
         'Predictable Dates'
         )
 
+    # Clear the SelectField on page load and add choices form database
+    # form.delete_row.choices = []
+    for row in get_data_for_dropdown("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0):
+        stock = str(row)
+        form.delete_row.choices += [(stock, stock)]
+
     if request.method == 'POST':
 
         '# validate that end date is not same or smaller than begin date'
-        if form.beginning_date.data >= form.end_date.data:
+
+        if form.beginning_date.data is None and form.end_date.data is None:
+            print('tes')
+
+        elif form.beginning_date.data >= form.end_date.data:
+            print(form.beginning_date.data)
             flash('Viga: Algus kuupäev on suurem või võrdne lõpp kuupäevaga', 'danger')
 
         elif form.validate_on_submit():

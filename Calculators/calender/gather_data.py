@@ -77,7 +77,16 @@ def get_data_from_table(db, table, column1, column2, is_deleted):
         for x in range(0, len(col)):
             column_list.append(col[x])
     c.close()
+    #print(column_list)
     return column_list
+
+
+def get_data_for_dropdown(db, table, column1, column2, is_deleted):
+    c = connect_db(db)
+    c.cursor()
+    select_column = c.execute("SELECT {}, {} FROM {} WHERE IsDeleted = {}".format(column1, column2, table, is_deleted))
+    #print(select_column.fetchall())
+    return select_column.fetchall()
 
 
 def create_fictitious_dates(right_list):
