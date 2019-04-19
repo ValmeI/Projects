@@ -20,6 +20,7 @@ from Portfolio_calculator.Funcions import what_path_for_file
 from Portfolio_calculator import Funcions
 
 from Calculators.calender.often_used import plot_often_calender, drop_down_often_calender
+import os
 
 csrf = CSRFProtect()
 app = Flask(__name__)
@@ -119,8 +120,16 @@ def calender():
 
 @app.route('/portfolio', methods=['GET', 'POST'])
 def portfolio():
-    #path = '/volume1/Python/Calculators/portfolio_result/'
-    path = what_path_for_file() + r'Calculators\portfolio_result/'
+
+    nas_path = '/volume1/Python/Calculators/portfolio_result/'
+    pc_path = what_path_for_file() + r'Calculators\portfolio_result/'
+
+    '# chooses path depending on the machine that it is on'
+    if pc_path:
+        path = pc_path
+    elif os.path.isdir(nas_path):
+        path = nas_path
+
     '#input needed is x1, y1, x2, y2, name of x and name of y'
     chart_plot = draw_plot(str_date_to_list(Funcions.get_excel_column(path, "Portfell", 1)),
                            Funcions.get_excel_column(path, "Portfell", 6),
@@ -219,7 +228,17 @@ def work():
 
 if __name__ == "__main__":
 
+    # So changes are not needed to copy to server
+    nas_path = '/volume1/Python/Calculators/portfolio_result/'
+    pc_path = what_path_for_file() + r'Calculators\portfolio_result/'
+
+    '# chooses debug setting, depending on the machine that it is on'
+    if pc_path:
+        var_debug = True
+    elif os.path.isdir(nas_path):
+        var_debug = False
+
     '# 0.0.0.0 = localhost and False for NAS'
-    app.run(host='0.0.0.0', port=9090, debug=True)
+    app.run(host='0.0.0.0', port=9090, debug=var_debug)
 
 
