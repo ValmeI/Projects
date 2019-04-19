@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, flash, request
+from flask import Flask, render_template, flash, request, send_from_directory
 from flask_wtf.csrf import CSRFProtect
 from Calculators.work_time.forms import WorkForm
 from Calculators.work_time.work_funcions import WorkClass as Wc
@@ -28,7 +28,6 @@ csrf.init_app(app)
 
 app.config['SECRET_KEY'] = 'secret'
 
-
 """index html"""
 
 
@@ -43,6 +42,7 @@ def index():
 @app.route('/calender', methods=['GET', 'POST'])
 def calender():
     # TODO kuna ei tööta kui true, ei tea miks
+
     # 2 forms so adding dates and deleting rows would not affect each other
     form = CalenderFrom(csrf_enabled=False)
     form_1 = CalenderFromDelete(csrf_enabled=False)
