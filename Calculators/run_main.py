@@ -228,17 +228,7 @@ def work():
 
 if __name__ == "__main__":
 
-    # So changes are not needed to copy to server
-    nas_path = '/volume1/Python/Calculators/portfolio_result/'
-    pc_path = what_path_for_file() + r'Calculators\portfolio_result/'
-
-    '# chooses debug setting, depending on the machine that it is on'
-    if pc_path:
-        var_debug = True
-    elif os.path.isdir(nas_path):
-        var_debug = False
-
     '# 0.0.0.0 = localhost and False for NAS'
-    app.run(host='0.0.0.0', port=9090, debug=var_debug)
+    app.run(host='0.0.0.0', port=9090, debug=True)
 
 
