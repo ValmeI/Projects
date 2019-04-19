@@ -21,12 +21,12 @@ from Portfolio_calculator import Funcions
 
 from Calculators.calender.often_used import plot_often_calender, drop_down_often_calender
 
-
 csrf = CSRFProtect()
 app = Flask(__name__)
 csrf.init_app(app)
 
 app.config['SECRET_KEY'] = 'secret'
+
 
 """index html"""
 
@@ -219,7 +219,7 @@ def work():
 
 if __name__ == "__main__":
 
-    '# 0.0.0.0 = localhost and debug=False for NAS'
+    '# 0.0.0.0 = localhost and False for NAS'
     app.run(host='0.0.0.0', port=9090, debug=True)
 
 
