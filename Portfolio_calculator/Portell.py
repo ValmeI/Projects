@@ -99,7 +99,6 @@ update_excel("Portfell",
              KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku,
              KoikKokku, Morr.kokku, Pere, Valme.Uus_vilde_summa)
 
-#TODO saata emale ja isale igakuine ülevaade
 '# for combining results to send in e-mail'
 Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nEesmärk krooni miljonär " + str(Eesmark) + " €." + \
