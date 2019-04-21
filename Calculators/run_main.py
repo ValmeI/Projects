@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, flash, request, send_from_directory
+from flask import Flask, render_template, flash, request
 from flask_wtf.csrf import CSRFProtect
 from Calculators.work_time.forms import WorkForm
 from Calculators.work_time.work_funcions import WorkClass as Wc
 
 from Calculators.real_estate.form import RealEstateFrom
 from Calculators.real_estate import apartment_roi as roi
+from Portfolio_calculator import Kinnisvara as Re
 
 from Calculators.calender.calender_form import CalenderFrom, CalenderFromDelete
 from Calculators.calender.months import total
@@ -153,6 +154,14 @@ def real_estate():
     # TODO kuna ei tööta kui true, ei tea miks
     form = RealEstateFrom(csrf_enabled=False)
 
+    Korter1_Nimi = "Akadeemia 42-63"
+    Korter2_Nimi = "Akadeemia 38-20"
+    Korter3_Nimi = "Vilde 90-193"
+
+    Akad42_63 = roi.apartment_roi(Re.Korter1_Hind, 20, 1500, 3, 15, 220, 7, 12)
+    Akad38_20 = roi.apartment_roi(Re.Korter2_Hind, 20, 1000, 3, 15, 260, 7, 16)
+    Vilde90_193 = roi.apartment_roi(Re.Korter3_Hind, 40, 530, 2.39, 11, 230, 7, 16)
+
     if request.method == 'POST':
         if form.validate_on_submit():
 
@@ -173,21 +182,27 @@ def real_estate():
 
             '# Selected is only Akadeemia tee 42-63'
             if form.choices.data == ['1']:
-                acquired_estate = roi.format_for_page('Akadeemia 42-63', roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
+                acquired_estate = roi.format_for_page(Korter1_Nimi, Akad42_63)
                 return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate)
 
             '# Selected is only Akadeemia tee 38-20'
             if form.choices.data == ['2']:
-                acquired_estate = roi.format_for_page('Akadeemia 38-20', roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
+                acquired_estate = roi.format_for_page(Korter2_Nimi, Akad38_20)
+                return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate)
+
+            '# Selected is only Vilde tee 90-193'
+            if form.choices.data == ['3']:
+                acquired_estate = roi.format_for_page(Korter3_Nimi, Vilde90_193)
                 return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate)
 
             '# Both acquired apartments are selected'
-            if form.choices.data == ['1', '2']:
-                acquired_estate_1 = roi.format_for_page('Akadeemia 42-63', roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12))
-                acquired_estate_2 = roi.format_for_page('Akadeemia 38-20', roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16))
+            if form.choices.data == ['1', '2', '3']:
+                acquired_estate_1 = roi.format_for_page(Korter1_Nimi, Akad42_63)
+                acquired_estate_2 = roi.format_for_page(Korter2_Nimi, Akad38_20)
+                acquired_estate_3 = roi.format_for_page(Korter3_Nimi, Vilde90_193)
 
                 return render_template('realestate.html', form=form, results=results, acquired_estate=acquired_estate_1,
-                                       acquired_estate2=acquired_estate_2)
+                                       acquired_estate2=acquired_estate_2, acquired_estate3=acquired_estate_3)
 
             else:
                 return render_template('realestate.html', form=form, results=results)

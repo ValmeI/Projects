@@ -5,6 +5,7 @@ from Portfolio_calculator import Kinnisvara as Re
 '# ROI - apartment_price, down_payment_percent, other_costs, interest, loan_years, rent, monthly_insurance, m2)'
 Akad42_63 = roi.apartment_roi(Re.Korter1_Hind, 20, 1500, 3, 15, 220, 7, 12)
 Akad38_20 = roi.apartment_roi(Re.Korter2_Hind, 20, 1000, 3, 15, 260, 7, 16)
+Vilde90_193 = roi.apartment_roi(Re.Korter3_Hind, 40, 530, 2.39, 11, 230, 7, 16)
 
 '#Jooksev arvutus'
 Hind = 29500

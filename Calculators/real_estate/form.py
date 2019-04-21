@@ -8,7 +8,9 @@ from Calculators.work_time import MyFloatField
 
 class RealEstateFrom(FlaskForm):
 
-    choices = SelectMultipleField('Kinnisvara', choices=[('1', 'Akadeemia tee 42-63'), ('2', 'Akadeemia tee 38-20')])
+    choices = SelectMultipleField('Kinnisvara', choices=[('1', 'Akadeemia 42-63'),
+                                                         ('2', 'Akadeemia 38-20'),
+                                                         ('3', 'Vilde 90-193')])
 
     price = MyFloatField('Objekti hind',
                          validators=[DataRequired(), NumberRange(min=500)])
