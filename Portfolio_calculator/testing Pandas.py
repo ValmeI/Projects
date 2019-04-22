@@ -31,4 +31,8 @@ data = {"Korter": Korteri_nimed,
         }
 
 brics = pd.DataFrame(data)
-print(brics.iloc[0])
+print(brics)
+
+print(brics)
+
+
