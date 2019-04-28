@@ -95,8 +95,8 @@ def get_data_for_dropdown(db, table, is_deleted):
 
 
 def create_fictitious_dates(right_list):
-    add_1_day = timedelta(days=0)
-    add_2_day = timedelta(days=20)
+    day1 = timedelta(days=0)
+    day2 = timedelta(days=5)
     high_y = 5
     low_y = 2
     nr = 1
@@ -104,26 +104,38 @@ def create_fictitious_dates(right_list):
     fictitious_values_list = []
 
     for x in right_list:
-        #print(parse(x), nr, nr%2)
         nr += 1
+
+        #print(parse(x), nr, nr%2)
+
         if nr % 2 == 1:
+
             fictitious_dates_list.append(parse(x))
-            new_fictitious_date = parse(x) + add_1_day
+            fictitious_values_list.append(high_y)
+
+            new_fictitious_date = parse(x) + day1
             fictitious_dates_list.append(new_fictitious_date)
-            fictitious_dates_list.append(new_fictitious_date + add_2_day)
-
-            fictitious_values_list.append(high_y)
-            fictitious_values_list.append(low_y)
             fictitious_values_list.append(low_y)
 
-            '''print(parse(x), high_y)
-            print(new_fictitious_date, low_y)
-            print(new_fictitious_date + add_1_day, low_y)'''
+            fictitious_dates_list.append(new_fictitious_date + day2)
+            fictitious_values_list.append(low_y)
+
+            #print(parse(x), high_y)
+            #print(new_fictitious_date, low_y)
+            #print(new_fictitious_date + day2, low_y)
         else:
+            fictitious_dates_list.append(parse(x) - day2)
+            fictitious_values_list.append(low_y)
+
+            fictitious_dates_list.append(parse(x))
+            fictitious_values_list.append(low_y)
+
             fictitious_dates_list.append(parse(x))
             fictitious_values_list.append(high_y)
 
-            '''print(parse(x), high_y)'''
+            #print(parse(x) - day2, low_y)
+            #print(parse(x), low_y)
+            #print(parse(x), high_y)
 
     return fictitious_dates_list, fictitious_values_list
 
@@ -137,8 +149,8 @@ def delete_row(db, table, begin, end, predict_begin, predict_end):
               "AND End_date = '{}' "
               "AND Predict_begin_date = '{}' "
               "AND Predict_end_date = '{}'".format(table, begin, end, predict_begin, predict_end))
-    select_column = c.execute("SELECT * FROM {}".format(table))
-    print(select_column.fetchall())
+    #select_column = c.execute("SELECT * FROM {}".format(table))
+    #print(select_column.fetchall())
     c.commit()
     c.close()
 
@@ -146,3 +158,4 @@ def delete_row(db, table, begin, end, predict_begin, predict_end):
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date"))
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))
 
+#create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))
