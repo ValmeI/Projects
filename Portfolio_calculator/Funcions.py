@@ -167,13 +167,11 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
         elif check == vildeAfterTax:
             passed += 1
 
-
     '#ehk 8 kontrolli on. Sama palju kui välju. Kui andmed muutunud siis lisab need, kui ei väljastab lause, et ei ole muutunud'
-
     if passed == first_sheet.ncols:
         print("Tänase päeva andmed pole muutunud.")
 
-        '# get cell of pervious row date value, input (rows, col). If date is same then update same row '
+        '# get cell of pervious row date value, input (rows, col). If date is same then update same row, to avoid multiple same date rows '
     elif first_sheet.cell(max_rows - 1, 0).value == today_str:
         while c < first_sheet.ncols:
             if c == 0:

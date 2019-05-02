@@ -31,8 +31,9 @@ data = {"Korter": Korteri_nimed,
         }
 
 brics = pd.DataFrame(data)
-print(brics)
+#print(brics)
 
-print(brics)
+#print(brics)
 
+from Portfolio_calculator.Funcions import update_excel
 
