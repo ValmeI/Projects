@@ -167,10 +167,40 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
         elif check == vildeAfterTax:
             passed += 1
 
+
     '#ehk 8 kontrolli on. Sama palju kui välju. Kui andmed muutunud siis lisab need, kui ei väljastab lause, et ei ole muutunud'
 
     if passed == first_sheet.ncols:
         print("Tänase päeva andmed pole muutunud.")
+
+        '# get cell of pervious row date value, input (rows, col). If '
+    elif first_sheet.cell(max_rows - 1, 0).value == today_str:
+        while c < first_sheet.ncols:
+            if c == 0:
+                value = today_str
+            elif c == 1:
+                value = kinnisvara_puhas
+            elif c == 2:
+                value = füs_aktsiad
+            elif c == 3:
+                value = jur_aktsiad
+            elif c == 4:
+                value = aktsiad_kokku
+            elif c == 5:
+                value = kokku_portfell
+            elif c == 6:
+                value = abikaasa_kokku
+            elif c == 7:
+                value = pere_kokku
+            elif c == 8:
+                value = vildeAfterTax
+
+            '# row-1( to get previous row), column ja tekst'
+            w_sheet.write(max_rows - 1, c, value)
+            c += 1
+        copy_rb.save(file_name)
+        print("Tänane seis muudetud.")
+
     else:
         '# Et me ei läheks indeksist välja muidu tuleb veateade ning täitmaks selle päeva portfelli seisu'
         while c < first_sheet.ncols:
@@ -193,7 +223,7 @@ def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsia
             elif c == 8:
                 value = vildeAfterTax
 
-            '# row, column ja tekst'
+            '# last row, column ja tekst'
             w_sheet.write(max_rows, c, value)
             c += 1
         copy_rb.save(file_name)
