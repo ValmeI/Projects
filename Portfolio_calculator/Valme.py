@@ -29,7 +29,7 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 223.39
+FüsIsikRaha = 285.96
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -38,7 +38,7 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stocks_value_combined(jur_eur_stocks, True)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 227.08
+JurRaha = 666.92
 JurLynxRaha = 42
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 #Mörr on väike karu
@@ -46,7 +46,7 @@ JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 vilde_isa = 230 # üür
 vilde_laen = 154.88
 vilde_kindlustus = 6.91
-arvutamise_kp = 1 # ehk kuu päev millal
+arvutamise_kp = 1 # ehk kuu päev millal arvutust tehakse
 
 Uus_vilde_summa = f.vilde_calculation(arvutamise_kp,
                                       f.get_last_row("Portfell", 9),
