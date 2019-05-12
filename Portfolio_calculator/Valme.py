@@ -41,12 +41,14 @@ JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stoc
 JurRaha = 666.92
 JurLynxRaha = 42
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
-#Mörr on väike karu
+'# Mörr on väike karu'
 
-vilde_isa = 230 # üür
+'# üür'
+vilde_isa = 230
 vilde_laen = 154.88
 vilde_kindlustus = 6.91
-arvutamise_kp = 1 # ehk kuu päev millal arvutust tehakse
+'# ehk kuu päev millal arvutust tehakse'
+arvutamise_kp = 1
 
 Uus_vilde_summa = f.vilde_calculation(arvutamise_kp,
                                       f.get_last_row("Portfell", 9),
