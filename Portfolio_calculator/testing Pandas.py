@@ -24,6 +24,9 @@ dict = {"Korter": ["Brazil", "Russia", "India", "China", "South Africa"],
         }
 '''
 
+list_test = [Korteri_nimed, Korteri_laenu_summad, Korteri_laenu_summad_refinants, Korteri_ostu_hind]
+print(list_test[1][0])
+
 data = {"Korter": Korteri_nimed,
         "Laen": Korteri_laenu_summad,
         "Laen refinants": Korteri_laenu_summad_refinants,
