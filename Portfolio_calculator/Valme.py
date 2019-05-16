@@ -19,7 +19,7 @@ jur_usa_stocks = {"AAPL": 15,
                   "XIACY": 5
                   }
 
-jur_eur_stocks = {"SXR8": 2}
+jur_eur_stocks = {"SXR8": 5}
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
 Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
@@ -38,8 +38,8 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stocks_value_combined(jur_eur_stocks, True)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 666.92
-JurLynxRaha = 42
+JurRaha = 135.87
+JurLynxRaha = 72
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
 
