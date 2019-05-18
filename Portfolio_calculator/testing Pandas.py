@@ -1,4 +1,5 @@
 import pandas as pd
+import pyspark
 
 Korter1_Nimi = "Akadeemia 42-63"
 Korter2_Nimi = "Akadeemia 38-20"
@@ -25,7 +26,7 @@ dict = {"Korter": ["Brazil", "Russia", "India", "China", "South Africa"],
 '''
 
 list_test = [Korteri_nimed, Korteri_laenu_summad, Korteri_laenu_summad_refinants, Korteri_ostu_hind]
-print(list_test[1][0])
+#print(list_test[1][0])
 
 data = {"Korter": Korteri_nimed,
         "Laen": Korteri_laenu_summad,
@@ -34,7 +35,6 @@ data = {"Korter": Korteri_nimed,
         }
 
 brics = pd.DataFrame(data)
-#print(brics)
 
 #print(brics)
 
