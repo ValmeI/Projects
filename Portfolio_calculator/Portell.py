@@ -11,10 +11,12 @@ from Send_Email import Send
 from Portfolio_calculator.Funcions import what_path_for_file
 from shutil import copy
 
+path = what_path_for_file()
+
 'copy to nas webserver'
-txt_source = what_path_for_file() + r'Portfolio_calculator\Print_result.txt'
-excel_source = what_path_for_file() + r'Portfolio_calculator\Portfell.xls'
-pc_des_path = what_path_for_file() + r'Calculators\portfolio_result'
+txt_source = path + r'Portfolio_calculator\Print_result.txt'
+excel_source = path + r'Portfolio_calculator\Portfell.xls'
+pc_des_path = path + r'Calculators\portfolio_result'
 nas_des_path = r'\\RMI_NAS\Python\Calculators\portfolio_result'
 
 '# Copy txt result and excel file to Nas server, if all the files or path exists'
@@ -95,7 +97,7 @@ Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 need_new_excel_file("Portfell", "Porfelli Info")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde '
-update_excel("Portfell",
+update_excel(path + 'Portfolio_calculator/', "Portfell",
              KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku,
              KoikKokku, Morr.kokku, Pere, Valme.Uus_vilde_summa)
 

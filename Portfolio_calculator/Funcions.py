@@ -117,11 +117,11 @@ def need_new_excel_file(excel_name, sheet_name):
         create_excel(excel_name, sheet_name)
 
 
-def update_excel(excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, abikaasa_kokku, pere_kokku, vildeAfterTax):
+def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, abikaasa_kokku, pere_kokku, vildeAfterTax):
     '# add file type'
     file_name = excel_name + ".xls"
     '#open excel file'
-    rb = xlrd.open_workbook(file_name)
+    rb = xlrd.open_workbook(path + file_name)
     '#make a writeable copy'
     copy_rb = copy(rb)
     '#take the first sheet from excel'
@@ -246,14 +246,14 @@ def get_excel_column(path, excel_name, column_number):
     return column_list
 
 
-def get_last_row(excel_name, column_number):
+def get_last_row(path, excel_name, column_number):
 
     '# Kergem anda sisendisse 1 tulp ning hiljem -1 teha kuna lugemine hakkab 0ist'
     column_number = column_number - 1
     '# lisab file type'
     file_name = excel_name + ".xls"
     '# open excel file'
-    rb = xlrd.open_workbook(file_name)
+    rb = xlrd.open_workbook(path + file_name)
     first_sheet = rb.sheet_by_index(0)
 
     max_rows = first_sheet.nrows

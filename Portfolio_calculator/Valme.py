@@ -1,6 +1,8 @@
 from Portfolio_calculator import Aktsiad, Morr, Funcions as f
 from datetime import date
+from Portfolio_calculator.Funcions import what_path_for_file
 
+path = what_path_for_file()
 
 fys_eur_stocks = {"OLF1R": 67,
                   "SFG1T": 1668,
@@ -51,7 +53,7 @@ vilde_kindlustus = 6.91
 arvutamise_kp = 1
 
 Uus_vilde_summa = f.vilde_calculation(arvutamise_kp,
-                                      f.get_last_row("Portfell", 9),
+                                      f.get_last_row(path + 'Portfolio_calculator/', "Portfell", 9),
                                       round(f.dividend_with_certain_date(vilde_isa) - vilde_laen - vilde_kindlustus, 2),
-                                      f.get_last_row("Portfell", 1)
+                                      f.get_last_row(path + 'Portfolio_calculator/', "Portfell", 1)
                                       )

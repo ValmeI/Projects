@@ -43,9 +43,9 @@ def show_diagram():
 
 def show_percentages_diagram():
 
-    real_estate = Funcions.get_last_row("Portfell", 2)
-    personal_stocks = Funcions.get_last_row("Portfell", 3)
-    company_stocks = Funcions.get_last_row("Portfell", 4)
+    real_estate = Funcions.get_last_row(path + 'Portfolio_calculator/', "Portfell", 2)
+    personal_stocks = Funcions.get_last_row(path + 'Portfolio_calculator/', "Portfell", 3)
+    company_stocks = Funcions.get_last_row(path + 'Portfolio_calculator/', "Portfell", 4)
 
     labels = "Kinnisvara puhas väärtus", "Füüsilise isiku aktsiad", "Juriidilise isiku aktsiad"
 
