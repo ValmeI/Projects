@@ -119,7 +119,7 @@ elif date.today().weekday() == 4:
     '# Variables are: STMP, username, password file, send from, send to, email title and email body'
     Send.send_email('valme.noip.me',
                     'email',
-                    what_path_for_file()+ r'Send_Email\synology_pass',
+                    what_path_for_file() + r'Send_Email\synology_pass',
                     'email@valme.noip.me',
                     'margit1986@gmail.com',
                     'Portfelli seis: ' + time.strftime('%d-%m-%Y'),
