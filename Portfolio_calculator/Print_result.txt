@@ -1,4 +1,4 @@
-2019-06-13 19:01:27.173094
+2019-06-20 19:01:23.202161
 
 Portfell kinnisvara:
  
@@ -9,7 +9,7 @@ Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Akadeemia 38-20 laenumakse: 153 € + kindlustus.
 Vilde 90-193 laenumakse: 155 € + kindlustus.
 
-Laenu Akadeemia 42-63 makstud: 3 Years, 3 Months
+Laenu Akadeemia 42-63 makstud: 3 Years, 4 Months
 Laenu Akadeemia 38-20 makstud: 2 Years, 1 Months
 Laenu Vilde 90-193 makstud: 0 Years, 2 Months
 
@@ -22,14 +22,14 @@ Laenu kohutus kokku(Kõik): 55523
 
 Hetkel korterite puhas väärtus kokku: 16579 €.
 Vilde peale makse Isale: [31m66.63[0m €.
-Juriidilise isiku väärtus: 12802 €.
+Juriidilise isiku väärtus: 12987 €.
 Füüsilise isiku aktsia portfell: 10564 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 23366 €.
-Terve portfell kokku: [31m39945[0m €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 23551 €.
+Terve portfell kokku: [31m40130[0m €.
 Eesmärk krooni miljonär 63912 €.
-Veel minna: [31m23967[0m €.
-Mörr-i portfell: [31m4889[0m €.
-Pere portfell kokku: [31m44834[0m €.
+Veel minna: [31m23782[0m €.
+Mörr-i portfell: [31m4899[0m €.
+Pere portfell kokku: [31m45029[0m €.
 ========================
 Fail juba kaustas olemas.
 Tänane seis muudetud.
