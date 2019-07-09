@@ -1,5 +1,4 @@
 import pandas as pd
-import pyspark
 
 Korter1_Nimi = "Akadeemia 42-63"
 Korter2_Nimi = "Akadeemia 38-20"
@@ -18,15 +17,8 @@ Korteri_ostu_hind = [Korter1_Hind, Korter2_Hind, Korter3_Hind]
 Korteri_laenu_summad_refinants = [Korter1_Laen, Korter2_Laen, Korter3_Laen]
 Korteri_laenu_summad = [19600, 23920, Korter3_Laen]
 
-'''
-dict = {"Korter": ["Brazil", "Russia", "India", "China", "South Africa"],
-       "capital": ["Brasilia", "Moscow", "New Dehli", "Beijing", "Pretoria"],
-       "area": [8.516, 17.10, 3.286, 9.597, 1.221]
-        }
-'''
-
 list_test = [Korteri_nimed, Korteri_laenu_summad, Korteri_laenu_summad_refinants, Korteri_ostu_hind]
-#print(list_test[1][0])
+print(list_test[0][0])
 
 data = {"Korter": Korteri_nimed,
         "Laen": Korteri_laenu_summad,
@@ -35,8 +27,5 @@ data = {"Korter": Korteri_nimed,
         }
 
 brics = pd.DataFrame(data)
-
-#print(brics)
-
-from Portfolio_calculator.Funcions import update_excel
+print(brics)
 
