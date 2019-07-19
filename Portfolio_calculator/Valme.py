@@ -14,7 +14,7 @@ fys_eur_stocks = {"OLF1R": 67,
 
 jur_usa_stocks = {"AAPL": 15,
                   "TSLA": 6,
-                  "AMD": 68,
+                  "AMD": 88,
                   "MSFT": 12,
                   "FB": 7,
                   "AMZN": 1,
@@ -40,8 +40,8 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stocks_value_combined(jur_eur_stocks, True)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 1535.63
-JurLynxRaha = 85
+JurRaha = 789.93
+JurLynxRaha = 91.86
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
 
