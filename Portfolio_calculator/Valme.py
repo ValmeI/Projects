@@ -57,3 +57,6 @@ Uus_vilde_summa = f.vilde_calculation(arvutamise_kp,
                                       round(f.dividend_with_certain_date(vilde_isa) - vilde_laen - vilde_kindlustus, 2),
                                       f.get_last_row(path + 'Portfolio_calculator/', "Portfell", 1)
                                       )
+
+'# to avoid too many decimal places'
+Uus_vilde_summa = round(Uus_vilde_summa, 2)
