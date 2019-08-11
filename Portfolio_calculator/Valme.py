@@ -40,7 +40,7 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stocks_value_combined(jur_eur_stocks, True)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 624.93
+JurRaha = 863.75
 JurLynxRaha = 91.86
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
@@ -49,7 +49,7 @@ JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 vilde_isa = 230
 vilde_laen = 154.88
 vilde_kindlustus = 6.91
-'# ehk kuu päev millal arvutust tehakse'
+'# ehk kuupäev millal arvutust tehakse'
 arvutamise_kp = 1
 
 Uus_vilde_summa = f.vilde_calculation(arvutamise_kp,
