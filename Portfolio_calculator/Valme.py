@@ -7,7 +7,7 @@ path = what_path_for_file()
 fys_eur_stocks = {"SFG1T": 1668,
                   "TKM1T": 316,
                   "EFT1T": 94,
-                  "TSM1T": 1000,
+                  "TSM1T": 1286,
                   "BLT1T": 333
                   }
 
@@ -30,7 +30,7 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 570.49
+FüsIsikRaha = 0.08
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -39,7 +39,7 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stocks_value_combined(jur_eur_stocks, True)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 1169.53
+JurRaha = 1128.05
 JurLynxRaha = 91.86
 JurIsik = round(JurRaha + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
