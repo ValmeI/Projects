@@ -82,8 +82,7 @@ for x in vastus:
             f_write.write(word_after_estnltk)
             f_write.write('\n')
 
-print("\n\n--------END\n\n---------")
-
+print("\n\n--------END\n\n--------")
 
 
 
