@@ -10,7 +10,7 @@ def clearup(s, chars):
 
 
 est_stops = set(stopwords.words('estonian-stopwords – PRIS'))
-f_open = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu.txt', 'r', encoding='utf8')
+f_open = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu.txt', 'r', encoding='utf-8')
 
 '# eemaldab laused või nimed mis pole olulised'
 clean = f_open.read()\
@@ -45,20 +45,20 @@ all_words = clean.split()
 print(all_words)
 
 '# TEMP tühja faili kirjutamine, et ei peaks käsitsi kustutama'
-file_open = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu TEMP_WRITE.txt', 'w')
+file_open = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu TEMP_WRITE.txt', 'w', encoding='utf-8')
 
 '# write, so it would create a new empty file, to avoid manual deleting'
-f_write = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu WRITE.txt', 'w')
+f_write = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu WRITE.txt', 'w', encoding='utf-8')
 
 for word in all_words:
         '# appends new lines to file, without nextline'
-        f_writeTEXT = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu TEMP_WRITE.txt', 'a')
+        f_writeTEXT = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu TEMP_WRITE.txt', 'a', encoding='utf-8')
         f_writeTEXT.write(word + ' ')
         #print(word)
 print('END TEMP WRITE')
 
 '# TEMP failist'
-temp_open = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu TEMP_WRITE.txt', 'r')
+temp_open = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu TEMP_WRITE.txt', 'r', encoding='utf-8')
 
 '# estnltk text kujule'
 text = Text(temp_open.read())
@@ -78,6 +78,11 @@ for x in vastus:
         if word_after_estnltk not in est_stops:
             print(word_after_estnltk)
             '# appends new lines to file with nextline'
-            f_write = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu WRITE.txt', 'a')
+            f_write = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu WRITE.txt', 'a', encoding='utf-8')
             f_write.write(word_after_estnltk)
             f_write.write('\n')
+
+print("\n\n--------END\n\n--------")
+
+
+
