@@ -18,7 +18,7 @@ Korteri_laenu_summad_refinants = [Korter1_Laen, Korter2_Laen, Korter3_Laen]
 Korteri_laenu_summad = [19600, 23920, Korter3_Laen]
 
 list_test = [Korteri_nimed, Korteri_laenu_summad, Korteri_laenu_summad_refinants, Korteri_ostu_hind]
-print(list_test[0][0])
+#print(list_test[0][0])
 
 data = {"Korter": Korteri_nimed,
         "Laen": Korteri_laenu_summad,
@@ -27,5 +27,15 @@ data = {"Korter": Korteri_nimed,
         }
 
 brics = pd.DataFrame(data)
-print(brics)
+#print(brics)
 
+
+from lxml import html
+import requests
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from Portfolio_calculator.Funcions import what_path_for_file
+url = "https://www.funderbeam.com"
+page = requests.get(url)
+print(page)
