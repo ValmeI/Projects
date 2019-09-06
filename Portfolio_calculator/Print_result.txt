@@ -1,4 +1,4 @@
-2019-09-02 17:03:02.602887
+2019-09-06 17:23:44.576193
 
 Portfell kinnisvara:
  
@@ -13,24 +13,25 @@ Laenu Akadeemia 42-63 makstud: 3 Years, 6 Months
 Laenu Akadeemia 38-20 makstud: 2 Years, 3 Months
 Laenu Vilde 90-193 makstud: 0 Years, 4 Months
 
-Akadeemia 42-63 laenu jääk 16115 €.
-Akadeemia 38-20 laenu jääk 21359 €.
+Akadeemia 42-63 laenu jääk 16039 €.
+Akadeemia 38-20 laenu jääk 21259 €.
 Vilde 90-193 laenu jääk 17463 €.
 
-Laenu kohutus kokku(ainult Akadeemia): 37474
-Laenu kohutus kokku(Kõik): 54937
+Laenu kohutus kokku(ainult Akadeemia): 37298
+Laenu kohutus kokku(Kõik): 54761
 
-Hetkel korterite puhas väärtus kokku: 16926 €.
+Hetkel korterite puhas väärtus kokku: 17102 €.
 Vilde peale makse Isale: [31m133.26[0m €.
-Juriidilise isiku väärtus: 14505 €.
-Füüsilise isiku aktsia portfell: 10690 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 25195 €.
-Terve portfell kokku: [31m42121[0m €.
+Juriidilise isiku väärtus: 14530 €.
+Füüsilise isiku aktsia portfell: 10630 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 25160 €.
+Terve portfell kokku: [31m42262[0m €.
 Eesmärk krooni miljonär 63912 €.
-Veel minna: [31m21791[0m €.
-Mörr-i portfell: [31m5264[0m €.
-Pere portfell kokku: [31m47385[0m €.
+Veel minna: [31m21650[0m €.
+Mörr-i portfell: [31m5263[0m €.
+Pere portfell kokku: [31m47525[0m €.
 ========================
 Fail juba kaustas olemas.
-Tänane seis muudetud.
-[32mE-maili saatmine: Pole reede[0m
+Tänane seis lisatud.
+[32m
+Mail Send Successfully[0m
