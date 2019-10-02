@@ -13,7 +13,7 @@ morr_eur_stocks = {"APG1L": 196,
 
 '''morr_usa_stocks = {}'''
 
-ValCapitalRaha = 4695
+ValCapitalRaha = 4895
 
 m_aktsiad = Aktsiad.stocks_value_combined(morr_eur_stocks, True)
 
