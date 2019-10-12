@@ -8,7 +8,7 @@ morr_eur_stocks = {"APG1L": 196,
                    "EXSA": 4.290,
                    "EXXT": 2.488,
                    "SPYD": 3.303,
-                   "SPYW": 10.553
+                   "eudv?countrycode=fr": 10.553 #SPYW
                    }
 
 '''morr_usa_stocks = {}'''

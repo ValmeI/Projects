@@ -18,16 +18,20 @@ def replace_comma(stat):
 
 def stock_price_from_market_watch(stock, original_currency):
 
-    url = "https://www.marketwatch.com/search?q=" + stock
-    page = requests.get(url)
-    tree = html.fromstring(page.content)
-    price_org_currency = tree.xpath('//p[@class="data bgLast"]/text()')
+    options = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
+    url = "https://www.marketwatch.com/investing/fund/" + stock
+    driver.get(url)
 
-    '# UPDATE 6.08.2018 part of website updating most of it''s loading to JS, code was changed to use url of search '
-    '# UPDATE 6.08.2018 and parse price from there and span part was not necessary anymore '
+    convert_html = driver.page_source
+    soup = BeautifulSoup(convert_html, 'lxml')
 
-    '# convert so string and remove bracelets'
-    str_price_org_currency = str(price_org_currency)[2:-2]
+    'In case page does not have bg-quote then use span'
+    if soup.find('bg-quote', class_='value') is None:
+        str_price_org_currency = soup.find('span', class_='value').text
+    else:
+        str_price_org_currency = soup.find('bg-quote', class_='value').text
 
     if original_currency:
         '#Returns original currency'
@@ -42,9 +46,7 @@ def stock_price_from_market_watch(stock, original_currency):
         convert_url = "http://www.xe.com/currencyconverter/convert/?Amount=" + str_price_org_currency + "&From=USD&To=EUR"
 
         '# add options to chrome, to run it headless as not opening it'
-        options = Options()
-        options.add_argument("--headless")
-        driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
+
         driver.get(convert_url)
 
         convert_html = driver.page_source
@@ -96,14 +98,31 @@ stocks_portfolio_percentages(14651, fys_eur_stocks, True)
 stocks_portfolio_percentages(14651, fys_usa_stocks, True)
 stocks_portfolio_percentages(14651, jur_usa_stocks, True)
 stocks_portfolio_percentages(14651, jur_eur_stocks, True)'''
+
 '''
-print(stock_price_from_market_watch("OLF1R", True))
-print(stock_price_from_market_watch("SFG1T", True))
-print(stock_price_from_market_watch("TKM1T", True))
-print(stock_price_from_market_watch("EFT1T", True))
-print(stock_price_from_market_watch("TSM1T", True))
-print(stock_price_from_market_watch("AAPL", False))
-print(stock_price_from_market_watch("TSLA", False))
-print(stock_price_from_market_watch("AMD", False))
-print(stock_price_from_market_watch("MSFT", False))
-print(stock_price_from_market_watch("AMZN", False))'''
+print(stock_price_from_market_watch("SFG1T", False))
+print(stock_price_from_market_watch("TKM1T", False))
+print(stock_price_from_market_watch("EFT1T", False))
+print(stock_price_from_market_watch("TSM1T", False))
+print(stock_price_from_market_watch("BLT1T", False))
+print(stock_price_from_market_watch("AAPL",  False))
+print(stock_price_from_market_watch("TSLA",  False))
+print(stock_price_from_market_watch("AMD",   False))
+print(stock_price_from_market_watch("MSFT",  False))
+print(stock_price_from_market_watch("FB",    False))
+print(stock_price_from_market_watch("AMZN",  False))
+print(stock_price_from_market_watch("XIACY", False))
+print(stock_price_from_market_watch("SXR8",  False))
+print(stock_price_from_market_watch("APG1L", False))
+print(stock_price_from_market_watch("EFT1T", False))
+print(stock_price_from_market_watch("TKM1T", False))
+print(stock_price_from_market_watch("TSM1T", False))
+print(stock_price_from_market_watch("EXS1",  False))
+print(stock_price_from_market_watch("EXSA",  False))
+print(stock_price_from_market_watch("EXXT",  False))
+print(stock_price_from_market_watch("SPYD",  False))
+print(stock_price_from_market_watch("SPYW",  False))'''
+
+
+#print(stock_price_from_market_watch("SPYW.De",  True))
+#stocks_value_combined(test, True)
