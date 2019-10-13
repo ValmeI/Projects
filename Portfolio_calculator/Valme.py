@@ -36,7 +36,7 @@ FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stocks_value_combined(jur_eur_stocks, True)
-
+print(JurAktsiad)#lynx Net Liquidation	€ 12,686.68
 '#jur isiku raha LHV + LYNX RAHA'
 JurRaha = 402.89
 JurFunderBeam = 1500
