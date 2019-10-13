@@ -7,8 +7,7 @@ path = what_path_for_file()
 fys_eur_stocks = {"SFG1T": 1668,
                   "TKM1T": 355,
                   "EFT1T": 94,
-                  "TSM1T": 1286,
-                  "BLT1T": 333
+                  "TSM1T": 1286
                   }
 
 jur_usa_stocks = {"AAPL": 15,
