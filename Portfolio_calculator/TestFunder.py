@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from Portfolio_calculator.Funcions import what_path_for_file
+from selenium.webdriver.common.keys import Keys  # need to send keystrokes
 
 options = Options()
 #options.add_argument("--headless")
@@ -19,3 +20,6 @@ for password in open_file:
     driver.find_element_by_name('username').send_keys('ignarvalme@gmail.com')
     '# send password'
     driver.find_element_by_name('password').send_keys(password)
+    driver.find_element_by_class_name('button-primary').send_keys("\n") #send enter for links, buttons
+    driver.find_element_by_link_text('<span class="cards__title">Valix Invest</span>')
+    print('test')
