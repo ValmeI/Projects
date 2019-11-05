@@ -64,6 +64,9 @@ temp_open = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu TEMP_WRITE.txt
 text = Text(temp_open.read())
 '#listi kujule ja ainult lemmas, kui tahta kõik siis text.get.word_texts.lemmas.postag_descriptions.as_dataframe'
 vastus = text.get.lemmas.as_list
+#vastus = text.get.lemmas.
+
+#print(vastus)
 
 print('START LEMMAS LOOP')
 for x in vastus:
