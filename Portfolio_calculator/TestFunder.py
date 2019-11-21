@@ -21,5 +21,5 @@ for password in open_file:
     '# send password'
     driver.find_element_by_name('password').send_keys(password)
     driver.find_element_by_class_name('button-primary').send_keys("\n") #send enter for links, buttons
-    driver.implicitly_wait(2)
-    print(test)
+    driver.implicitly_wait(100)
+    driver.find_element_by_xpath('/html/body/div[3]/div/div/div[2]/div[2]').click()
