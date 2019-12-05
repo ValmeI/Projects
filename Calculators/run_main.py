@@ -10,7 +10,7 @@ from Calculators.real_estate import apartment_roi as roi
 from Portfolio_calculator import Kinnisvara as Re
 
 from Calculators.calender.calender_form import CalenderFrom, CalenderFromDelete
-from Calculators.calender.months import total
+#from Calculators.calender.months import total
 
 from datetime import date, timedelta
 from Calculators.calender.gather_data import table_exists, create_table, insert_data, backup_to_csv, get_data_for_dropdown, delete_row
@@ -46,7 +46,7 @@ def calender():
     # 2 forms so adding dates and deleting rows would not affect each other
     form = CalenderFrom(csrf_enabled=False)
     form_1 = CalenderFromDelete(csrf_enabled=False)
-    display_months = total
+    #display_months = total
     table_name = "Kuupaevad"
     days_to_add = timedelta(days=28)
 
@@ -107,12 +107,12 @@ def calender():
             '# backup to csv file, to prevent data loss'
             backup_to_csv("Calender.db", "Kuupaevad")
 
-            return render_template("calender.html", form=form, form_1=form_1, display_months=display_months, plot=plot)
+            return render_template("calender.html", form=form, form_1=form_1, plot=plot)
 
         else:
             flash('Sisend on vigane', 'danger')
 
-    return render_template("calender.html", form=form, form_1=form_1, display_months=display_months, plot=plot)
+    return render_template("calender.html", form=form, form_1=form_1, plot=plot)
 
 
 """Displays portfolio results"""

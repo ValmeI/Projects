@@ -49,20 +49,6 @@
         <div class="container-fluid">  <!-- Fixes view, makes everything decent :) -->
             <div class="row">
 
-
-                 <!--to display months-->
-                <div class="col-xs-6 col-sm-2">
-                 <!--Months, need safe to display html or it will just display text-->
-                  {% if display_months %}
-
-                 <legend class="border-bottom mb-4">3 Months</legend>
-                    <div id="display_months">
-                        {{ display_months|safe }}
-                    </div>
-                 {% endif %}
-                    <br><br>
-
-
                     <p><a href="{{ url_for('index') }}">Back to homepage</a></p>
                 </div>
 
