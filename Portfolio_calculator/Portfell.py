@@ -93,9 +93,9 @@ print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "
 print("Terve portfell kokku:", colored(KoikKokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
 print("Veel minna:", colored(Eesmark - KoikKokku, 'red'), "€.")
-
-print("Mörr-i portfell:", colored(Morr.kokku + MorrKinnisvaraPort, 'red'), "€.")
-Pere = KoikKokku + Morr.kokku
+Morr_kokku = Morr.kokku + MorrKinnisvaraPort
+print("Mörr-i portfell:", colored(Morr_kokku, 'red'), "€.")
+Pere = KoikKokku + Morr_kokku
 print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
 
@@ -106,13 +106,13 @@ need_new_excel_file("Portfell", "Porfelli Info")
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde '
 update_excel(path + 'Portfolio_calculator/', "Portfell",
              KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku,
-             KoikKokku, Morr.kokku, Pere, Valme.Uus_vilde_summa)
+             KoikKokku, Morr_kokku, Pere, Valme.Uus_vilde_summa)
 
 '# for combining results to send in e-mail'
 Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nEesmärk krooni miljonär " + str(Eesmark) + " €." + \
           "\nVeel minna: " + str(Eesmark - KoikKokku) + " €." + \
-          "\nMörr-i portfell: " + str(Morr.kokku) + " €. " + \
+          "\nMörr-i portfell: " + str(Morr_kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €."
 
 '#if it is friday and password file is in directory, then send e-mail'
