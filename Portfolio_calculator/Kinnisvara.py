@@ -1,6 +1,7 @@
 Korter1_Nimi = "Akadeemia 42-63"
 Korter2_Nimi = "Akadeemia 38-20"
 Korter3_Nimi = "Vilde 90-193"
+Korter4_Nimi = "Sõle 25B/3-21"
 
 Korter1_Hind = 24500
 Korter2_Hind = 29900
@@ -9,6 +10,7 @@ Korter3_Hind = 29900
 Korter1_Laen = 16708.64 #Algne laen 19600
 Korter2_Laen = 22146.08 #Algne laen 23920
 Korter3_Laen = 17940.00
+Korter4_Laen = 58500
 
 Korterid = {Korter1_Nimi: Korter1_Hind,
             Korter2_Nimi: Korter2_Hind}

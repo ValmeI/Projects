@@ -49,29 +49,35 @@ print(Kinnisvara.Korter3_Nimi, "laenumakse:", PerMonthVilde90, "€ + kindlustus
 dateAka42 = relativedelta(Täna, Valme.Vana_Aka42_63_Laen_Kuupäev)
 dateAka38 = relativedelta(Täna, Valme.Vana_Aka38_20_Laen_Kuupäev)
 dateVilde90 = relativedelta(Täna, Valme.Vilde90_193_Laen_Kuupäev)
+dateSõle = relativedelta(Täna, Morr.Sõle_Laen_Kuupäev)
 
 print("Laenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
 print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months")
-print("Laenu Vilde 90-193 makstud:", dateVilde90.years, "Years,", dateVilde90.months, "Months\n")
+print("Laenu Vilde 90-193 makstud:", dateVilde90.years, "Years,", dateVilde90.months, "Months")
+print("Laenu Sõle 25B/3-21 makstud:", dateSõle.years, "Years,", dateSõle.months, "Months\n")
 
 '#makstud kuude vahe arvutus'
 KuudMakstudAka42 = diff_months(Täna, Valme.Aka42_63_Laen_Kuupäev)
 KuudMakstudAka38 = diff_months(Täna, Valme.Aka38_20_Laen_Kuupäev)
 KuudMakstudVilde90 = diff_months(Täna, Valme.Vilde90_193_Laen_Kuupäev)
+KuudMakstudSõle = diff_months(Täna, Morr.Sõle_Laen_Kuupäev)
 
 '#diffMonths annab natuke erineva tulemuse, kui aastad vs kuud'
 BalanceAka42 = Kinnisvara.apr_balance(Kinnisvara.Korter1_Laen, 3, 15, KuudMakstudAka42)
 BalanceAka38 = Kinnisvara.apr_balance(Kinnisvara.Korter2_Laen, 3, 15, KuudMakstudAka38)
 BalanceVilde90 = Kinnisvara.apr_balance(Kinnisvara.Korter3_Laen, 2.39, 11, KuudMakstudVilde90)
+BalanceSõle = Kinnisvara.apr_balance(Kinnisvara.Korter4_Laen, 1.17, 30, KuudMakstudSõle)
 print(Kinnisvara.Korter1_Nimi, "laenu jääk", BalanceAka42, "€.")
 print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.")
 print(Kinnisvara.Korter3_Nimi, "laenu jääk", BalanceVilde90, "€.")
+print(Kinnisvara.Korter4_Nimi, "laenu jääk", BalanceSõle, "€.")
 
 print("\nLaenu kohutus kokku(ainult Akadeemia):", BalanceAka42 + BalanceAka38)
 print("Laenu kohutus kokku(Kõik):", BalanceAka42 + BalanceAka38 + BalanceVilde90)
 
 '#Kinnisvara kokku. Liidetakse kõik Dics korterite ostu hinnad - balancid ehk palju laenu veel maksta'
 KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
+MorrKinnisvaraPort = 67700 - BalanceSõle # Sõle korteri hind - balance
 
 print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
 KoikKokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
@@ -87,7 +93,8 @@ print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "
 print("Terve portfell kokku:", colored(KoikKokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
 print("Veel minna:", colored(Eesmark - KoikKokku, 'red'), "€.")
-print("Mörr-i portfell:", colored(Morr.kokku, 'red'), "€.")
+
+print("Mörr-i portfell:", colored(Morr.kokku + MorrKinnisvaraPort, 'red'), "€.")
 Pere = KoikKokku + Morr.kokku
 print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
