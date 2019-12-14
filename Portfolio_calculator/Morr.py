@@ -6,22 +6,22 @@ morr_eur_stocks = {"APG1L": 196,
                    "EFT1T": 46,
                    "TKM1T": 53,
                    "TSM1T": 560,
-                   "EXS1": 0.783,
-                   "EXSA": 4.290,
-                   "EXXT": 2.488,
-                   "SPYD": 3.303,
-                   "eudv?countrycode=fr": 10.553 #SPYW
+                   "EXS1": 1.070,
+                   "EXSA": 5.891,
+                   "EXXT": 3.364,
+                   "SPYD": 	4.503,
+                   "eudv?countrycode=fr": 14.516 #SPYW
                    }
 
 '''morr_usa_stocks = {}'''
 
 Sõle_Laen_Kuupäev = date(2011, 8, 25)
 
-ValCapitalRaha = 5295
+ValCapitalRaha = 4895
 
 m_aktsiad = Aktsiad.stocks_value_combined(morr_eur_stocks, True)
 
-m_raha = 114.87
+m_raha = 108.37
 
 kokku = round(ValCapitalRaha/2 + m_raha + m_aktsiad)
 
