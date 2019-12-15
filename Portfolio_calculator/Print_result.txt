@@ -1,4 +1,4 @@
-2019-12-14 20:47:01.872077
+2019-12-15 20:01:45.700297
 
 Portfell kinnisvara:
  
@@ -34,5 +34,5 @@ Mörr-i portfell: [31m29768[0m €.
 Pere portfell kokku: [31m78366[0m €.
 ========================
 Fail juba kaustas olemas.
-Tänane seis muudetud.
+Tänane seis lisatud.
 [32mE-maili saatmine: Pole reede[0m
