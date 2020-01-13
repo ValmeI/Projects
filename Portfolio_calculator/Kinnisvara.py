@@ -18,18 +18,6 @@ Korterid = {Korter1_Nimi: Korter1_Hind,
 LaenuSummad = {Korter1_Nimi: Korter1_Laen,
                Korter2_Nimi: Korter2_Laen}
 
-
-def korterid():
-
-    print("\nPortfell kinnisvara:\n ")
-    for k, v in Korterid.items():
-        for k2, v2 in LaenuSummad.items():
-
-            '# Vältimaks rist korrutist ehk siis mitut rida.'
-            if k == k2:
-                print("\t*Korter", k, "ostetud hinnaga", v, "€. Laenu summa", v2, "€.")
-
-
 '#Laenumakse kuus - Laenu summa, intress % na ja aastad'
 
 

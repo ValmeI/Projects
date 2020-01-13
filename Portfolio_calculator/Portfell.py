@@ -36,7 +36,7 @@ sys.stdout = txt_write_move.Logger()
 Täna = date.today()
 print(datetime.datetime.now())
 '#Kinnisvara objetktide print'
-Kinnisvara.korterid()
+
 PerMonthAka42 = Kinnisvara.apr_month(Kinnisvara.Korter1_Laen, 3, 15)
 PerMonthAka38 = Kinnisvara.apr_month(Kinnisvara.Korter2_Laen, 3, 15)
 PerMonthVilde90 = Kinnisvara.apr_month(Kinnisvara.Korter3_Laen, 2.39, 11)
@@ -67,10 +67,10 @@ BalanceAka42 = Kinnisvara.apr_balance(Kinnisvara.Korter1_Laen, 3, 15, KuudMakstu
 BalanceAka38 = Kinnisvara.apr_balance(Kinnisvara.Korter2_Laen, 3, 15, KuudMakstudAka38)
 BalanceVilde90 = Kinnisvara.apr_balance(Kinnisvara.Korter3_Laen, 2.39, 11, KuudMakstudVilde90)
 BalanceSõle = Kinnisvara.apr_balance(Kinnisvara.Korter4_Laen, 1.17, 30, KuudMakstudSõle)
-print(Kinnisvara.Korter1_Nimi, "laenu jääk", BalanceAka42, "€.")
-print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.")
-print(Kinnisvara.Korter3_Nimi, "laenu jääk", BalanceVilde90, "€.")
-print(Kinnisvara.Korter4_Nimi, "laenu jääk", BalanceSõle, "€.")
+print(Kinnisvara.Korter1_Nimi, "laenu jääk", BalanceAka42, "€.", 'Laenu summa', Kinnisvara.Korter1_Laen)
+print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.", 'Laenu summa', Kinnisvara.Korter2_Laen)
+print(Kinnisvara.Korter3_Nimi, "laenu jääk", BalanceVilde90, "€.", 'Laenu summa', Kinnisvara.Korter3_Laen)
+print(Kinnisvara.Korter4_Nimi, "laenu jääk", BalanceSõle, "€.", 'Laenu summa', Kinnisvara.Korter4_Laen)
 
 print("\nLaenu kohutus kokku(ainult Akadeemia):", BalanceAka42 + BalanceAka38)
 print("Laenu kohutus kokku(Kõik):", BalanceAka42 + BalanceAka38 + BalanceVilde90)
@@ -124,7 +124,7 @@ if os.path.isfile(what_path_for_file() + r'Send_Email\synology_pass'):
 elif date.today().weekday() == 4:
 
     '# Variables are: STMP, username, password file, send from, send to, email title and email body'
-    Send.send_email('192.168.1.33',#'valme.noip.me', #ajutine ip kuniks dns
+    Send.send_email('valme.noip.me',
                     'email',
                     what_path_for_file() + r'Send_Email\synology_pass',
                     'email@valme.noip.me',
