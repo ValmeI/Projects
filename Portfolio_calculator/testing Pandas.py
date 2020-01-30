@@ -31,11 +31,12 @@ brics = pd.DataFrame(data)
 
 
 from lxml import html
-import requests
+#import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from Portfolio_calculator.Funcions import what_path_for_file
-url = "https://www.funderbeam.com"
-page = requests.get(url)
-print(page)
+#url = "https://www.funderbeam.com"
+#page = requests.get(url)
+#print(page)
+

@@ -12,10 +12,10 @@ fys_eur_stocks = {"SFG1T": 1668,
 
 jur_usa_stocks = {"AAPL": 15,
                   "TSLA": 6,
-                  "AMD": 88,
+                  "NASDAQ: AMD": 88,
                   "MSFT": 12,
-                  "FB": 7,
-                  "AMZN": 1,
+                  "NASDAQ: FB": 7,
+                  "NASDAQ: AMZN": 1,
                   "XIACY": 23
                   }
 

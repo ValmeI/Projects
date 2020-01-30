@@ -4,7 +4,17 @@ from selenium.webdriver.chrome.options import Options
 from Portfolio_calculator.Funcions import what_path_for_file
 
 
-def replace_comma(stat):
+def replace_comma_google(stat):
+    '# removes comma in numbers. Is needed to convert to float. Numbers like 1,0000 and so on.'
+    stat = str(stat)
+    if "," in stat:
+        stat = stat.replace(",", ".")
+        return stat
+    else:
+        return stat
+
+
+def replace_comma_convert(stat):
     '# removes comma in numbers. Is needed to convert to float. Numbers like 1,0000 and so on.'
     stat = str(stat)
     if "," in stat:
@@ -17,23 +27,21 @@ def replace_comma(stat):
 def stock_price_from_market_watch(stock, original_currency):
 
     options = Options()
+    '# add options to chrome, to run it headless as not opening it'
     options.add_argument("--headless")
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
-    url = "https://www.marketwatch.com/investing/fund/" + stock
+    url = "https://www.google.com/search?q=" + stock
     driver.get(url)
 
     convert_html = driver.page_source
     soup = BeautifulSoup(convert_html, 'lxml')
-
-    'In case page does not have bg-quote then use span'
-    if soup.find('bg-quote', class_='value') is None:
-        str_price_org_currency = soup.find('span', class_='value').text
-    else:
-        str_price_org_currency = soup.find('bg-quote', class_='value').text
+    '# 27.01 Update, parse from google search'
+    str_price_org_currency = soup.find('span', jsname='vWLAgc').text.strip(',.-').replace(' ', '')
+    '# 27.01.2020 UPDATE replace comma from google'
+    str_price_org_currency = replace_comma_google(str_price_org_currency)
 
     if original_currency:
         '#Returns original currency'
-        str_price_org_currency = replace_comma(str_price_org_currency)
         return float(str_price_org_currency)
     else:
         '#Converts and Returns currency in euros'
@@ -42,17 +50,14 @@ def stock_price_from_market_watch(stock, original_currency):
         '# UPDATE 25.08.2018 opening every page in Chrome and parsing made it much more slower'
         '# use page to convert USD to EUR'
         convert_url = "http://www.xe.com/currencyconverter/convert/?Amount=" + str_price_org_currency + "&From=USD&To=EUR"
-
-        '# add options to chrome, to run it headless as not opening it'
-
         driver.get(convert_url)
-
         convert_html = driver.page_source
         '# scrape with BeautifulSoup'
         soup = BeautifulSoup(convert_html, 'lxml')
         '# specify of what tag and what class, to get results in euros'
         to_eur_convert = soup.find('span', class_='converterresult-toAmount').text
-        to_eur_convert = replace_comma(to_eur_convert)
+        '# 27.01.2020 UPDATE replace comma from convert'
+        to_eur_convert = replace_comma_convert(to_eur_convert)
         return float(to_eur_convert)
 
 
@@ -95,20 +100,21 @@ def stocks_portfolio_percentages(portfolio_size, stocks_dictionary, org_currency
 stocks_portfolio_percentages(14651, fys_eur_stocks, True)
 stocks_portfolio_percentages(14651, fys_usa_stocks, True)
 stocks_portfolio_percentages(14651, jur_usa_stocks, True)
-stocks_portfolio_percentages(14651, jur_eur_stocks, True)'''
-'''
-print("SFG1T", stock_price_from_market_watch("SFG1T", True))
-print("TKM1T", stock_price_from_market_watch("TKM1T", True))
-print("EFT1T", stock_price_from_market_watch("EFT1T", True))
-print("TSM1T", stock_price_from_market_watch("TSM1T", True))
-print("BLT1T", stock_price_from_market_watch("BLT1T", True))
+stocks_portfolio_percentages(14651, jur_eur_stocks, True)
+
+print("SFG1T", stock_price_from_market_watch("SFG1T", False))
+print("AAPL",  stock_price_from_market_watch("AAPL",  False))
+print("TKM1T", stock_price_from_market_watch("TKM1T", False))
+print("EFT1T", stock_price_from_market_watch("EFT1T", False))
+print("TSM1T", stock_price_from_market_watch("TSM1T", False))
+print("BLT1T", stock_price_from_market_watch("BLT1T", False))
 print("AAPL",  stock_price_from_market_watch("AAPL",  False))
 print("TSLA",  stock_price_from_market_watch("TSLA",  False))
-print("AMD",   stock_price_from_market_watch("AMD",   False))
+print("AMD",   stock_price_from_market_watch("NASDAQ: AMD",   False))
 print("MSFT",  stock_price_from_market_watch("MSFT",  False))
-print("FB",    stock_price_from_market_watch("FB",    False))
-print("AMZN",  stock_price_from_market_watch("AMZN",  False))
-print("XIACY", stock_price_from_market_watch("XIACY", False))
+print("FB",    stock_price_from_market_watch("NASDAQ: FB",    False))
+print("AMZN",  stock_price_from_market_watch("NASDAQ: AMZN",  False))
+print("XIACY", stock_price_from_market_watch("XIACY", True))
 print("SXR8",  stock_price_from_market_watch("SXR8",  True))
 
 print("APG1L", stock_price_from_market_watch("APG1L", True))
