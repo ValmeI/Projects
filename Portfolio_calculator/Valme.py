@@ -12,14 +12,14 @@ fys_eur_stocks = {"SFG1T": 1668,
 
 jur_usa_stocks = {"AAPL": 15,
                   "TSLA": 6,
-                  "NASDAQ: AMD": 88,
+                  "NASDAQ: AMD": 94,
                   "MSFT": 12,
                   "NASDAQ: FB": 7,
                   "NASDAQ: AMZN": 1,
-                  "XIACY": 23
+                  "GOOGL": 1
                   }
 
-jur_eur_stocks = {"SXR8": 5}
+#jur_eur_stocks = {"SXR8": 5}
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
 Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
@@ -35,12 +35,12 @@ FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 '# Vaba raha ja aktsiad kokku'
 FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
-JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Aktsiad.stocks_value_combined(jur_eur_stocks, True)
+JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) #+ Aktsiad.stocks_value_combined(jur_eur_stocks, True)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 48.79
+JurRaha = 112.14
 JurFunderBeam = 3626.22
-JurLynxRaha = 22
+JurLynxRaha = 37
 JurIsik = round(JurRaha + JurFunderBeam + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
 
