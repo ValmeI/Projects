@@ -125,7 +125,7 @@ print("EXS1",  stock_price_from_market_watch("EXS1",  True))
 print("EXSA",  stock_price_from_market_watch("EXSA",  True))
 print("EXXT",  stock_price_from_market_watch("EXXT",  True))
 print("SPYD",  stock_price_from_market_watch("SPYD",  True)) # See on vale tulemus
-print("SPYW",  stock_price_from_market_watch("eudv?countrycode=fr",  True)) #SPYW
+print("SPYW",  stock_price_from_market_watch("SPYW",  True)) #SPYW
 '''
 
 

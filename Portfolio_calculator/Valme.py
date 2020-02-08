@@ -16,7 +16,7 @@ jur_usa_stocks = {"AAPL": 15,
                   "MSFT": 12,
                   "NASDAQ: FB": 7,
                   "NASDAQ: AMZN": 1,
-                  "GOOGL": 1
+                  "NASDAQ: GOOGL": 1
                   }
 
 #jur_eur_stocks = {"SXR8": 5}
