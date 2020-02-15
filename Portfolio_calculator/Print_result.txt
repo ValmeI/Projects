@@ -1,4 +1,4 @@
-2020-02-10 17:16:43.069285
+2020-02-15 10:27:34.052580
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Akadeemia 38-20 laenumakse: 153 € + kindlustus.
@@ -19,14 +19,14 @@ Laenu kohutus kokku(Kõik): 53159
 
 Hetkel korterite puhas väärtus kokku: 17981 €.
 Vilde peale makse Isale: [31m308.31[0m €.
-Juriidilise isiku väärtus: 26586 €.
-Füüsilise isiku aktsia portfell: 11543 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 38129 €.
-Terve portfell kokku: [31m56110[0m €.
+Juriidilise isiku väärtus: 28333 €.
+Füüsilise isiku aktsia portfell: 11498 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 39831 €.
+Terve portfell kokku: [31m57812[0m €.
 Eesmärk krooni miljonär 63912 €.
-Veel minna: [31m7802[0m €.
-Mörr-i portfell: [31m30742[0m €.
-Pere portfell kokku: [31m86852[0m €.
+Veel minna: [31m6100[0m €.
+Mörr-i portfell: [31m30763[0m €.
+Pere portfell kokku: [31m88575[0m €.
 ========================
 Fail juba kaustas olemas.
 Tänane seis lisatud.
