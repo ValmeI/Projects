@@ -16,7 +16,7 @@ jur_usa_stocks = {"AAPL": 15,
                   "MSFT": 12,
                   "NASDAQ: FB": 7,
                   "NASDAQ: AMZN": 1,
-                  "NASDAQ: GOOGL": 1
+                  "NASDAQ: GOOGL": 2
                   }
 
 
@@ -37,8 +37,8 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False)
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 1300
-JurFunderBeam = 3700.22
+JurRaha = 100
+JurFunderBeam = 3600.22
 JurLynxRaha = 47
 JurIsik = round(JurRaha + JurFunderBeam + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
