@@ -30,24 +30,24 @@ Variables are: STMP, username, password file, send from, send to, email title an
 '''
 send_email('smtp.gmail.com', 
            'ignarvalme', 
-           'gmail_pass', 
+           'D:\PycharmProjects\Projects\Send_Email\gmail_pass',
            'email@valme.noip.me', 
            'ignarvalme@gmail.com', 
            'test', 
            'body')
-'''
 
+'''
 '''
 Testing synolog local mail servers sending
 Variables are: STMP, username, password file, send from, send to, email title and email body
 '''
 '''
-send_email('valme.noip.me',
+send_email('192.168.1.161',
            'email',
            'synology_pass',
            'email@valme.noip.me',
            'ignarvalme@gmail.com',
            'test',
            'body')
-'''
 
+'''
