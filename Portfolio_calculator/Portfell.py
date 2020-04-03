@@ -115,10 +115,10 @@ Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nVeel minna: " + str(Eesmark - KoikKokku) + " €." + \
           "\nMörr-i portfell: " + str(Morr_kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €." + "\n\n" +\
-          "\nLaenu Akadeemia 42-63 makstud:" + str(dateAka42.years) + "Years," + str(dateAka42.months) + "Months" +\
-          "\nLaenu Akadeemia 38-20 makstud:" + str(dateAka38.years) + "Years," + str(dateAka38.months) + "Months" +\
-          "\nLaenu Vilde 90-193 makstud:" + str(dateVilde90.years) + "Years," + str(dateVilde90.months) + "Months" +\
-          "\nLaenu Sõle 25B/3-21 makstud:" + str(dateSõle.years) + "Years," + str(dateSõle.months) + "Months"
+          "\nLaenu Akadeemia 42-63 makstud: " + str(dateAka42.years) + " Years, " + str(dateAka42.months) + " Months" +\
+          "\nLaenu Akadeemia 38-20 makstud: " + str(dateAka38.years) + " Years, " + str(dateAka38.months) + " Months" +\
+          "\nLaenu Vilde 90-193 makstud: " + str(dateVilde90.years) + " Years, " + str(dateVilde90.months) + " Months" +\
+          "\nLaenu Sõle 25B/3-21 makstud: " + str(dateSõle.years) + " Years, " + str(dateSõle.months) + " Months"
 
 '#if it is friday and password file is in directory, then send e-mail'
 if os.path.isfile(what_path_for_file() + r'Send_Email\synology_pass'):
