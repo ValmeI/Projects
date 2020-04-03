@@ -78,7 +78,7 @@ def calender():
             # fill and refresh the delete drop down list
             form_1.delete_row.choices = drop_down_often_calender()
 
-            return render_template("calender.html", form=form, form_1=form_1,  display_months=display_months, plot=plot)
+            return render_template("calender.html", form=form, form_1=form_1,  plot=plot)
 
         # validate that end date is not same or smaller than begin date
         elif form.beginning_date.data >= form.end_date.data:
