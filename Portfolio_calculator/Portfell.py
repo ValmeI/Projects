@@ -67,6 +67,7 @@ BalanceAka42 = Kinnisvara.apr_balance(Kinnisvara.Korter1_Laen, 3, 15, KuudMakstu
 BalanceAka38 = Kinnisvara.apr_balance(Kinnisvara.Korter2_Laen, 3, 15, KuudMakstudAka38)
 BalanceVilde90 = Kinnisvara.apr_balance(Kinnisvara.Korter3_Laen, 2.39, 11, KuudMakstudVilde90)
 BalanceSõle = Kinnisvara.apr_balance(Kinnisvara.Korter4_Laen, 1.17, 30, KuudMakstudSõle)
+
 print(Kinnisvara.Korter1_Nimi, "laenu jääk", BalanceAka42, "€.", 'Laenu summa', Kinnisvara.Korter1_Laen)
 print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.", 'Laenu summa', Kinnisvara.Korter2_Laen)
 print(Kinnisvara.Korter3_Nimi, "laenu jääk", BalanceVilde90, "€.", 'Laenu summa', Kinnisvara.Korter3_Laen)
@@ -113,7 +114,11 @@ Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nEesmärk krooni miljonär " + str(Eesmark) + " €." + \
           "\nVeel minna: " + str(Eesmark - KoikKokku) + " €." + \
           "\nMörr-i portfell: " + str(Morr_kokku) + " €. " + \
-          "\nPere portfell kokku: " + str(Pere) + " €."
+          "\nPere portfell kokku: " + str(Pere) + " €." + "\n\n" +\
+          "\nLaenu Akadeemia 42-63 makstud:" + str(dateAka42.years) + "Years," + str(dateAka42.months) + "Months" +\
+          "\nLaenu Akadeemia 38-20 makstud:" + str(dateAka38.years) + "Years," + str(dateAka38.months) + "Months" +\
+          "\nLaenu Vilde 90-193 makstud:" + str(dateVilde90.years) + "Years," + str(dateVilde90.months) + "Months" +\
+          "\nLaenu Sõle 25B/3-21 makstud:" + str(dateSõle.years) + "Years," + str(dateSõle.months) + "Months"
 
 '#if it is friday and password file is in directory, then send e-mail'
 if os.path.isfile(what_path_for_file() + r'Send_Email\synology_pass'):
