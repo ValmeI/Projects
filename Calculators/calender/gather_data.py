@@ -2,6 +2,20 @@ import sqlite3
 from datetime import timedelta
 from dateutil.parser import parse
 import csv
+import os
+
+
+nas_path = '/volume1/Python/Calculators/'
+home_pc_path = r'D:\PycharmProjects\Projects\Calculators/'
+laptop_path = r'C:\PycharmProjects\Projects\Calculators/'
+
+'# chooses debug value depending on the machine that it is on'
+if os.path.isdir(home_pc_path):
+    csv_path = home_pc_path
+elif os.path.isdir(nas_path):
+    csv_path = nas_path
+elif os.path.isdir(laptop_path):
+    csv_path = laptop_path
 
 
 def connect_db(database_name):
@@ -17,7 +31,7 @@ def backup_to_csv(db, table):
     #print(select_column.fetchone())
 
     '# a as append, w as overwrite'
-    with open('backup.csv', 'w', newline='') as csvfile:
+    with open(csv_path + 'backup.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         for row in select_column.fetchall():
             #print(row)
@@ -159,3 +173,4 @@ def delete_row(db, table, begin, end, predict_begin, predict_end):
 #print(get_data_from_table("Calender.db", "Kuupaevad", "Predict_begin_date", "Predict_end_date"))
 
 #create_fictitious_dates(get_data_from_table("Calender.db", "Kuupaevad", "Begin_date", "End_date", 0))
+
