@@ -38,7 +38,8 @@ with open('Import tulemused.csv', mode='w', newline='') as ÄR_file:
     ÄR_writer = csv.writer(ÄR_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL, )
 
     for y in ÄR_list:
-        ÄR_writer.writerow([y])
+        ÄR_writer.writerow([y[0:225]])
+        '#250 max title in testRails'
         #print(row, 0, y)
         row += 1
 print("Excel Import loodud")
