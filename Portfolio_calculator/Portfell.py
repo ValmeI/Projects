@@ -95,6 +95,8 @@ print("Terve portfell kokku:", colored(KoikKokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
 print("Veel minna:", colored(Eesmark - KoikKokku, 'red'), "€.")
 Morr_kokku = Morr.kokku + MorrKinnisvaraPort
+print("Mörr-i aktsiad:",  Morr.kokku, "€.")
+print("Mörr-i kinnisvara:", MorrKinnisvaraPort, "€.")
 print("Mörr-i portfell:", colored(Morr_kokku, 'red'), "€.")
 Pere = KoikKokku + Morr_kokku
 print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
