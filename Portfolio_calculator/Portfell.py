@@ -115,6 +115,8 @@ update_excel(path + 'Portfolio_calculator/', "Portfell",
 Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nEesmärk krooni miljonär " + str(Eesmark) + " €." + \
           "\nVeel minna: " + str(Eesmark - KoikKokku) + " €." + \
+          "\nMörr-i aktsiad:" + str(Morr.kokku) + " €." + \
+          "\nMörr-i kinnisvara:" + str(MorrKinnisvaraPort) + " €." + \
           "\nMörr-i portfell: " + str(Morr_kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €." + "\n\n" +\
           "\nLaenu Akadeemia 42-63 makstud: " + str(dateAka42.years) + " Years, " + str(dateAka42.months) + " Months" +\
