@@ -85,7 +85,7 @@ KoikKokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
 
 '#Ehk 1 000 000 Eesti krooni'
 Eesmark = round(1000000/15.6466)
-
+Eesmark2 = 500000
 print("Vilde peale makse Isale:", colored(Valme.Uus_vilde_summa, 'red'), "€.")
 
 print("Juriidilise isiku väärtus:", Valme.JurIsik, "€.")
@@ -93,7 +93,11 @@ print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
 print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
 print("Terve portfell kokku:", colored(KoikKokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
-print("Veel minna:", colored(Eesmark - KoikKokku, 'red'), "€.")
+print("Krooni miljonär veel minna:", colored(Eesmark - KoikKokku, 'red'), "€.")
+
+print("Eesmärk 35 aastaselt portfelli väärtus", Eesmark2, "€.")
+print("Veel minna:", colored(Eesmark2 - KoikKokku, 'red'), "€.")
+
 Morr_kokku = Morr.kokku + MorrKinnisvaraPort
 print("Mörr-i aktsiad:",  Morr.kokku, "€.")
 print("Mörr-i kinnisvara:", MorrKinnisvaraPort, "€.")
@@ -101,9 +105,7 @@ print("Mörr-i portfell:", colored(Morr_kokku, 'red'), "€.")
 Pere = KoikKokku + Morr_kokku
 print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
-
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
-
 need_new_excel_file("Portfell", "Porfelli Info")
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde '
