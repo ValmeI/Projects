@@ -116,7 +116,9 @@ update_excel(path + 'Portfolio_calculator/', "Portfell",
 '# for combining results to send in e-mail'
 Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nEesmärk krooni miljonär " + str(Eesmark) + " €." + \
-          "\nVeel minna: " + str(Eesmark - KoikKokku) + " €." + \
+          "\nKrooni miljonär veel minna: " + str(Eesmark - KoikKokku) + " €." + \
+          "\nEesmärk 35 aastaselt portfelli väärtus " + str(Eesmark2) + " €." + \
+          "\nVeel minna: " + str(Eesmark2 - KoikKokku) + " €." + \
           "\nMörr-i aktsiad:" + str(Morr.kokku) + " €." + \
           "\nMörr-i kinnisvara:" + str(MorrKinnisvaraPort) + " €." + \
           "\nMörr-i portfell: " + str(Morr_kokku) + " €. " + \
