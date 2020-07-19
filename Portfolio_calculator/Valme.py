@@ -4,8 +4,7 @@ from Portfolio_calculator.Funcions import what_path_for_file
 
 path = what_path_for_file()
 
-fys_eur_stocks = {"SFG1T": 1668,
-                  "TKM1T": 355,
+fys_eur_stocks = {"TKM1T": 355,
                   "EFT1T": 94,
                   "TSM1T": 1286
                   }
@@ -28,7 +27,7 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 318
+FüsIsikRaha = 3137
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -39,10 +38,10 @@ JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAkts
 
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 1400
+JurRaha = 2900
 JurFunderBeam = 3600
-JurLynxRaha = 118
-JurIsik = round(JurRaha + JurFunderBeam + JurLynxRaha + JurAktsiad + Morr.ValCapitalRaha/2)
+Jur_IB_Raha = 118
+JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
 
 '# üür'
