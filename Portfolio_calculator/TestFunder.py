@@ -21,8 +21,8 @@ for password in open_file:
     '# send password'
     driver.find_element_by_name('password').send_keys(password)
     driver.find_element_by_class_name('button-primary').send_keys("\n") #send enter for links, buttons
-    driver.implicitly_wait(100)
-
-    test = driver.find_element_by_link_text('Valix Invest').click()
-    driver.find_element_by_link_text('Valix Invest').send_keys("\n")
+    driver.implicitly_wait(10000)
+    test = driver.find_elements_by_class_name('cards__title')
+    test1 = driver.find_elements_by_class_name('cards__title')[1]
     print(test)
+    print(test1)
