@@ -9,8 +9,8 @@ fys_eur_stocks = {"TKM1T": 355,
                   "TSM1T": 1286
                   }
 
-jur_usa_stocks = {"AAPL": 15,
-                  "TSLA": 6,
+jur_usa_stocks = {"AAPL": 60,
+                  "TSLA": 30,
                   "NASDAQ: AMD": 94,
                   "MSFT": 12,
                   "NASDAQ: FB": 7,
