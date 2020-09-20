@@ -9,7 +9,7 @@ fys_eur_stocks = {"TKM1T": 355,
                   "TSM1T": 1286
                   }
 
-jur_usa_stocks = {"AAPL": 60,
+jur_usa_stocks = {"AAPL": 66,
                   "TSLA": 30,
                   "NASDAQ: AMD": 94,
                   "MSFT": 12,
@@ -38,9 +38,9 @@ JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAkts
 
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 1570
+JurRaha = 370
 JurFunderBeam = 3600
-Jur_IB_Raha = 123
+Jur_IB_Raha = 60
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
 
