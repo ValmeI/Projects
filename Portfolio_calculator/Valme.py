@@ -40,7 +40,7 @@ JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAkts
 '#jur isiku raha LHV + LYNX RAHA'
 JurRaha = 370
 JurFunderBeam = 3600
-Jur_IB_Raha = 60
+Jur_IB_Raha = 100
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha/2)
 '# Mörr on väike karu'
 
