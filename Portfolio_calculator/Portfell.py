@@ -91,6 +91,7 @@ print("Vilde peale makse Isale:", colored(Valme.Uus_vilde_summa, 'red'), "€.")
 print("Juriidilise isiku väärtus:", Valme.JurIsik, "€.")
 print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
 print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
+print("Vaba raha Jur/Füs Kokku:", Valme.RahaKokku, "€.")
 print("Terve portfell kokku:", colored(KoikKokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
 print("Krooni miljonär veel minna:", colored(Eesmark - KoikKokku, 'red'), "€.")
@@ -111,7 +112,7 @@ need_new_excel_file("Portfell", "Porfelli Info")
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde '
 update_excel(path + 'Portfolio_calculator/', "Portfell",
              KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku,
-             KoikKokku, Morr_kokku, Pere, Valme.Uus_vilde_summa)
+             KoikKokku, Morr_kokku, Pere, Valme.Uus_vilde_summa, Valme.RahaKokku)
 
 '# for combining results to send in e-mail'
 Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \

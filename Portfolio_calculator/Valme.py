@@ -18,7 +18,6 @@ jur_usa_stocks = {"AAPL": 66,
                   "NASDAQ: GOOGL": 2
                   }
 
-
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
 Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
 Vana_Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
@@ -27,7 +26,7 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 2400
+FüsIsikRaha = 3274.98
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -36,13 +35,15 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 CleveronAktsia = 4 * 850
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia
 
-
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 370
+JurRaha = 446.88
 JurFunderBeam = 3600
-Jur_IB_Raha = 100
-JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha/2)
+Jur_IB_Raha = 88
+JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2)
 '# Mörr on väike karu'
+
+'# Raha ehk likviitsus, jur ja fys kokku'
+RahaKokku = FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha
 
 '# üür'
 vilde_isa = 250
