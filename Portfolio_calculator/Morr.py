@@ -6,11 +6,11 @@ morr_eur_stocks = {"APG1L": 196,
                    "EFT1T": 46,
                    "TKM1T": 53,
                    "TSM1T": 560,
-                   "EXS1": 1.843,
-                   "EXSA": 10.260,
-                   "EXXT": 5.323,
-                   "SPYD": 	7.933,
-                   "SPYW": 25.953
+                   "EXS1": 2.039,
+                   "EXSA": 11.460,
+                   "EXXT": 5.768,
+                   "SPYD": 	8.902,
+                   "SPYW": 29.227
                    }
 
 '''morr_usa_stocks = {}'''
@@ -21,6 +21,6 @@ ValCapitalRaha = 6700
 
 m_aktsiad = Aktsiad.stocks_value_combined(morr_eur_stocks, True)
 
-m_raha = 230.67
+m_raha = 228.11
 
 kokku = round(ValCapitalRaha/2 + m_raha + m_aktsiad)
