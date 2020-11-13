@@ -43,7 +43,7 @@ JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCap
 '# Mörr on väike karu'
 
 '# Raha ehk likviitsus, jur ja fys kokku'
-RahaKokku = FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha
+RahaKokku = round(FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha)
 
 '# üür'
 vilde_isa = 250
