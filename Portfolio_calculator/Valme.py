@@ -11,7 +11,7 @@ fys_eur_stocks = {"TKM1T": 355,
 
 jur_usa_stocks = {"AAPL": 73,
                   "TSLA": 30,
-                  "ETR: AMD": 188,
+                  "ETR: AMD": 158,
                   "MSFT": 12,
                   "NASDAQ: FB": 7,
                   "NASDAQ: AMZN": 1,
@@ -33,12 +33,12 @@ FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
 CleveronAktsia = 4 * 850
-JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia - 5480
+JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia - 3200
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 318
-JurFunderBeam = 3900
-Jur_IB_Raha = 88
+JurRaha = 1250
+JurFunderBeam = 5000
+Jur_IB_Raha = 00
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2)
 '# Mörr on väike karu'
 
