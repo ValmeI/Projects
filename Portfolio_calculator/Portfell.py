@@ -117,12 +117,12 @@ update_excel(path + 'Portfolio_calculator/', "Portfell",
 
 '# for combining results to send in e-mail'
 Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
-          "\nEesmärk krooni miljonär " + str(Eesmark) + " €." + \
+          "\nEesmärk krooni miljonär: " + str(Eesmark) + " €." + \
           "\nKrooni miljonär veel minna: " + str(Eesmark - KoikKokku) + " €." + \
-          "\nEesmärk 35 aastaselt portfelli väärtus " + str(Eesmark2) + " €." + \
+          "\nEesmärk 35 aastaselt portfelli väärtus: " + str(Eesmark2) + " €." + \
           "\nVeel minna: " + str(Eesmark2 - KoikKokku) + " €." + \
-          "\nMörr-i aktsiad:" + str(Morr.kokku) + " €." + \
-          "\nMörr-i kinnisvara:" + str(MorrKinnisvaraPort) + " €." + \
+          "\nMörr-i aktsiad: " + str(Morr.kokku) + " €." + \
+          "\nMörr-i kinnisvara: " + str(MorrKinnisvaraPort) + " €." + \
           "\nMörr-i portfell: " + str(Morr_kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €." + "\n\n" +\
           "\nLaenu Akadeemia 42-63 makstud: " + str(dateAka42.years) + " Years, " + str(dateAka42.months) + " Months" +\
@@ -143,7 +143,7 @@ elif date.today().weekday() == 4:
                     'email',
                     what_path_for_file() + r'Send_Email\synology_pass',
                     'email@valme.noip.me',
-                    'margit1986@gmail.com',
+                    'val-capital@googlegroups.com',
                     'Portfelli seis: ' + time.strftime('%d-%m-%Y'),
                     Tulemus)
 else:
