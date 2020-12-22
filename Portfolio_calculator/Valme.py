@@ -26,7 +26,7 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 200
+FüsIsikRaha = 0
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -36,7 +36,7 @@ CleveronAktsia = 4 * 850
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia - 3200
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 1250
+JurRaha = 944
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
 Jur_IB_Raha = 0
