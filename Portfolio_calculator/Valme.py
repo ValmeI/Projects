@@ -6,12 +6,12 @@ path = what_path_for_file()
 
 fys_eur_stocks = {"TKM1T": 355,
                   "EFT1T": 94,
-                  "TSM1T": 1286
+                  "TSM1T": 128611
                   }
 
 jur_usa_stocks = {"AAPL": 73,
                   "TSLA": 30,
-                  "ETR: AMD": 158,
+                  "ETR: AMD": 116,
                   "MSFT": 12,
                   "NASDAQ: FB": 7,
                   "NASDAQ: AMZN": 1,
@@ -33,13 +33,13 @@ FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
 CleveronAktsia = 4 * 850
-JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia - 3200
+JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia
 
 '#jur isiku raha LHV + LYNX RAHA'
 JurRaha = 644
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = 0
+Jur_IB_Raha = 39
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2)
 '# Mörr on väike karu'
 
