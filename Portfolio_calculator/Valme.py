@@ -6,7 +6,7 @@ path = what_path_for_file()
 
 fys_eur_stocks = {"TKM1T": 355,
                   "EFT1T": 94,
-                  "TSM1T": 128611
+                  "TSM1T": 1286
                   }
 
 jur_usa_stocks = {"AAPL": 73,
