@@ -5,8 +5,7 @@ from Portfolio_calculator.Funcions import what_path_for_file
 path = what_path_for_file()
 
 fys_eur_stocks = {"TKM1T": 355,
-                  "EFT1T": 94,
-                  "TSM1T": 1286
+                  "EFT1T": 94
                   }
 
 jur_usa_stocks = {"AAPL": 73,
@@ -36,7 +35,7 @@ CleveronAktsia = 4 * 850
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 644
+JurRaha = 500
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
 Jur_IB_Raha = 39

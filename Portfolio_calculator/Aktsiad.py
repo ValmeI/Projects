@@ -28,7 +28,7 @@ def stock_price_from_market_watch(stock, original_currency):
 
     options = Options()
     '# add options to chrome, to run it headless as not opening it'
-    #options.add_argument("--headless")
+    options.add_argument("--headless")
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
     url = "https://www.google.com/search?q=" + stock
     driver.get(url)
@@ -55,11 +55,12 @@ def stock_price_from_market_watch(stock, original_currency):
         '# scrape with BeautifulSoup'
         soup = BeautifulSoup(convert_html, 'lxml')
         '# 10.01 UPDATE workaround hack, when converterresult-toAmount cant be found for some reason'
-        if soup.find('span', class_='converterresult-toAmount') is None:
-            to_eur_convert = soup.find('span', class_='sc-AxjAm ConvertedSubText-fcQdYJ efOulh').text
-        else:
+        #driver.get_screenshot_as_file('test.png')
+        if soup.find('span', class_='converterresult-toAmount'):
             '# specify of what tag and what class, to get results in euros'
             to_eur_convert = soup.find('span', class_='converterresult-toAmount').text
+        else:
+            to_eur_convert = soup.find('span', class_='sc-AxjAm ConvertedSubText-fcQdYJ efOulh').text
         '# 27.01.2020 UPDATE replace comma from convert'
         to_eur_convert = replace_comma_convert(to_eur_convert)
         return float(to_eur_convert)
