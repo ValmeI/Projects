@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from Portfolio_calculator.Funcions import what_path_for_file
+import re
 
 
 def replace_comma_google(stat):
@@ -9,6 +10,16 @@ def replace_comma_google(stat):
     stat = str(stat)
     if "," in stat:
         stat = stat.replace(",", ".")
+        return stat
+    else:
+        return stat
+
+
+def replace_whitespaces(stat):
+    '# removes whitespaces in numbers. Is needed to convert to float. Numbers like 1 000 and so on.'
+    stat = str(stat)
+    if " " in stat:
+        stat = stat.replace(" ", "")
         return stat
     else:
         return stat
@@ -28,7 +39,7 @@ def stock_price_from_market_watch(stock, original_currency):
 
     options = Options()
     '# add options to chrome, to run it headless as not opening it'
-    #11options.add_argument("--headless")
+    options.add_argument("--headless")
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
     url = "https://www.google.com/search?q=" + stock
     driver.get(url)
@@ -49,23 +60,18 @@ def stock_price_from_market_watch(stock, original_currency):
         '# UPDATE 25.08.2018 USD to EUR converting page started using JS and I needed to use Selenium and Soup but'
         '# UPDATE 25.08.2018 opening every page in Chrome and parsing made it much more slower'
         '# use page to convert USD to EUR'
-        convert_url = "http://www.xe.com/currencyconverter/convert/?Amount=" + str_price_org_currency + "&From=USD&To=EUR"
+        '# UPDATE 14.01.2021 use Google as currency converter service'
+        convert_url = "https://www.google.com/search?q=" + str_price_org_currency + "+usd+to+eur+currency+converter"
         driver.get(convert_url)
         convert_html = driver.page_source
         '# scrape with BeautifulSoup'
         soup = BeautifulSoup(convert_html, 'lxml')
-        '# 10.01 UPDATE workaround hack, when converterresult-toAmount cant be found for some reason'
-        #driver.get_screenshot_as_file('test.png')
-        if soup.find('span', class_='converterresult-toAmount'):
-            '# specify of what tag and what class, to get results in euros'
-            to_eur_convert = soup.find('span', class_='converterresult-toAmount').text
-        elif soup.find('span', class_='sc-AxjAm ConvertedSubText-fcQdYJ efOulh'):
-            to_eur_convert = soup.find('span', class_='sc-AxjAm ConvertedSubText-fcQdYJ efOulh').text
-        else:
-            print('converterresult-toAmount OR sc-AxjAm ConvertedSubText-fcQdYJ efOulh NOT FOUND')
-            driver.get_screenshot_as_file('test.png')
+        to_eur_convert = soup.find('span', class_='DFlfde SwHCTb').text
+        to_eur_convert = replace_whitespaces(to_eur_convert)
         '# 27.01.2020 UPDATE replace comma from convert'
-        to_eur_convert = replace_comma_convert(to_eur_convert)
+        to_eur_convert = replace_comma_google(to_eur_convert)
+        '# 15.10.2021 UPDATE only keep numbers and ,.'
+        to_eur_convert = re.sub("[^0-9.,]", "", to_eur_convert)
         return float(to_eur_convert)
 
 
@@ -102,4 +108,3 @@ def stocks_portfolio_percentages(portfolio_size, stocks_dictionary, org_currency
         percentage = round(percentage, 2)
         print("Portfelli suurus {} € - Aktsia {} väärtus {} € - Kogus {} - Portfellist {} %"
               .format(portfolio_size, sym, value, amount, percentage))
-
