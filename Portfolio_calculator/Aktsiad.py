@@ -59,8 +59,8 @@ def stock_price_from_market_watch(stock, original_currency):
 
         '# UPDATE 25.08.2018 USD to EUR converting page started using JS and I needed to use Selenium and Soup but'
         '# UPDATE 25.08.2018 opening every page in Chrome and parsing made it much more slower'
-        '# use page to convert USD to EUR'
         '# UPDATE 14.01.2021 use Google as currency converter service'
+        '# use page to convert USD to EUR'
         convert_url = "https://www.google.com/search?q=" + str_price_org_currency + "+usd+to+eur+currency+converter"
         driver.get(convert_url)
         convert_html = driver.page_source
