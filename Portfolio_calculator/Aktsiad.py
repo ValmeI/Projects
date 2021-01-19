@@ -25,16 +25,6 @@ def replace_whitespaces(stat):
         return stat
 
 
-def replace_comma_convert(stat):
-    '# removes comma in numbers. Is needed to convert to float. Numbers like 1,0000 and so on.'
-    stat = str(stat)
-    if "," in stat:
-        stat = stat.replace(",", "")
-        return stat
-    else:
-        return stat
-
-
 def stock_price_from_market_watch(stock, original_currency):
 
     options = Options()
