@@ -128,7 +128,11 @@ Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
           "\nLaenu Akadeemia 42-63 makstud: " + str(dateAka42.years) + " Years, " + str(dateAka42.months) + " Months" +\
           "\nLaenu Akadeemia 38-20 makstud: " + str(dateAka38.years) + " Years, " + str(dateAka38.months) + " Months" +\
           "\nLaenu Vilde 90-193 makstud: " + str(dateVilde90.years) + " Years, " + str(dateVilde90.months) + " Months" +\
-          "\nLaenu Sõle 25B/3-21 makstud: " + str(dateSõle.years) + " Years, " + str(dateSõle.months) + " Months"
+          "\nLaenu Sõle 25B/3-21 makstud: " + str(dateSõle.years) + " Years, " + str(dateSõle.months) + " Months" +\
+          "\n" + str(Kinnisvara.Korter1_Nimi) + " laenu jääk " + str(BalanceAka42) + " €." + ' Laenu summa ' + str(Kinnisvara.Korter1_Laen) +\
+          "\n" + str(Kinnisvara.Korter2_Nimi) + " laenu jääk " + str(BalanceAka38) + " €." + ' Laenu summa ' + str(Kinnisvara.Korter2_Laen) +\
+          "\n" + str(Kinnisvara.Korter3_Nimi) + " laenu jääk " + str(BalanceVilde90) + " €." + ' Laenu summa ' + str(Kinnisvara.Korter3_Laen) +\
+          "\n" + str(Kinnisvara.Korter4_Nimi) + " laenu jääk " + str(BalanceSõle) + " €." + ' Laenu summa ' + str(Kinnisvara.Korter4_Laen)
 
 '#if it is friday and password file is in directory, then send e-mail'
 if os.path.isfile(what_path_for_file() + r'Send_Email\synology_pass'):

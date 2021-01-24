@@ -46,7 +46,7 @@ JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCap
 RahaKokku = round(FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha)
 
 '# üür'
-vilde_isa = 250
+vilde_isa = -162
 vilde_laen = 154.88
 vilde_kindlustus = 6.91
 '# ehk kuupäev millal arvutust tehakse'
