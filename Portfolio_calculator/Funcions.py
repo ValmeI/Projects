@@ -287,6 +287,8 @@ def get_funderbeam_marketvalue():
     options = Options()
     '# parse without displaying Chrome'
     options.add_argument("--headless")
+    '# UPDATE 25.01.2021 to avoid cannot find Chrome binary error'
+    options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     '# get Chrome driver with path'
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
     '# url we want to parse'

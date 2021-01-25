@@ -30,6 +30,8 @@ def stock_price_from_market_watch(stock, original_currency):
     options = Options()
     '# add options to chrome, to run it headless as not opening it'
     options.add_argument("--headless")
+    '# UPDATE 25.01.2021 to avoid cannot find Chrome binary error'
+    options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
     url = "https://www.google.com/search?q=" + stock
     driver.get(url)
