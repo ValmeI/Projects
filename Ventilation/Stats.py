@@ -4,6 +4,22 @@ from Portfolio_calculator.Funcions import what_path_for_file
 import xml.etree.ElementTree as ET
 
 
+'# Excel headers'
+excel_headers = ["Sissepuhke temperatuur",
+                 "Väljatõmbe temperatuur",
+                 "Välistemperatuur",
+                 "Paneeli temperatuur",
+                 "Paneeli niiskus RH",
+                 "SP ventilaator",
+                 "VT ventilaator",
+                 "Soojusvaheti",
+                 "El. Kalorifeer",
+                 "Õhuklappid",
+                 "Filteri ummistumine",
+                 "Energiasääst"
+                 "Ruumi niiskus AH"]  # all keys to be extracted from xml
+
+
 def get_vent_stats():
     options = Options()
     '# parse without displaying Chrome'
@@ -37,27 +53,58 @@ def get_vent_stats():
     '# Get root of xml for the loop'
     root = tree.getroot()
 
-    '# Excel headers'
-    excel_headers = ["Sissepuhke temperatuur",
-                     "Väljatõmbe temperatuur",
-                     "Välistemperatuur",
-                     "Paneeli temperatuur",
-                     "Paneeli niiskus RH",
-                     "SP ventilaator",
-                     "VT ventilaator",
-                     "Soojusvaheti",
-                     "El. Kalorifeer",
-                     "Õhuklappid",
-                     "Filteri ummistumine",
-                     "Energiasääst"
-                     "Ruumi niiskus AH"]  # all keys to be extracted from xml
-
     '# List to append the XML results'
     mdlist = []
     for child in root:
         mdlist.append(child.text.strip())
-    return print(excel_headers, '\n\n', mdlist)
+
+    '# Make a dictionary from two lists'
+    dict_list = mdlist #dict(zip(excel_headers, mdlist))
+    return dict_list
 
 
-get_vent_stats()
+print(get_vent_stats())
 
+import pandas as pd
+def to_excel(list):
+
+    # List initialization
+    list = ['Assam', 'India',
+             'Lahore', 'Pakistan',
+             'New York', 'USA',
+             'Bejing', 'China']
+
+    df = pd.DataFrame()
+
+    df["<ST>"] = list[0::2]
+    df["<ET>"] = list[1::2]
+    df["<OT>"] = list[2::2]
+    df["<WT>"] = list[3::2]
+    df["<PT1>"] = list[4::2]
+    df["<PT2>"] = list[5::2]
+    df["<PH1>"] = list[6::2]
+    df["<PH2>"] = list[7::2]
+    df["<SF>"] = list[8::2]
+    df["<EF>"] = list[9::2]
+    df["<SP>"] = list[10::2]
+    df["<EP>"] = list[11::2]
+    df["<SFI>"] = list[12::2]
+    df["<EFI>"] = list[13::2]
+    df["<S1>"] = list[14::2]
+    df["<S2>"] = list[15::2]
+    df["<HE>"] = list[16::2]
+    df["<WC>"] = list[17::2]
+    df["<EH>"] = list[18::2]
+    df["<DX>"] = list[19::2]
+    df["<AD>"] = list[20::2]
+    df["<FC>"] = list[21::2]
+    df["<ES>"] = list[22::2]
+    df["<OH>"] = list[23::2]
+    df["<IH>"] = list[24::2]
+
+
+
+    # Converting to excel
+    df.to_excel(what_path_for_file() + 'result.xlsx', index=False)
+
+to_excel(get_vent_stats())

@@ -1,39 +1,40 @@
-2021-02-08 17:00:19.151804
+2021-02-12 17:14:42.031214
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Akadeemia 38-20 laenumakse: 153 € + kindlustus.
 Vilde 90-193 laenumakse: 155 € + kindlustus.
 
 Laenu Akadeemia 42-63 makstud: 4 Years, 11 Months
-Laenu Akadeemia 38-20 makstud: 3 Years, 8 Months
-Laenu Vilde 90-193 makstud: 1 Years, 9 Months
+Laenu Akadeemia 38-20 makstud: 3 Years, 9 Months
+Laenu Vilde 90-193 makstud: 1 Years, 10 Months
 Laenu Sõle 25B/3-21 makstud: 9 Years, 5 Months
 
 Akadeemia 42-63 laenu jääk 14734 €. Laenu summa 16708.64
 Akadeemia 38-20 laenu jääk 19528 €. Laenu summa 22146.08
-Vilde 90-193 laenu jääk 15391 €. Laenu summa 17940.0
+Vilde 90-193 laenu jääk 15267 €. Laenu summa 17940.0
 Sõle 25B/3-21 laenu jääk 42295 €. Laenu summa 58500
 
 Laenu kohutus kokku(ainult Akadeemia): 34262
-Laenu kohutus kokku(Kõik): 49653
+Laenu kohutus kokku(Kõik): 49529
 
 Hetkel korterite puhas väärtus kokku: 20138 €.
 Vilde peale makse Isale: [31m211.82[0m €.
-Juriidilise isiku väärtus: 65514 €.
-Füüsilise isiku aktsia portfell: 5149 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 70663 €.
+Juriidilise isiku väärtus: 63518 €.
+Füüsilise isiku aktsia portfell: 5040 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 68558 €.
 Vaba raha Jur/Füs Kokku: [31m4389[0m €.
-Funderbeam Kokku: [31m10601.04[0m €.
-Terve portfell kokku: [31m90801[0m €.
+Funderbeam Kokku: [31m10395.09[0m €.
+Terve portfell kokku: [31m88696[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-26889[0m €.
+Krooni miljonär veel minna: [31m-24784[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m409199[0m €.
-Mörr-i aktsiad: 9418 €.
+Veel minna: [31m411304[0m €.
+Mörr-i aktsiad: 9409 €.
 Mörr-i kinnisvara: 25405 €.
-Mörr-i portfell: [31m34823[0m €.
-Pere portfell kokku: [31m125624[0m €.
+Mörr-i portfell: [31m34814[0m €.
+Pere portfell kokku: [31m123510[0m €.
 ========================
 Fail juba kaustas olemas.
-Tänane seis lisatud.
-[32mE-maili saatmine: Pole reede[0m
+Tänane seis muudetud.
+[32m
+Mail Send Successfully[0m
