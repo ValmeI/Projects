@@ -13,7 +13,9 @@ jur_usa_stocks = {"AAPL": 75,
                   "ETR: AMD": 116,
                   "MSFT": 12,
                   "NASDAQ: AMZN": 1,
-                  "NASDAQ: GOOGL": 2
+                  "NASDAQ: GOOGL": 2,
+                  "Nio Inc - ADR": 1,
+                  "Xpeng Inc - ADR": 1
                   }
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
