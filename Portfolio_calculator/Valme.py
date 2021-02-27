@@ -14,8 +14,8 @@ jur_usa_stocks = {"AAPL": 75,
                   "MSFT": 12,
                   "NASDAQ: AMZN": 1,
                   "NASDAQ: GOOGL": 2,
-                  "Nio Inc - ADR": 1,
-                  "Xpeng Inc - ADR": 1
+                  "NYSE: NIO": 1,
+                  "NYSE: XPEV": 1
                   }
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
@@ -39,7 +39,7 @@ JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAkts
 JurRaha = 900
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = 90
+Jur_IB_Raha = 50
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2)
 '# Mörr on väike karu'
 
