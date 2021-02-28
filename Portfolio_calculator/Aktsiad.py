@@ -25,7 +25,7 @@ def replace_whitespaces(stat):
         return stat
 
 
-def stock_price_from_market_watch(stock, original_currency):
+def stock_price_from_google(stock, original_currency):
 
     options = Options()
     '# add options to chrome, to run it headless as not opening it'
@@ -73,7 +73,7 @@ def stock_price_from_market_watch(stock, original_currency):
 def stocks_value_combined(stock_dictionary, org_currency):
     total_value = 0
     for sym, amount in stock_dictionary.items():
-        price = stock_price_from_market_watch(sym, org_currency)
+        price = stock_price_from_google(sym, org_currency)
         value = price * amount
         total_value += value
     return total_value
@@ -84,7 +84,7 @@ def stocks_value_combined(stock_dictionary, org_currency):
 
 def stock_amount_value(stock_symbol, org_currency, stocks_dictionary):
         amount = stocks_dictionary[stock_symbol]
-        price = stock_price_from_market_watch(stock_symbol, org_currency)
+        price = stock_price_from_google(stock_symbol, org_currency)
         value = price * amount
         return value
 
