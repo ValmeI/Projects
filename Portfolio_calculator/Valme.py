@@ -36,7 +36,7 @@ CleveronAktsia = 4 * 850
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia
 
 '#jur isiku raha LHV + LYNX RAHA'
-JurRaha = 300
+JurRaha = 3100
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
 Jur_IB_Raha = 0
