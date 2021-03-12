@@ -78,7 +78,7 @@ print("Laenu kohutus kokku(Kõik):", BalanceAka42 + BalanceAka38 + BalanceVilde9
 
 '#Kinnisvara kokku. Liidetakse kõik Dics korterite ostu hinnad - balancid ehk palju laenu veel maksta'
 KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
-MorrKinnisvaraPort = 67700 - BalanceSõle # Sõle korteri hind - balance
+MorrKinnisvaraPort = 67700 - BalanceSõle
 
 print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
 KoikKokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
