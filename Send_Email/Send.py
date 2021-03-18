@@ -42,12 +42,12 @@ Testing synolog local mail servers sending
 Variables are: STMP, username, password file, send from, send to, email title and email body
 '''
 '''
-send_email('192.168.1.161',
+send_email('192.168.1.172',
            'email',
            'synology_pass',
            'email@valme.noip.me',
            'ignarvalme@gmail.com',
            'test',
            'body')
-
 '''
+
