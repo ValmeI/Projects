@@ -308,12 +308,12 @@ def get_funderbeam_marketvalue():
         driver.find_element_by_name('password').send_keys(password)
         '#send enter for links, buttons'
         driver.find_element_by_class_name('button-primary').send_keys("\n")
-        '# Sleep so it could load role selection page'
-        time.sleep(1)
+        '# Sleep so it could load role selection page, UPDATE: 21.04.2021 Before it was 1 sleep time, Funderbeam might have perf problems'
+        time.sleep(5)
         '# Select element nr 1, as nr 0 is personal role and nr 1 is company role. Need company role'
         driver.find_elements_by_class_name('cards__title')[1].click()
-        '# Sleep so it could load company dashboard'
-        time.sleep(1)
+        '# Sleep so it could load company dashboard, UPDATE: 21.04.2021 Before it was 1 sleep time, Funderbeam might have perf problems'
+        time.sleep(5)
         '# get data from direct url API'
         data = driver.get('https://www.funderbeam.com/api/user/tokenSummaryStatement')
         '# get page source'
@@ -325,4 +325,3 @@ def get_funderbeam_marketvalue():
         parsed_market_value = parsed_json['totals'][0]['marketValueTotal']
 
         return parsed_market_value
-
