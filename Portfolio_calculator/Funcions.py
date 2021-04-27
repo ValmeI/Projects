@@ -36,7 +36,8 @@ headers = {0: "Kuupäev",
            6: "Mörr-i portfell",
            7: "Pere portfell kokku",
            8: "Vilde after Tax",
-           9: "Vaba Raha"}
+           9: "Vaba Raha",
+           10: "Funderbeam Väärtus"}
 
 
 def vilde_calculation(input_day, last_calculation_sum, new_sum_to_add, last_input_excel_date):
@@ -125,7 +126,9 @@ def need_new_excel_file(excel_name, sheet_name):
         create_excel(excel_name, sheet_name)
 
 
-def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, abikaasa_kokku, pere_kokku, vildeAfterTax, vabaRaha):
+def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad,
+                 aktsiad_kokku, kokku_portfell, abikaasa_kokku,
+                 pere_kokku, vildeAfterTax, vabaRaha, FunderbeamValue):
     '# add file type'
     file_name = excel_name + ".xls"
     '#open excel file'
@@ -176,6 +179,8 @@ def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, 
             passed += 1
         elif check == vabaRaha:
             passed += 1
+        elif check == FunderbeamValue:
+            passed += 1
 
     '#ehk 8 kontrolli on. Sama palju kui välju. Kui andmed muutunud siis lisab need, kui ei väljastab lause, et ei ole muutunud'
     if passed == first_sheet.ncols:
@@ -204,6 +209,8 @@ def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, 
                 value = vildeAfterTax
             elif c == 9:
                 value = vabaRaha
+            elif c == 10:
+                value = FunderbeamValue
 
             '# row-1( to get previous row), column ja tekst'
             w_sheet.write(max_rows - 1, c, value)
@@ -234,6 +241,8 @@ def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, 
                 value = vildeAfterTax
             elif c == 9:
                 value = vabaRaha
+            elif c == 10:
+                value = FunderbeamValue
 
             '# last row, column ja tekst'
             w_sheet.write(max_rows, c, value)
