@@ -33,7 +33,7 @@ def stock_price_from_google(stock, original_currency):
     '# UPDATE 25.01.2021 to avoid cannot find Chrome binary error'
     options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
-    url = "https://www.google.com/search?q=" + stock
+    url = "https://www.google.com/search?q=" + stock + " stock"
     driver.get(url)
 
     convert_html = driver.page_source

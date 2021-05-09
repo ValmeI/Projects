@@ -12,11 +12,11 @@ jur_usa_stocks = {"AAPL": 68,
                   "TSLA": 31,
                   "ETR: AMD": 104,
                   "MSFT": 12,
-                  "NASDAQ: AMZN": 1,
-                  "NASDAQ: GOOGL": 2,
-                  "NYSE: NIO": 36,
-                  "NYSE: XPEV": 42,
-                  "NASDAQ: LI": 48
+                  "AMZN": 1,
+                  "GOOGL": 2,
+                  "NIO": 36,
+                  "XPEV": 42,
+                  "LI": 48
                   }
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
