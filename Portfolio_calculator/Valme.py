@@ -8,15 +8,15 @@ fys_eur_stocks = {"TKM1T": 355,
                   "EFT1T": 94
                   }
 
-jur_usa_stocks = {"AAPL": 68,
+jur_usa_stocks = {"AAPL": 78,
                   "TSLA": 31,
                   "ETR: AMD": 104,
                   "MSFT": 12,
                   "AMZN": 1,
                   "GOOGL": 2,
-                  "NIO": 36,
-                  "XPEV": 42,
-                  "LI": 48
+                  "NIO": 43,
+                  "XPEV": 52,
+                  "LI": 63
                   }
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
@@ -27,7 +27,7 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 200
+FüsIsikRaha = 350
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -37,10 +37,10 @@ CleveronAktsia = 4 * 850
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 240
+JurRaha = 600
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = -61
+Jur_IB_Raha = -1700
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2)
 '# Mörr on väike karu'
 
