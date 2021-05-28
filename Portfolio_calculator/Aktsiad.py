@@ -100,3 +100,24 @@ def stocks_portfolio_percentages(portfolio_size, stocks_dictionary, org_currency
         percentage = round(percentage, 2)
         print("Portfelli suurus {} € - Aktsia {} väärtus {} € - Kogus {} - Portfellist {} %"
               .format(portfolio_size, sym, value, amount, percentage))
+
+
+'# convert bitcoin to eur'
+
+
+def bitcoin_to_eur(var):
+
+    options = Options()
+    '# add options to chrome, to run it headless as not opening it'
+    options.add_argument("--headless")
+    options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+    driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
+    url = "https://www.google.com/search?q=" + str(var) + "  btc to eur"
+    driver.get(url)
+
+    convert_html = driver.page_source
+    soup = BeautifulSoup(convert_html, 'lxml')
+    str_price_org_currency = soup.find('span', class_='DFlfde SwHCTb').text
+    str_price_org_currency = replace_comma_google(str_price_org_currency)
+    return float(str_price_org_currency)
+

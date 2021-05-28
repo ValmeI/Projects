@@ -19,6 +19,8 @@ jur_usa_stocks = {"AAPL": 78,
                   "LI": 63
                   }
 
+BTC = 0.008856
+
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
 Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
 Vana_Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
@@ -44,8 +46,10 @@ Jur_IB_Raha = -1700
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2)
 '# Mörr on väike karu'
 
+Krypto = Aktsiad.bitcoin_to_eur(BTC)
+
 '# Raha ehk likviitsus, jur ja fys kokku'
-RahaKokku = round(FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha)
+RahaKokku = round(FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha + Krypto)
 
 '# üür'
 vilde_isa = 180
