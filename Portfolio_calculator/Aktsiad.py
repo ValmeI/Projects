@@ -65,6 +65,7 @@ def stock_price_from_google(stock, original_currency):
         to_eur_convert = replace_comma_google(to_eur_convert)
         '# 15.10.2021 UPDATE only keep numbers and ,.'
         to_eur_convert = re.sub("[^0-9.,]", "", to_eur_convert)
+        '# UPDATE 4.06.2021 problems maybe fixed it'
         driver.quit()
         return float(to_eur_convert)
 
@@ -122,5 +123,6 @@ def bitcoin_to_eur(var):
     soup = BeautifulSoup(convert_html, 'lxml')
     str_price_org_currency = soup.find('span', class_='DFlfde SwHCTb').text
     str_price_org_currency = replace_comma_google(str_price_org_currency)
+    '# UPDATE 4.06.2021 problems maybe fixed it'
     driver.quit()
     return float(str_price_org_currency)
