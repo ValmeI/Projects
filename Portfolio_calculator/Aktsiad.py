@@ -30,6 +30,7 @@ def stock_price_from_google(stock, original_currency):
     options = Options()
     '# add options to chrome, to run it headless as not opening it'
     options.add_argument("--headless")
+    options.add_argument('--no-sandbox')  # Bypass OS security model UPDATE 4.06.2021 problems maybe fixed it
     '# UPDATE 25.01.2021 to avoid cannot find Chrome binary error'
     options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
@@ -64,6 +65,7 @@ def stock_price_from_google(stock, original_currency):
         to_eur_convert = replace_comma_google(to_eur_convert)
         '# 15.10.2021 UPDATE only keep numbers and ,.'
         to_eur_convert = re.sub("[^0-9.,]", "", to_eur_convert)
+        driver.quit()
         return float(to_eur_convert)
 
 
@@ -110,6 +112,7 @@ def bitcoin_to_eur(var):
     options = Options()
     '# add options to chrome, to run it headless as not opening it'
     options.add_argument("--headless")
+    options.add_argument('--no-sandbox')  # Bypass OS security model UPDATE 4.06.2021 problems maybe fixed it
     options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
     url = "https://www.google.com/search?q=" + str(var) + "  btc to eur"
@@ -119,4 +122,5 @@ def bitcoin_to_eur(var):
     soup = BeautifulSoup(convert_html, 'lxml')
     str_price_org_currency = soup.find('span', class_='DFlfde SwHCTb').text
     str_price_org_currency = replace_comma_google(str_price_org_currency)
+    driver.quit()
     return float(str_price_org_currency)
