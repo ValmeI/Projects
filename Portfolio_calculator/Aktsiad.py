@@ -120,4 +120,3 @@ def bitcoin_to_eur(var):
     str_price_org_currency = soup.find('span', class_='DFlfde SwHCTb').text
     str_price_org_currency = replace_comma_google(str_price_org_currency)
     return float(str_price_org_currency)
-
