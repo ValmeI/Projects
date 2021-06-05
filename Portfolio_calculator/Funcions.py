@@ -296,6 +296,7 @@ def get_funderbeam_marketvalue():
     options = Options()
     '# parse without displaying Chrome'
     options.add_argument("--headless")
+    options.add_argument('--no-sandbox')  # Bypass OS security model UPDATE 4.06.2021 problems maybe fixed it
     '# UPDATE 25.01.2021 to avoid cannot find Chrome binary error'
     options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     '# get Chrome driver with path'
@@ -332,5 +333,7 @@ def get_funderbeam_marketvalue():
         parsed_json = json.loads(content)
         '# to get only marketValueTotal'
         parsed_market_value = parsed_json['totals'][0]['marketValueTotal']
+        '# UPDATE 4.06.2021 problems maybe fixed it'
+        driver.quit()
 
         return parsed_market_value
