@@ -53,7 +53,7 @@ dateVilde90 = relativedelta(Täna, Valme.Vilde90_193_Laen_Kuupäev)
 
 print("Laenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
 print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months")
-print("Laenu Vilde 90-193 makstud:", dateVilde90.years, "Years,", dateVilde90.months, "Months")
+print("Laenu Vilde 90-193 makstud:", dateVilde90.years, "Years,", dateVilde90.months, "Months\n")
 #print("Laenu Sõle 25B/3-21 makstud:", dateSõle.years, "Years,", dateSõle.months, "Months\n")
 
 '#makstud kuude vahe arvutus'
