@@ -39,7 +39,7 @@ CleveronAktsia = 4 * 850
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 226
+JurRaha = 300
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue() + 900
 Jur_IB_Raha = 106
@@ -52,7 +52,7 @@ Krypto = Aktsiad.bitcoin_to_eur(BTC)
 RahaKokku = round(FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha + Krypto)
 
 '# üür'
-vilde_isa = 180
+vilde_isa = 90
 vilde_laen = 154.88
 vilde_kindlustus = 6.91
 '# ehk kuupäev millal arvutust tehakse'

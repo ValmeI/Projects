@@ -1,36 +1,36 @@
-2021-07-08 19:20:40.360548
+2021-07-10 10:09:11.610370
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Akadeemia 38-20 laenumakse: 153 € + kindlustus.
 Vilde 90-193 laenumakse: 155 € + kindlustus.
 
 Laenu Akadeemia 42-63 makstud: 5 Years, 4 Months
-Laenu Akadeemia 38-20 makstud: 4 Years, 1 Months
-Laenu Vilde 90-193 makstud: 2 Years, 2 Months
+Laenu Akadeemia 38-20 makstud: 4 Years, 2 Months
+Laenu Vilde 90-193 makstud: 2 Years, 3 Months
 
 Akadeemia 42-63 laenu jääk 14339 €. Laenu summa 16708.64
 Akadeemia 38-20 laenu jääk 19005 €. Laenu summa 22146.08
-Vilde 90-193 laenu jääk 14769 €. Laenu summa 17940.0
+Vilde 90-193 laenu jääk 14644 €. Laenu summa 17940.0
 
 Laenu kohutus kokku(ainult Akadeemia): 33344
-Laenu kohutus kokku(Kõik): 48113
+Laenu kohutus kokku(Kõik): 47988
 
 Hetkel korterite puhas väärtus kokku: 21056 €.
-Vilde peale makse Isale: [31m50.87[0m €.
-Krüpto: [31m596.4[0m €.
-Juriidilise isiku väärtus: 70463 €.
-Füüsilise isiku aktsia portfell: 5945 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 76408 €.
-Vaba raha Jur/Füs Kokku: [31m5099[0m €.
-Funderbeam Kokku: [31m16258.33[0m €.
-Terve portfell kokku: [31m97464[0m €.
+Vilde peale makse Isale: [31m0.87[0m €.
+Krüpto: [31m611.75[0m €.
+Juriidilise isiku väärtus: 71042 €.
+Füüsilise isiku aktsia portfell: 5919 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 76961 €.
+Vaba raha Jur/Füs Kokku: [31m5115[0m €.
+Funderbeam Kokku: [31m16256.97[0m €.
+Terve portfell kokku: [31m98017[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-33552[0m €.
+Krooni miljonär veel minna: [31m-34105[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m402536[0m €.
-Mörr-i aktsiad: 67144 €.
-Mörr-i portfell: [31m67144[0m €.
-Pere portfell kokku: [31m164608[0m €.
+Veel minna: [31m401983[0m €.
+Mörr-i aktsiad: 67177 €.
+Mörr-i portfell: [31m67177[0m €.
+Pere portfell kokku: [31m165194[0m €.
 ========================
 Fail juba kaustas olemas.
 Tänane seis lisatud.
