@@ -1,4 +1,4 @@
-from Portfolio_calculator import Kinnisvara, Morr, Valme, txt_write_move
+from Portfolio_calculator import Kinnisvara, Morr, Valme, txt_write_move, Kelly
 from Portfolio_calculator.Funcions import diff_months, need_new_excel_file, update_excel
 from datetime import date
 import datetime
@@ -81,7 +81,7 @@ KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
 #MorrKinnisvaraPort = 67700 - BalanceSõle
 
 print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
-KoikKokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
+Ignar_Kokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
 
 '#Ehk 1 000 000 Eesti krooni'
 Eesmark = round(1000000/15.6466)
@@ -94,36 +94,43 @@ print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
 print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
 print("Vaba raha Jur/Füs Kokku:", colored(Valme.RahaKokku, 'red'), "€.")
 print("Funderbeam Kokku:", colored(Valme.JurFunderBeam, 'red'), "€.")
-print("Terve portfell kokku:", colored(KoikKokku, 'red'), "€.")
+print("Terve portfell kokku:", colored(Ignar_Kokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
-print("Krooni miljonär veel minna:", colored(Eesmark - KoikKokku, 'red'), "€.")
+print("Krooni miljonär veel minna:", colored(Eesmark - Ignar_Kokku, 'red'), "€.")
 
 print("Eesmärk 35 aastaselt portfelli väärtus", Eesmark2, "€.")
-print("Veel minna:", colored(Eesmark2 - KoikKokku, 'red'), "€.")
+print("Veel minna:", colored(Eesmark2 - Ignar_Kokku, 'red'), "€.")
 
 Morr_kokku = Morr.kokku #+ MorrKinnisvaraPort
 print("Mörr-i aktsiad:",  Morr.kokku, "€.")
 #print("Mörr-i kinnisvara:", MorrKinnisvaraPort, "€.")
 print("Mörr-i portfell:", colored(Morr_kokku, 'red'), "€.")
-Pere = KoikKokku + Morr_kokku
+
+'# Kelly Portfell'
+Kelly_kokku = Kelly.Kelly_raha
+print("Kelly portfell:", colored(Kelly_kokku, 'red'), "€.")
+
+'# Pere kõik kokku'
+Pere = Ignar_Kokku + Morr_kokku + Kelly_kokku
 print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 need_new_excel_file("Portfell", "Porfelli Info")
 
-'#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde, Vaba raha '
+'#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde, Vaba raha, Funderbeam, Kelly '
 update_excel(path + 'Portfolio_calculator/', "Portfell",
              KinnisVaraPort, Valme.FysIsik, Valme.JurIsik, Aktsiad_kokku,
-             KoikKokku, Morr_kokku, Pere, Valme.Uus_vilde_summa, Valme.RahaKokku, Valme.JurFunderBeam)
+             Ignar_Kokku, Morr_kokku, Pere, Valme.Uus_vilde_summa, Valme.RahaKokku, Valme.JurFunderBeam, Kelly_kokku)
 
 '# for combining results to send in e-mail'
-Tulemus = "\nTerve portfell kokku: " + str(KoikKokku) + " €." + \
+Tulemus = "\nTerve portfell kokku: " + str(Ignar_Kokku) + " €." + \
           "\nEesmärk krooni miljonär: " + str(Eesmark) + " €." + \
-          "\nKrooni miljonär veel minna: " + str(Eesmark - KoikKokku) + " €." + \
+          "\nKrooni miljonär veel minna: " + str(Eesmark - Ignar_Kokku) + " €." + \
           "\nEesmärk 35 aastaselt portfelli väärtus: " + str(Eesmark2) + " €." + \
-          "\nVeel minna: " + str(Eesmark2 - KoikKokku) + " €." + \
+          "\nVeel minna: " + str(Eesmark2 - Ignar_Kokku) + " €." + \
           "\nMörr-i aktsiad: " + str(Morr.kokku) + " €." + \
-          "\nMörr-i portfell: " + str(Morr_kokku) + " €. " + \
+          "\nMörr-i portfell: " + str(Morr_kokku) + " €. " \
+          "\nKelly portfell: " + str(Kelly_kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €." + "\n\n" +\
           "\nLaenu Akadeemia 42-63 makstud: " + str(dateAka42.years) + " Years, " + str(dateAka42.months) + " Months" +\
           "\nLaenu Akadeemia 38-20 makstud: " + str(dateAka38.years) + " Years, " + str(dateAka38.months) + " Months" +\

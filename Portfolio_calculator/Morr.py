@@ -16,7 +16,7 @@ morr_eur_stocks = {"APG1L": 196,
 
 '''Sõle_Laen_Kuupäev = date(2011, 8, 25) #Müüdud 22.06.2021'''
 
-ValCapitalRaha = 8200
+ValCapitalRaha = 8300
 
 m_aktsiad = Aktsiad.stocks_value_combined(morr_eur_stocks, True)
 

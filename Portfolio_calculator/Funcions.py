@@ -128,7 +128,7 @@ def need_new_excel_file(excel_name, sheet_name):
 
 def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad,
                  aktsiad_kokku, kokku_portfell, abikaasa_kokku,
-                 pere_kokku, vildeAfterTax, vabaRaha, FunderbeamValue):
+                 pere_kokku, vildeAfterTax, vabaRaha, FunderbeamValue, laps_kokku):
     '# add file type'
     file_name = excel_name + ".xls"
     '#open excel file'
@@ -181,6 +181,8 @@ def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad,
             passed += 1
         elif check == FunderbeamValue:
             passed += 1
+        elif check == laps_kokku:
+            passed += 1
 
     '#ehk 8 kontrolli on. Sama palju kui välju. Kui andmed muutunud siis lisab need, kui ei väljastab lause, et ei ole muutunud'
     if passed == first_sheet.ncols:
@@ -211,6 +213,8 @@ def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad,
                 value = vabaRaha
             elif c == 10:
                 value = FunderbeamValue
+            elif c == 11:
+                value = laps_kokku
 
             '# row-1( to get previous row), column ja tekst'
             w_sheet.write(max_rows - 1, c, value)
@@ -243,6 +247,8 @@ def update_excel(path, excel_name, kinnisvara_puhas, füs_aktsiad, jur_aktsiad,
                 value = vabaRaha
             elif c == 10:
                 value = FunderbeamValue
+            elif c == 11:
+                value = laps_kokku
 
             '# last row, column ja tekst'
             w_sheet.write(max_rows, c, value)
