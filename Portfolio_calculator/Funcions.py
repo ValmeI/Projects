@@ -37,7 +37,8 @@ headers = {0: "Kuupäev",
            7: "Pere portfell kokku",
            8: "Vilde after Tax",
            9: "Vaba Raha",
-           10: "Funderbeam Väärtus"}
+           10: "Funderbeam Väärtus",
+           11: "Kelly portfell kokku"}
 
 
 def vilde_calculation(input_day, last_calculation_sum, new_sum_to_add, last_input_excel_date):
