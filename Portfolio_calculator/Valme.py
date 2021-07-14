@@ -19,7 +19,17 @@ jur_usa_stocks = {"AAPL": 93,
                   "LI": 63
                   }
 
+'# Crypto Amounts'
 BTC = 0.021538
+Million_Coin_amount = 7.125
+ETH_amount = 0.65012
+
+'# All crypto and to EUR from USD'
+Million_Coin_USD = Aktsiad.crypto_price_from_coingecko('million') * Million_Coin_amount
+Million_Coin_EUR = Aktsiad.usd_to_eur_convert(Million_Coin_USD)
+
+ETH_USD = Aktsiad.crypto_price_from_coingecko('ethereum') * ETH_amount
+ETH_EUR = Aktsiad.usd_to_eur_convert(ETH_USD)
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
 Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
@@ -37,19 +47,19 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
 CleveronAktsia = 4 * 850
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia
+Jur_Krypto = Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 300
+JurRaha = 200
 '# get Funderbeam total'
-JurFunderBeam = f.get_funderbeam_marketvalue() + 900
+JurFunderBeam = f.get_funderbeam_marketvalue()
 Jur_IB_Raha = 106
-JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2)
+JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2 + Jur_Krypto)
 '# Mörr on väike karu'
 
-Krypto = Aktsiad.bitcoin_to_eur(BTC)
 
-'# Raha ehk likviitsus, jur ja fys kokku'
-RahaKokku = round(FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha + Krypto)
+'# Raha ehk likviitsus,ka Krypto, jur ja fys kokku'
+RahaKokku = round(FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha + Jur_Krypto)
 
 '# üür'
 vilde_isa = 90

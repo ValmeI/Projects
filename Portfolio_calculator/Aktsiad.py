@@ -126,3 +126,52 @@ def bitcoin_to_eur(var):
     '# UPDATE 4.06.2021 problems maybe fixed it'
     driver.quit()
     return float(str_price_org_currency)
+
+
+def crypto_price_from_coingecko(coin_name):
+    options = Options()
+    '# add options to chrome, to run it headless as not opening it'
+    options.add_argument("--headless")
+    options.add_argument('--no-sandbox')  # Bypass OS security model UPDATE 4.06.2021 problems maybe fixed it
+    options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+    driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
+    url = "https://www.coingecko.com/en/coins/" + str(coin_name)
+    driver.get(url)
+
+    convert_html = driver.page_source
+    soup = BeautifulSoup(convert_html, 'lxml')
+    str_price_org_currency = soup.find('span', class_='no-wrap').text.replace("$", "").replace(",", "")
+    '# UPDATE 4.06.2021 problems maybe fixed it'
+    driver.quit()
+    return float(str_price_org_currency)
+
+
+def usd_to_eur_convert(number):
+
+    options = Options()
+    '# add options to chrome, to run it headless as not opening it'
+    options.add_argument("--headless")
+    options.add_argument('--no-sandbox')  # Bypass OS security model UPDATE 4.06.2021 problems maybe fixed it
+    '# UPDATE 25.01.2021 to avoid cannot find Chrome binary error'
+    options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+    driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
+    convert_url = "https://www.google.com/search?q=" + str(number) + "+usd+to+eur+currency+converter"
+    driver.get(convert_url)
+    convert_html = driver.page_source
+    '# scrape with BeautifulSoup'
+    soup = BeautifulSoup(convert_html, 'lxml')
+    to_eur_convert = soup.find('span', class_='DFlfde SwHCTb').text
+    to_eur_convert = replace_whitespaces(to_eur_convert)
+    '# 27.01.2020 UPDATE replace comma from convert'
+    to_eur_convert = replace_comma_google(to_eur_convert)
+    '# 15.10.2021 UPDATE only keep numbers and ,.'
+    to_eur_convert = re.sub("[^0-9.,]", "", to_eur_convert)
+    '# UPDATE 4.06.2021 problems maybe fixed it'
+    driver.quit()
+    return float(to_eur_convert)
+
+
+#print(crypto_price_from_coingecko('million')*7.125)
+#print(usd_to_eur_convert(crypto_price_from_coingecko('million')*7.125))
+
+#print(usd_to_eur_convert(crypto_price_from_coingecko('ethereum')*0.65012))

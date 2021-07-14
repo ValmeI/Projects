@@ -81,6 +81,8 @@ KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
 #MorrKinnisvaraPort = 67700 - BalanceSõle
 
 print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
+
+'# Portfell kokku'
 Ignar_Kokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
 
 '#Ehk 1 000 000 Eesti krooni'
@@ -88,7 +90,7 @@ Eesmark = round(1000000/15.6466)
 Eesmark2 = 500000
 print("Vilde peale makse Isale:", colored(Valme.Uus_vilde_summa, 'red'), "€.")
 
-print("Krüpto:", colored(Valme.Krypto, 'red'), "€.")
+print("Krüpto:", colored(Valme.Jur_Krypto, 'red'), "€.")
 print("Juriidilise isiku väärtus:", Valme.JurIsik, "€.")
 print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
 print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
