@@ -50,7 +50,7 @@ JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAkts
 Jur_Krypto = Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 200
+JurRaha = 490
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
 Jur_IB_Raha = 106
@@ -62,7 +62,7 @@ JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCap
 RahaKokku = round(FüsIsikRaha + JurRaha + Morr.ValCapitalRaha / 2 + Jur_IB_Raha + Jur_Krypto)
 
 '# üür'
-vilde_isa = 90
+vilde_isa = 200
 vilde_laen = 154.88
 vilde_kindlustus = 6.91
 '# ehk kuupäev millal arvutust tehakse'
