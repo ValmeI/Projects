@@ -47,7 +47,7 @@ FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
 CleveronAktsia = 4 * 850
 JurAktsiad = Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia
-Jur_Krypto = Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR
+Jur_Krypto = round(Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR)
 
 '#jur isiku raha LHV + IB RAHA'
 JurRaha = 490
