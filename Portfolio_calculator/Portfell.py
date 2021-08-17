@@ -109,7 +109,7 @@ print("Mörr-i aktsiad:",  Morr.kokku, "€.")
 print("Mörr-i portfell:", colored(Morr_kokku, 'red'), "€.")
 
 '# Kelly Portfell'
-Kelly_kokku = Kelly.Kelly_raha
+Kelly_kokku = Kelly.Kelly_Portfell_Kokku
 print("Kelly portfell:", colored(Kelly_kokku, 'red'), "€.")
 
 '# Pere kõik kokku'
