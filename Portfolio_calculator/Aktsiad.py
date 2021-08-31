@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from Portfolio_calculator.Funcions import what_path_for_file
 import re
+import time
 
 
 def replace_comma_google(stat):
@@ -137,6 +138,8 @@ def crypto_price_from_coingecko(coin_name):
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
     url = "https://www.coingecko.com/en/coins/" + str(coin_name)
     driver.get(url)
+    '# couldware bypass'
+    time.sleep(5)
 
     convert_html = driver.page_source
     soup = BeautifulSoup(convert_html, 'lxml')

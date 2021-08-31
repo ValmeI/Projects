@@ -22,7 +22,7 @@ jur_usa_stocks = {"AAPL": 93,
 '# Crypto Amounts'
 BTC = 0.021538
 Million_Coin_amount = 7.125
-ETH_amount = 0.65012
+ETH_amount = 0.16298
 
 '# All crypto and to EUR from USD'
 Million_Coin_USD = Aktsiad.crypto_price_from_coingecko('million') * Million_Coin_amount
