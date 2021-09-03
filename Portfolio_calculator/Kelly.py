@@ -8,5 +8,5 @@ ETH_EUR = Aktsiad.usd_to_eur_convert(ETH_USD)
 
 Kelly_raha = 43.87
 
-Kelly_Portfell_Kokku = Kelly_raha + ETH_EUR
+Kelly_Portfell_Kokku = round(Kelly_raha + ETH_EUR)
 
