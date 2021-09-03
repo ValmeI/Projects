@@ -25,10 +25,10 @@ Million_Coin_amount = 7.125
 ETH_amount = 0.16298
 
 '# All crypto and to EUR from USD'
-Million_Coin_USD = Aktsiad.crypto_price_from_coingecko('million') * Million_Coin_amount
+Million_Coin_USD = Aktsiad.crypto_price_from_coinmarketcap('million') * Million_Coin_amount
 Million_Coin_EUR = Aktsiad.usd_to_eur_convert(Million_Coin_USD)
 
-ETH_USD = Aktsiad.crypto_price_from_coingecko('ethereum') * ETH_amount
+ETH_USD = Aktsiad.crypto_price_from_coinmarketcap('ethereum') * ETH_amount
 ETH_EUR = Aktsiad.usd_to_eur_convert(ETH_USD)
 
 '#Vanad ja refinants Akadeemia laenu kuupäevad yyyy.mm.dd'
