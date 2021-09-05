@@ -89,13 +89,16 @@ Ignar_Kokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
 Eesmark = round(1000000/15.6466)
 Eesmark2 = 500000
 print("Vilde peale makse Isale:", colored(Valme.Uus_vilde_summa, 'red'), "€.")
-
-print("Krüpto:", colored(Valme.Jur_Krypto, 'red'), "€.")
+print("\n")
 print("Juriidilise isiku väärtus:", Valme.JurIsik, "€.")
+print("Krüpto:", colored(Valme.Jur_Krypto, 'red'), "€.")
+print("Juriidilise isiku aktsiad:", Valme.JurAktsiad, "€.")
+print("Funderbeam Kokku:", colored(Valme.JurFunderBeam, 'red'), "€.")
+print("\n")
 print("Füüsilise isiku aktsia portfell:", Valme.FysIsik, "€.")
 print("Aktsiad/Raha Jur ja Füs isikud kokku:", Valme.FysIsik + Valme.JurIsik, "€.")
 print("Vaba raha Jur/Füs Kokku:", colored(Valme.RahaKokku, 'red'), "€.")
-print("Funderbeam Kokku:", colored(Valme.JurFunderBeam, 'red'), "€.")
+print("\n")
 print("Terve portfell kokku:", colored(Ignar_Kokku, 'red'), "€.")
 print("Eesmärk krooni miljonär", Eesmark, "€.")
 print("Krooni miljonär veel minna:", colored(Eesmark - Ignar_Kokku, 'red'), "€.")
@@ -104,9 +107,10 @@ print("Eesmärk 35 aastaselt portfelli väärtus", Eesmark2, "€.")
 print("Veel minna:", colored(Eesmark2 - Ignar_Kokku, 'red'), "€.")
 
 Morr_kokku = Morr.kokku #+ MorrKinnisvaraPort
-print("Mörr-i aktsiad:",  Morr.kokku, "€.")
+print("Mörr-i aktsiad:",  Morr.m_aktsiad, "€.")
+print("Mörr-i vaba raha:",  Morr.m_raha, "€.")
 #print("Mörr-i kinnisvara:", MorrKinnisvaraPort, "€.")
-print("Mörr-i portfell:", colored(Morr_kokku, 'red'), "€.")
+print("Mörr-i portfell kokku:", colored(Morr_kokku, 'red'), "€.")
 
 '# Kelly Portfell'
 Kelly_kokku = Kelly.Kelly_Portfell_Kokku
@@ -130,8 +134,9 @@ Tulemus = "\nTerve portfell kokku: " + str(Ignar_Kokku) + " €." + \
           "\nKrooni miljonär veel minna: " + str(Eesmark - Ignar_Kokku) + " €." + \
           "\nEesmärk 35 aastaselt portfelli väärtus: " + str(Eesmark2) + " €." + \
           "\nVeel minna: " + str(Eesmark2 - Ignar_Kokku) + " €." + \
-          "\nMörr-i aktsiad: " + str(Morr.kokku) + " €." + \
-          "\nMörr-i portfell: " + str(Morr_kokku) + " €. " \
+          "\nMörr-i aktsiad: " + str(Morr.m_aktsiad) + " €." + \
+          "\nMörr-i vaba raha: " + str(Morr.m_raha) + " €." + \
+          "\nMörr-i portfell kokku: " + str(Morr_kokku) + " €. " \
           "\nKelly portfell: " + str(Kelly_kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €." + "\n\n" +\
           "\nLaenu Akadeemia 42-63 makstud: " + str(dateAka42.years) + " Years, " + str(dateAka42.months) + " Months" +\

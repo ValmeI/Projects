@@ -1,4 +1,4 @@
-2021-09-04 10:56:06.909424
+2021-09-05 17:47:36.504316
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Akadeemia 38-20 laenumakse: 153 € + kindlustus.
@@ -8,30 +8,38 @@ Laenu Akadeemia 42-63 makstud: 5 Years, 6 Months
 Laenu Akadeemia 38-20 makstud: 4 Years, 3 Months
 Laenu Vilde 90-193 makstud: 2 Years, 4 Months
 
-Akadeemia 42-63 laenu jääk 14259 €. Laenu summa 16708.64
-Akadeemia 38-20 laenu jääk 18900 €. Laenu summa 22146.08
+Akadeemia 42-63 laenu jääk 14180 €. Laenu summa 16708.64
+Akadeemia 38-20 laenu jääk 18794 €. Laenu summa 22146.08
 Vilde 90-193 laenu jääk 14518 €. Laenu summa 17940.0
 
-Laenu kohutus kokku(ainult Akadeemia): 33159
-Laenu kohutus kokku(Kõik): 47677
+Laenu kohutus kokku(ainult Akadeemia): 32974
+Laenu kohutus kokku(Kõik): 47492
 
-Hetkel korterite puhas väärtus kokku: 21241 €.
+Hetkel korterite puhas väärtus kokku: 21426 €.
 Vilde peale makse Isale: [31m-2.71[0m €.
-Krüpto: [31m1554[0m €.
-Juriidilise isiku väärtus: 80862 €.
+
+
+Juriidilise isiku väärtus: 81273 €.
+Krüpto: [31m1563[0m €.
+Juriidilise isiku aktsiad: 61628.22999999999 €.
+Funderbeam Kokku: [31m19331.38[0m €.
+
+
 Füüsilise isiku aktsia portfell: 6940 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 87802 €.
-Vaba raha Jur/Füs Kokku: [31m304[0m €.
-Funderbeam Kokku: [31m18929.52[0m €.
-Terve portfell kokku: [31m109043[0m €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 88213 €.
+Vaba raha Jur/Füs Kokku: [31m313[0m €.
+
+
+Terve portfell kokku: [31m109639[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-45131[0m €.
+Krooni miljonär veel minna: [31m-45727[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m390957[0m €.
-Mörr-i aktsiad: 65763 €.
-Mörr-i portfell: [31m65763[0m €.
-Kelly portfell: [31m443[0m €.
-Pere portfell kokku: [31m175249[0m €.
+Veel minna: [31m390361[0m €.
+Mörr-i aktsiad: 7153.15108 €.
+Mörr-i vaba raha: 54160 €.
+Mörr-i portfell kokku: [31m65763[0m €.
+Kelly portfell: [31m445[0m €.
+Pere portfell kokku: [31m175847[0m €.
 ========================
 Fail juba kaustas olemas.
 Tänane seis muudetud.
