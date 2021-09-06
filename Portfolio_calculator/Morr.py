@@ -18,7 +18,7 @@ morr_eur_stocks = {"APG1L": 196,
 
 ValCapitalRaha = 8900
 
-m_aktsiad = Aktsiad.stocks_value_combined(morr_eur_stocks, True)
+m_aktsiad = round(Aktsiad.stocks_value_combined(morr_eur_stocks, True))
 
 m_raha = 54160
 

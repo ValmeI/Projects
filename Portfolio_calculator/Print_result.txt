@@ -1,4 +1,4 @@
-2021-09-05 17:47:36.504316
+2021-09-06 18:36:22.800407
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Akadeemia 38-20 laenumakse: 153 € + kindlustus.
@@ -19,27 +19,27 @@ Hetkel korterite puhas väärtus kokku: 21426 €.
 Vilde peale makse Isale: [31m-2.71[0m €.
 
 
-Juriidilise isiku väärtus: 81273 €.
-Krüpto: [31m1563[0m €.
-Juriidilise isiku aktsiad: 61628.22999999999 €.
-Funderbeam Kokku: [31m19331.38[0m €.
+Juriidilise isiku väärtus: 81770 €.
+Krüpto: [31m1604[0m €.
+Juriidilise isiku aktsiad: 61819.259999999995 €.
+Funderbeam Kokku: [31m19597.2[0m €.
 
 
-Füüsilise isiku aktsia portfell: 6940 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 88213 €.
-Vaba raha Jur/Füs Kokku: [31m313[0m €.
+Füüsilise isiku aktsia portfell: 6797 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 88567 €.
+Vaba raha Jur/Füs Kokku: [31m354[0m €.
 
 
-Terve portfell kokku: [31m109639[0m €.
+Terve portfell kokku: [31m109993[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-45727[0m €.
+Krooni miljonär veel minna: [31m-46081[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m390361[0m €.
-Mörr-i aktsiad: 7153.15108 €.
+Veel minna: [31m390007[0m €.
+Mörr-i aktsiad: 7130 €.
 Mörr-i vaba raha: 54160 €.
-Mörr-i portfell kokku: [31m65763[0m €.
+Mörr-i portfell kokku: [31m65740[0m €.
 Kelly portfell: [31m445[0m €.
-Pere portfell kokku: [31m175847[0m €.
+Pere portfell kokku: [31m176178[0m €.
 ========================
 Fail juba kaustas olemas.
 Tänane seis muudetud.
