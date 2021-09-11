@@ -1,46 +1,46 @@
-2021-09-06 18:36:22.800407
+2021-09-11 10:37:18.500709
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Akadeemia 38-20 laenumakse: 153 € + kindlustus.
 Vilde 90-193 laenumakse: 155 € + kindlustus.
 
 Laenu Akadeemia 42-63 makstud: 5 Years, 6 Months
-Laenu Akadeemia 38-20 makstud: 4 Years, 3 Months
-Laenu Vilde 90-193 makstud: 2 Years, 4 Months
+Laenu Akadeemia 38-20 makstud: 4 Years, 4 Months
+Laenu Vilde 90-193 makstud: 2 Years, 5 Months
 
 Akadeemia 42-63 laenu jääk 14180 €. Laenu summa 16708.64
 Akadeemia 38-20 laenu jääk 18794 €. Laenu summa 22146.08
-Vilde 90-193 laenu jääk 14518 €. Laenu summa 17940.0
+Vilde 90-193 laenu jääk 14392 €. Laenu summa 17940.0
 
 Laenu kohutus kokku(ainult Akadeemia): 32974
-Laenu kohutus kokku(Kõik): 47492
+Laenu kohutus kokku(Kõik): 47366
 
 Hetkel korterite puhas väärtus kokku: 21426 €.
 Vilde peale makse Isale: [31m-2.71[0m €.
 
 
-Juriidilise isiku väärtus: 81770 €.
-Krüpto: [31m1604[0m €.
-Juriidilise isiku aktsiad: 61819.259999999995 €.
-Funderbeam Kokku: [31m19597.2[0m €.
+Juriidilise isiku väärtus: 80093 €.
+Krüpto: [31m1360[0m €.
+Juriidilise isiku aktsiad: 60908 €.
+Funderbeam Kokku: [31m19024.57[0m €.
 
 
-Füüsilise isiku aktsia portfell: 6797 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 88567 €.
-Vaba raha Jur/Füs Kokku: [31m354[0m €.
+Füüsilise isiku aktsia portfell: 6662 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 86755 €.
+Vaba raha Jur/Füs Kokku: [31m160[0m €.
 
 
-Terve portfell kokku: [31m109993[0m €.
+Terve portfell kokku: [31m108181[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-46081[0m €.
+Krooni miljonär veel minna: [31m-44269[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m390007[0m €.
-Mörr-i aktsiad: 7130 €.
-Mörr-i vaba raha: 54160 €.
-Mörr-i portfell kokku: [31m65740[0m €.
-Kelly portfell: [31m445[0m €.
-Pere portfell kokku: [31m176178[0m €.
+Veel minna: [31m391819[0m €.
+Mörr-i aktsiad: 9341 €.
+Mörr-i vaba raha: 51660 €.
+Mörr-i portfell kokku: [31m65501[0m €.
+Kelly portfell: [31m489[0m €.
+Pere portfell kokku: [31m174171[0m €.
 ========================
 Fail juba kaustas olemas.
-Tänane seis muudetud.
+Tänane seis lisatud.
 [32mE-maili saatmine: Pole reede[0m
