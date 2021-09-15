@@ -9,7 +9,7 @@ fys_eur_stocks = {"TKM1T": 355,
                   }
 
 jur_usa_stocks = {"AAPL": 93,
-                  "TSLA": 22,
+                  "TSLA": 14,
                   "AMD": 84,
                   "MSFT": 12,
                   "AMZN": 3,
@@ -51,10 +51,10 @@ JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) + Clever
 Jur_Krypto = round(Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR)
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 600
+JurRaha = 900
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = -6300
+Jur_IB_Raha = -1200
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2 + Jur_Krypto)
 '# Mörr on väike karu'
 
