@@ -17,7 +17,11 @@ jur_usa_stocks = {"AAPL": 93,
                   "NIO": 43,
                   "XPEV": 52,
                   "BABA": 17,
-                  "NNND": 56
+                  "Li Auto": 37
+                  }
+
+jur_eur_stocks = {
+                  "NNND": 56,
                   }
 
 '# Crypto Amounts'
@@ -47,14 +51,16 @@ FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
 CleveronAktsia = 4 * 850
-JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) + CleveronAktsia)
+JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) +
+                   Aktsiad.stocks_value_combined(jur_eur_stocks, True) + CleveronAktsia)
+
 Jur_Krypto = round(Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR)
 
 '#jur isiku raha LHV + IB RAHA'
 JurRaha = 500
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = -1200
+Jur_IB_Raha = -2000
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2 + Jur_Krypto)
 '# Mörr on väike karu'
 
