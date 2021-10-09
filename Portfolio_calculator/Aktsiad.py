@@ -22,6 +22,9 @@ def replace_whitespaces(stat):
     if " " in stat:
         stat = stat.replace(" ", "")
         return stat
+    elif " " in stat:
+        stat = stat.replace(" ", "")
+        return stat
     else:
         return stat
 
@@ -124,6 +127,7 @@ def bitcoin_to_eur(var):
     soup = BeautifulSoup(convert_html, 'lxml')
     str_price_org_currency = soup.find('span', class_='DFlfde SwHCTb').text
     str_price_org_currency = replace_comma_google(str_price_org_currency)
+    str_price_org_currency = replace_whitespaces(str_price_org_currency)
     '# UPDATE 4.06.2021 problems maybe fixed it'
     driver.quit()
     return float(str_price_org_currency)
@@ -179,3 +183,4 @@ def usd_to_eur_convert(number):
 #print(crypto_price_from_coinmarketcap('ethereum'))
 
 #print(usd_to_eur_convert(crypto_price_from_coingecko('ethereum')*0.65012))
+#bitcoin_to_eur(0.021538)
