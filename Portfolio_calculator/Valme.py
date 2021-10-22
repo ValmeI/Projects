@@ -5,7 +5,8 @@ from Portfolio_calculator.Funcions import what_path_for_file
 path = what_path_for_file()
 
 fys_eur_stocks = {"TKM1T": 355,
-                  "EFT1T": 113
+                  "EFT1T": 113,
+                  "EGR1T": 1634
                   }
 
 jur_usa_stocks = {"AAPL": 93,
@@ -22,6 +23,8 @@ jur_usa_stocks = {"AAPL": 93,
 
 jur_eur_stocks = {
                   "NNND": 56,
+                  "EGR1T": 1005, #LHV
+                  "EGR1T": 1500
                   }
 
 '# Crypto Amounts'
@@ -44,7 +47,7 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 0
+FüsIsikRaha = -4051.49
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -60,7 +63,7 @@ Jur_Krypto = round(Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR)
 JurRaha = 500
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = 673
+Jur_IB_Raha = -5400
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2 + Jur_Krypto)
 '# Mörr on väike karu'
 
