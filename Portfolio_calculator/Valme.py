@@ -60,10 +60,10 @@ JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) +
 Jur_Krypto = round(Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR)
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 500
+JurRaha = 300
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = -5400
+Jur_IB_Raha = -3300
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2 + Jur_Krypto)
 '# Mörr on väike karu'
 
