@@ -38,46 +38,35 @@ print(datetime.datetime.now())
 '#Kinnisvara objetktide print'
 
 PerMonthAka42 = Kinnisvara.apr_month(Kinnisvara.Korter1_Laen, 3, 15)
-PerMonthAka38 = Kinnisvara.apr_month(Kinnisvara.Korter2_Laen, 3, 15)
+'# Akadeemia 38-20 Müüdud 28.10.2021 Laenujääk 18 800 EUR'
 PerMonthVilde90 = Kinnisvara.apr_month(Kinnisvara.Korter3_Laen, 2.39, 11)
 
 print('\n' + Kinnisvara.Korter1_Nimi, "laenumakse:", PerMonthAka42, "€ + kindlustus.")
-print(Kinnisvara.Korter2_Nimi, "laenumakse:", PerMonthAka38, "€ + kindlustus.")
 print(Kinnisvara.Korter3_Nimi, "laenumakse:", PerMonthVilde90, "€ + kindlustus.\n")
 
 '# how many years and months each loan is paid already'
 dateAka42 = relativedelta(Täna, Valme.Vana_Aka42_63_Laen_Kuupäev)
-dateAka38 = relativedelta(Täna, Valme.Vana_Aka38_20_Laen_Kuupäev)
 dateVilde90 = relativedelta(Täna, Valme.Vilde90_193_Laen_Kuupäev)
-#dateSõle = relativedelta(Täna, Morr.Sõle_Laen_Kuupäev)
 
 print("Laenu Akadeemia 42-63 makstud:", dateAka42.years, "Years,", dateAka42.months, "Months")
-print("Laenu Akadeemia 38-20 makstud:", dateAka38.years, "Years,", dateAka38.months, "Months")
 print("Laenu Vilde 90-193 makstud:", dateVilde90.years, "Years,", dateVilde90.months, "Months\n")
-#print("Laenu Sõle 25B/3-21 makstud:", dateSõle.years, "Years,", dateSõle.months, "Months\n")
 
 '#makstud kuude vahe arvutus'
 KuudMakstudAka42 = diff_months(Täna, Valme.Aka42_63_Laen_Kuupäev)
-KuudMakstudAka38 = diff_months(Täna, Valme.Aka38_20_Laen_Kuupäev)
 KuudMakstudVilde90 = diff_months(Täna, Valme.Vilde90_193_Laen_Kuupäev)
-#KuudMakstudSõle = diff_months(Täna, Morr.Sõle_Laen_Kuupäev)
 
 '#diffMonths annab natuke erineva tulemuse, kui aastad vs kuud'
 BalanceAka42 = Kinnisvara.apr_balance(Kinnisvara.Korter1_Laen, 3, 15, KuudMakstudAka42)
-BalanceAka38 = Kinnisvara.apr_balance(Kinnisvara.Korter2_Laen, 3, 15, KuudMakstudAka38)
 BalanceVilde90 = Kinnisvara.apr_balance(Kinnisvara.Korter3_Laen, 2.39, 11, KuudMakstudVilde90)
-#BalanceSõle = Kinnisvara.apr_balance(Kinnisvara.Korter4_Laen, 1.17, 30, KuudMakstudSõle)
 
 print(Kinnisvara.Korter1_Nimi, "laenu jääk", BalanceAka42, "€.", 'Laenu summa', Kinnisvara.Korter1_Laen)
-print(Kinnisvara.Korter2_Nimi, "laenu jääk", BalanceAka38, "€.", 'Laenu summa', Kinnisvara.Korter2_Laen)
 print(Kinnisvara.Korter3_Nimi, "laenu jääk", BalanceVilde90, "€.", 'Laenu summa', Kinnisvara.Korter3_Laen)
-#print(Kinnisvara.Korter4_Nimi, "laenu jääk", BalanceSõle, "€.", 'Laenu summa', Kinnisvara.Korter4_Laen)
 
-print("\nLaenu kohutus kokku(ainult Akadeemia):", BalanceAka42 + BalanceAka38)
-print("Laenu kohutus kokku(Kõik):", BalanceAka42 + BalanceAka38 + BalanceVilde90)
+print("\nLaenu kohutus kokku(ainult Akadeemia):", BalanceAka42)
+print("Laenu kohutus kokku(Kõik):", BalanceAka42 + BalanceVilde90)
 
 '#Kinnisvara kokku. Liidetakse kõik Dics korterite ostu hinnad - balancid ehk palju laenu veel maksta'
-KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 - BalanceAka38
+KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42
 #MorrKinnisvaraPort = 67700 - BalanceSõle
 
 print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
@@ -140,10 +129,8 @@ Tulemus = "\nTerve portfell kokku: " + str(Ignar_Kokku) + " €." + \
           "\nKelly portfell: " + str(Kelly_kokku) + " €. " + \
           "\nPere portfell kokku: " + str(Pere) + " €." + "\n\n" +\
           "\nLaenu Akadeemia 42-63 makstud: " + str(dateAka42.years) + " Years, " + str(dateAka42.months) + " Months" +\
-          "\nLaenu Akadeemia 38-20 makstud: " + str(dateAka38.years) + " Years, " + str(dateAka38.months) + " Months" +\
           "\nLaenu Vilde 90-193 makstud: " + str(dateVilde90.years) + " Years, " + str(dateVilde90.months) + " Months" +\
-          "\n" + str(Kinnisvara.Korter1_Nimi) + " laenu jääk " + str(BalanceAka42) + " €." + ' Laenu summa ' + str(Kinnisvara.Korter1_Laen) +\
-          "\n" + str(Kinnisvara.Korter2_Nimi) + " laenu jääk " + str(BalanceAka38) + " €." + ' Laenu summa ' + str(Kinnisvara.Korter2_Laen) +\
+          "\n\n" + str(Kinnisvara.Korter1_Nimi) + " laenu jääk " + str(BalanceAka42) + " €." + ' Laenu summa ' + str(Kinnisvara.Korter1_Laen) +\
           "\n" + str(Kinnisvara.Korter3_Nimi) + " laenu jääk " + str(BalanceVilde90) + " €." + ' Laenu summa ' + str(Kinnisvara.Korter3_Laen)
 
 '#if it is friday and password file is in directory, then send e-mail'

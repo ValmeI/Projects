@@ -17,14 +17,13 @@ jur_usa_stocks = {"AAPL": 93,
                   "GOOGL": 2,
                   "NIO": 43,
                   "XPEV": 52,
-                  "BABA": 10,
-                  "Li Auto": 34
+                  "BABA": 10
                   }
 
 jur_eur_stocks = {
                   "NNND": 56,
                   "EGR1T": 1005, #LHV
-                  "EGR1T": 1500
+                  "EGR1T": 1500 #IB
                   }
 
 '# Crypto Amounts'
@@ -44,10 +43,10 @@ Vana_Aka42_63_Laen_Kuupäev = date(2016, 2, 16)
 Vana_Aka38_20_Laen_Kuupäev = date(2017, 5, 9)
 
 Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
-Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
+#Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = -4051.49
+FüsIsikRaha = 948+5000+8000
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -60,7 +59,7 @@ JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) +
 Jur_Krypto = round(Aktsiad.bitcoin_to_eur(BTC) + Million_Coin_EUR + ETH_EUR)
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 300
+JurRaha = 4000+2000 #funder
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
 Jur_IB_Raha = -3300
