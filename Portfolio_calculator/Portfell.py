@@ -66,7 +66,7 @@ print("\nLaenu kohutus kokku(ainult Akadeemia):", BalanceAka42)
 print("Laenu kohutus kokku(Kõik):", BalanceAka42 + BalanceVilde90)
 
 '#Kinnisvara kokku. Liidetakse kõik Dics korterite ostu hinnad - balancid ehk palju laenu veel maksta'
-KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42
+KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 + 3000 #Kiili
 #MorrKinnisvaraPort = 67700 - BalanceSõle
 
 print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
