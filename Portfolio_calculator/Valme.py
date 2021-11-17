@@ -6,7 +6,7 @@ path = what_path_for_file()
 
 fys_eur_stocks = {"TKM1T": 355,
                   "EFT1T": 113,
-                  "EGR1T": 700
+                  "EGR1T": 500
                   }
 
 jur_usa_stocks = {"AAPL": 93,
@@ -21,7 +21,7 @@ jur_usa_stocks = {"AAPL": 93,
 
 jur_eur_stocks = {
                   "EGR1T": 1115, #LHV
-                  "EGR1T": 800 #IB
+                  "EGR1T": 400 #IB
                   }
 
 '# Crypto Amounts'
@@ -63,7 +63,7 @@ Jur_Krypto = round(Bitcoin_EUR + Million_Coin_EUR + ETH_EUR)
 JurRaha = 600+2000 #funder
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = 1460
+Jur_IB_Raha = 3140
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2 + Jur_Krypto)
 '# Mörr on väike karu'
 
