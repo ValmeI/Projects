@@ -19,8 +19,10 @@ morr_eur_stocks = {"APG1L": 196,
 
 ValCapitalRaha = 9200
 
-m_aktsiad = round(Aktsiad.stocks_value_combined(morr_eur_stocks, True))
+Lähtse_Raha = 20000
 
-m_raha = 46098
+m_aktsiad = round(Aktsiad.stocks_value_combined(morr_eur_stocks, True)) + 400 #Hepsor
 
-kokku = round(ValCapitalRaha/2 + m_raha + m_aktsiad)
+m_raha = 29138.72
+
+kokku = round(ValCapitalRaha/2 + m_raha + m_aktsiad + Lähtse_Raha/2)

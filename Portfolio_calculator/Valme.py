@@ -51,15 +51,15 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 #Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 5354.21+7000
-FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True) + 1041.30	#HEPSORIPO
+FüsIsikRaha = 5155.10
+FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True) + 1440.02	#HEPSORIPO
 
 '# Vaba raha ja aktsiad kokku'
 FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
 CleveronAktsia = 4 * 850
 JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) +
-                   Aktsiad.stocks_value_combined(jur_eur_stocks, True) + CleveronAktsia) + 713.70	#HEPSORIPO
+                   Aktsiad.stocks_value_combined(jur_eur_stocks, True) + CleveronAktsia) + 986.98	#HEPSORIPO
 
 Jur_Krypto = round(Bitcoin_EUR + Million_Coin_EUR + ETH_EUR)
 
