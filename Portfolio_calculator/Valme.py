@@ -6,8 +6,8 @@ path = what_path_for_file()
 
 fys_eur_stocks = {"TKM1T": 355,
                   "EFT1T": 113,
-                  "EGR1T": 500
-                  #,"HEPSORIPO": 89
+                  "EGR1T": 500,
+                  "HPR1T": 89
                   }
 
 jur_usa_stocks = {"AAPL": 93,
@@ -19,13 +19,15 @@ jur_usa_stocks = {"AAPL": 93,
                   "NIO": 43,
                   "XPEV": 52,
                   "PLTR": 50,
-                  "NKE": 1
+                  "NKE": 11,
+                  "NFLX": 1,
+                  "NVDA": 1
                   }
 
 jur_eur_stocks = {
                   "EGR1T": 1115, #LHV
-                  "EGR1T": 400 #IB
-                  #,"HEPSORIPO": 61
+                  "EGR1T": 400, #IB
+                  "HPR1T": 61
                   }
 
 '# Crypto Amounts'
@@ -52,14 +54,14 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
 FüsIsikRaha = 5155.10
-FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True) + 1440.02	#HEPSORIPO
+FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
 FysIsik = round(FüsIsikRaha + FysIsikAktsaid)
 
 CleveronAktsia = 4 * 850
 JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) +
-                   Aktsiad.stocks_value_combined(jur_eur_stocks, True) + CleveronAktsia) + 986.98	#HEPSORIPO
+                   Aktsiad.stocks_value_combined(jur_eur_stocks, True) + CleveronAktsia)
 
 Jur_Krypto = round(Bitcoin_EUR + Million_Coin_EUR + ETH_EUR)
 
@@ -67,7 +69,7 @@ Jur_Krypto = round(Bitcoin_EUR + Million_Coin_EUR + ETH_EUR)
 JurRaha = 5925
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = 25
+Jur_IB_Raha = -2330
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2 + Jur_Krypto)
 '# Mörr on väike karu'
 
