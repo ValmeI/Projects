@@ -16,18 +16,20 @@ jur_usa_stocks = {"AAPL": 93,
                   "MSFT": 12,
                   "AMZN": 3,
                   "GOOGL": 2,
-                  "NIO": 43,
-                  "XPEV": 52,
+                  "NIO": 93,
+                  "XPEV": 72,
                   "PLTR": 50,
                   "NKE": 11,
                   "NFLX": 1,
-                  "NVDA": 1
+                  "NVDA": 1,
+                  "LI": 100,
                   }
 
 jur_eur_stocks = {
                   "EGR1T": 1115, #LHV
                   "EGR1T": 400, #IB
-                  "HPR1T": 61
+                  "HPR1T": 61,
+                  "LHV1T": 100
                   }
 
 '# Crypto Amounts'
@@ -66,10 +68,10 @@ JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) +
 Jur_Krypto = round(Bitcoin_EUR + Million_Coin_EUR + ETH_EUR)
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 5925
+JurRaha = 2925+3000 #funderBeam
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
-Jur_IB_Raha = -2330
+Jur_IB_Raha = -12900
 JurIsik = round(JurRaha + JurFunderBeam + Jur_IB_Raha + JurAktsiad + Morr.ValCapitalRaha / 2 + Jur_Krypto)
 '# Mörr on väike karu'
 
