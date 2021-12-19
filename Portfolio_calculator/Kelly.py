@@ -11,7 +11,7 @@ ETH_USD = Aktsiad.crypto_price_from_coinmarketcap('ethereum') * ETH_amount
 ETH_EUR = Aktsiad.usd_to_eur_convert(ETH_USD)
 
 Kelly_raha = 0
-Kelly_Invest_raha = 908.97 - 1000 #Emmele võlg
+Kelly_Invest_raha = 391 + 343 - 500 #Emmele võlg ja textmagic
 Kelly_Invest_aktsiad = Aktsiad.stocks_value_combined(jur_eur_stocks, True)
 
 Kelly_Portfell_Kokku = round(Kelly_raha + Kelly_Invest_raha + ETH_EUR + Kelly_Invest_aktsiad)
