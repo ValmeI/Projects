@@ -111,16 +111,16 @@ def stocks_portfolio_percentages(portfolio_size, stocks_dictionary, org_currency
 
 '# convert bitcoin to eur'
 
-'''
-def bitcoin_to_eur(var):
+
+def crypto_to_eur(crypto):
 
     options = Options()
     '# add options to chrome, to run it headless as not opening it'
-    #options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument('--no-sandbox')  # Bypass OS security model UPDATE 4.06.2021 problems maybe fixed it
     options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
-    url = "https://www.google.com/search?q=" + str(var) + "  btc to eur"
+    url = "https://www.google.com/search?q=" + crypto + "  price eur"
     driver.get(url)
 
     convert_html = driver.page_source
@@ -129,13 +129,14 @@ def bitcoin_to_eur(var):
     str_price_org_currency = replace_comma_google(str_price_org_currency)
     str_price_org_currency = replace_whitespaces(str_price_org_currency)
     '# UPDATE 4.06.2021 problems maybe fixed it'
-    #driver.quit()
+    driver.quit()
     return float(str_price_org_currency)
-'''
+
 
 '# UPDATE 3.09.2021: from coingecko to coinmarketcap, bc of "DDoS protection by Cloudflare"'
+'# UPDATE 22.12.2021: coinmarketcap bc of "DDoS protection by Cloudflare"'
 
-
+'''
 def crypto_price_from_coinmarketcap(coin_name):
     options = Options()
     '# add options to chrome, to run it headless as not opening it'
@@ -152,6 +153,7 @@ def crypto_price_from_coinmarketcap(coin_name):
     '# UPDATE 4.06.2021 problems maybe fixed it'
     driver.quit()
     return float(str_price_org_currency)
+'''
 
 
 def usd_to_eur_convert(number):
@@ -184,4 +186,4 @@ def usd_to_eur_convert(number):
 
 #print(usd_to_eur_convert(crypto_price_from_coinmarketcap('ethereum')*0.65012))
 #print(usd_to_eur_convert(crypto_price_from_coinmarketcap('bitcoin')))
-#bitcoin_to_eur(0.021538)
+#print(crypto_to_eur("Ethereum"))
