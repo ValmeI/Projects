@@ -69,7 +69,7 @@ print("Laenu kohutus kokku(Kõik):", BalanceAka42 + BalanceVilde90)
 KinnisVaraPort = Kinnisvara.kinnisvara_vaartus() - BalanceAka42 + Morr.Lähtse_Raha/2
 #MorrKinnisvaraPort = 67700 - BalanceSõle
 
-print("\nHetkel korterite puhas väärtus kokku:", KinnisVaraPort, "€.")
+print("\nHetkel korteri/krundi puhas väärtus kokku:", KinnisVaraPort, "€.")
 
 '# Portfell kokku'
 Ignar_Kokku = Valme.FysIsik + Valme.JurIsik + KinnisVaraPort
