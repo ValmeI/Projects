@@ -1,4 +1,4 @@
-2021-12-29 18:31:47.371169
+2022-01-02 14:40:01.695934
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Vilde 90-193 laenumakse: 155 € + kindlustus.
@@ -13,31 +13,38 @@ Laenu kohutus kokku(ainult Akadeemia): 13939
 Laenu kohutus kokku(Kõik): 27952
 
 Hetkel korteri/krundi puhas väärtus kokku: 20561.0 €.
-Vilde peale makse Isale: [31m-6.29[0m €.
+Vilde peale makse Isale: [31m-8.08[0m €.
 
 
-Juriidilise isiku väärtus: 106270 €.
-Krüpto: [31m1280[0m €.
-Juriidilise isiku aktsiad: 66197 €.
-Funderbeam Kokku: [31m25170.77[0m €.
+Juriidilise isiku väärtus: 106219 €.
+Krüpto: [31m1257[0m €.
+Juriidilise isiku aktsiad: 65963 €.
+Funderbeam Kokku: [31m25475.26[0m €.
 
 
-Füüsilise isiku aktsia portfell: 12070 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 118340 €.
-Vaba raha Jur/Füs Kokku: [31m17194[0m €.
+Füüsilise isiku aktsia portfell: 12073 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 118292 €.
+Vaba raha Jur/Füs Kokku: [31m17073[0m €.
 
 
-Terve portfell kokku: [31m138901.0[0m €.
+Terve portfell kokku: [31m138853.0[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-74989.0[0m €.
+Krooni miljonär veel minna: [31m-74941.0[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m361099.0[0m €.
-Mörr-i aktsiad: 20145 €.
-Mörr-i vaba raha: 30138.72 €.
-Mörr-i portfell kokku: [31m65334[0m €.
-Kelly portfell: [31m1515[0m €.
-Pere portfell kokku: [31m205750.0[0m €.
+Veel minna: [31m361147.0[0m €.
+Mörr-i aktsiad: 22996 €.
+Mörr-i vaba raha: 30422.35 €.
+Mörr-i portfell kokku: [31m68468[0m €.
+Kelly portfell: [31m1516[0m €.
+Pere portfell kokku: [31m208837.0[0m €.
 ========================
 Fail juba kaustas olemas.
-Tänane seis muudetud.
+        Aasta  Portfell eelmisel aastal  Portfell see aasta Protsendiline muutus
+0  2018-01-01                         0             28570.0                  0 %
+1  2019-01-01                     28570             33435.0                 17 %
+2  2020-01-01                     33435             50223.0                 50 %
+3  2021-01-01                     50223             82751.0                 65 %
+4  2022-01-01                     82751            138823.0                 68 %
+5  2022-01-02                    138823            138853.0                  0 %
+Tänane seis lisatud.
 [32mE-maili saatmine: Pole reede[0m

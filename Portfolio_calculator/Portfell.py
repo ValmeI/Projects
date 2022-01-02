@@ -1,5 +1,5 @@
 from Portfolio_calculator import Kinnisvara, Morr, Valme, txt_write_move, Kelly
-from Portfolio_calculator.Funcions import diff_months, need_new_excel_file, update_excel
+from Portfolio_calculator.Funcions import diff_months, need_new_excel_file, update_excel, year_to_year_percent
 from datetime import date
 import datetime
 import time
@@ -111,6 +111,13 @@ print("Pere portfell kokku:", colored(Pere, 'red'), "€.")
 
 Aktsiad_kokku = Valme.FysIsik+Valme.JurIsik
 need_new_excel_file("Portfell", "Porfelli Info")
+
+'# Aastate võrldus %, pandas print'
+print("========================")
+print(year_to_year_percent(path + 'Portfolio_calculator/', "Portfell", "01-01", Ignar_Kokku))
+
+print("========================")
+
 
 '#exceli_nimi, kinnisvara_puhas, füs_aktsiad, jur_aktsiad, aktsiad_kokku, kokku_portfell, pere portfell, Vilde, Vaba raha, Funderbeam, Kelly '
 update_excel(path + 'Portfolio_calculator/', "Portfell",

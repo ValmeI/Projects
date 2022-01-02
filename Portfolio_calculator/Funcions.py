@@ -4,6 +4,8 @@ from xlutils.copy import copy
 from datetime import date
 import xlrd
 import os.path
+import pandas as pd
+from dateutil.parser import parse
 
 '# Funderbean imports'
 from selenium import webdriver
@@ -344,3 +346,62 @@ def get_funderbeam_marketvalue():
         driver.quit()
 
         return parsed_market_value
+
+
+def year_to_year_percent(path, excel_name, mm_dd, todays_total_portfolio):
+    '# lisab file type'
+    file_name = excel_name + ".xls"
+    '# open excel file'
+    rb = xlrd.open_workbook(path + file_name)
+    first_sheet = rb.sheet_by_index(0)
+
+    '# all dates and all values from total sum of portfolio'
+    date_and_sum_dict = dict(zip(first_sheet.col_values(0), first_sheet.col_values(5)))
+
+    amount_list = []
+    date_list = []
+    '# to filter out only give dates (mm_dd input) and sums'
+    for date1, amount in date_and_sum_dict.items():
+        if mm_dd in date1:
+
+            amount_list.append(round(amount))
+            date_list.append(date1)
+
+            '# is same year as last row (for example 2022-01-01) and it is not January 1st, then add today s portfolio amount'
+            if date.today().year == parse(date1).date().year and date.today().month is not '1' and date.today().day is not '1':
+                amount_list.append(round(todays_total_portfolio))
+                date_list.append(date.today())
+
+    previous_amount_list = []
+    percentage_increase_list = []
+
+    '# to get previous vs current values and percentage increase'
+    for previous, current in zip(amount_list, amount_list[1:]):
+        percentage_increase = round(100*((current-previous)/previous))
+        previous_amount_list.append(previous)
+        percentage_increase_list.append(str(percentage_increase) + ' %')
+
+    '# need to add 0 to the beginning of list, so dataframe would have exactly same amount of rows'
+    if len(previous_amount_list) != len(date_list):
+        '# pos and value added'
+        previous_amount_list.insert(0, 0)
+
+    if len(percentage_increase_list) != len(date_list):
+        '# pos and value added'
+        percentage_increase_list.insert(0, '0 %')
+
+    data = {"Aasta": date_list,
+             "Portfell eelmisel aastal": previous_amount_list,
+             "Portfell see aasta": amount_list,
+             "Protsendiline muutus": percentage_increase_list}
+
+    pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.width', None)
+    df = pd.DataFrame(data)
+
+    return df
+
+
+#path = what_path_for_file()
+#print(year_to_year_percent(path + 'Portfolio_calculator/', "Portfell", "01-01", 100))
