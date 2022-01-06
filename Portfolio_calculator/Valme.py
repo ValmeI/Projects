@@ -6,8 +6,7 @@ path = what_path_for_file()
 
 fys_eur_stocks = {"TKM1T": 355,
                   "EFT1T": 113,
-                  "EGR1T": 500,
-                  "HPR1T": 89
+                  "EGR1T": 500
                   }
 
 jur_usa_stocks = {"AAPL": 93,
@@ -27,7 +26,6 @@ jur_usa_stocks = {"AAPL": 93,
 jur_eur_stocks = {
                   "EGR1T": 1115, #LHV
                   "EGR1T": 400, #IB
-                  "HPR1T": 61,
                   "LHV1T": 100
                   }
 
@@ -54,7 +52,7 @@ Aka42_63_Laen_Kuupäev = date(2018, 12, 5)
 #Aka38_20_Laen_Kuupäev = date(2018, 12, 5)
 Vilde90_193_Laen_Kuupäev = date(2019, 4, 9)
 
-FüsIsikRaha = 2292
+FüsIsikRaha = 0
 FysIsikAktsaid = Aktsiad.stocks_value_combined(fys_eur_stocks, True)
 
 '# Vaba raha ja aktsiad kokku'
@@ -67,7 +65,7 @@ JurAktsiad = round(Aktsiad.stocks_value_combined(jur_usa_stocks, False) +
 Jur_Krypto = round(Bitcoin_EUR + ETH_EUR)
 
 '#jur isiku raha LHV + IB RAHA'
-JurRaha = 15000+504-10000 #emale võlg 10k
+JurRaha = 20000+258-10000+659.31 #emale võlg 10k ja funder cash
 '# get Funderbeam total'
 JurFunderBeam = f.get_funderbeam_marketvalue()
 Jur_IB_Raha = -7030
