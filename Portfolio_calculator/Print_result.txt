@@ -1,4 +1,4 @@
-2022-01-06 16:14:33.465197
+2022-01-07 18:29:35.749654
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Vilde 90-193 laenumakse: 155 € + kindlustus.
@@ -16,27 +16,27 @@ Hetkel korteri/krundi puhas väärtus kokku: 20641.0 €.
 Vilde peale makse Isale: [31m-8.08[0m €.
 
 
-Juriidilise isiku väärtus: 98801 €.
-Krüpto: [31m1156[0m €.
-Juriidilise isiku aktsiad: 63939 €.
-Funderbeam Kokku: [31m24769.03[0m €.
+Juriidilise isiku väärtus: 98131 €.
+Krüpto: [31m1085[0m €.
+Juriidilise isiku aktsiad: 62647 €.
+Funderbeam Kokku: [31m24459.06[0m €.
 
 
-Füüsilise isiku aktsia portfell: 8788 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 107589 €.
-Vaba raha Jur/Füs Kokku: [31m10093[0m €.
+Füüsilise isiku aktsia portfell: 8780 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 106911 €.
+Vaba raha Jur/Füs Kokku: [31m11025[0m €.
 
 
-Terve portfell kokku: [31m128230.0[0m €.
+Terve portfell kokku: [31m127552.0[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-64318.0[0m €.
+Krooni miljonär veel minna: [31m-63640.0[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m371770.0[0m €.
-Mörr-i aktsiad: 23088 €.
+Veel minna: [31m372448.0[0m €.
+Mörr-i aktsiad: 23098 €.
 Mörr-i vaba raha: 30422.35 €.
-Mörr-i portfell kokku: [31m68560[0m €.
-Kelly portfell: [31m1520[0m €.
-Pere portfell kokku: [31m198310.0[0m €.
+Mörr-i portfell kokku: [31m68570[0m €.
+Kelly portfell: [31m1497[0m €.
+Pere portfell kokku: [31m197619.0[0m €.
 ========================
 Fail juba kaustas olemas.
 ========================
@@ -46,7 +46,8 @@ Fail juba kaustas olemas.
 2  2020-01-01                     33435               50223                 50 %
 3  2021-01-01                     50223               82751                 65 %
 4  2022-01-01                     82751              128823                 56 %
-5  2022-01-06                    128823              128230                  0 %
+5  2022-01-07                    128823              127552                 -1 %
 ========================
 Tänane seis lisatud.
-[32mE-maili saatmine: Pole reede[0m
+[32m
+Mail Send Successfully[0m
