@@ -13,6 +13,13 @@ from selenium.webdriver.chrome.options import Options
 import time
 import json
 
+import chromedriver_autoinstaller
+
+'''Check if the current version of chromedriver exists
+and if it doesn't exist, download it automatically,
+then add chromedriver to path'''
+chromedriver_autoinstaller.install()
+
 
 '# get today'
 today_str = str(date.today())
@@ -309,7 +316,7 @@ def get_funderbeam_marketvalue():
     '# UPDATE 25.01.2021 to avoid cannot find Chrome binary error'
     options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     '# get Chrome driver with path'
-    driver = webdriver.Chrome(what_path_for_file() + "chromedriver.exe", options=options)
+    driver = webdriver.Chrome("chromedriver.exe", options=options)
     '# url we want to parse'
     url = "https://www.funderbeam.com/dashboard"
     '# get url'
