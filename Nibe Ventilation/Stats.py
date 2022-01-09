@@ -1,7 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from Portfolio_calculator.Funcions import what_path_for_file
 import xml.etree.ElementTree as ET
+
+
+def what_path_for_file():
+    if os.path.exists(path_home):
+        return str(path_home)
+
+    elif os.path.exists(path_work):
+        return str(path_work)
+
+    elif os.path.exists(path_laptop):
+        return str(path_laptop)
 
 
 '# Excel headers'
@@ -23,7 +33,7 @@ excel_headers = ["Sissepuhke temperatuur",
 def get_vent_stats():
     options = Options()
     '# parse without displaying Chrome'
-    options.add_argument("--headless")
+    #options.add_argument("--headless")
     '# UPDATE 25.01.2021 to avoid cannot find Chrome binary error'
     options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     '# get Chrome driver with path'

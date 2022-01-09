@@ -10,7 +10,7 @@ ETH_amount = 0.10581
 ETH_USD = Aktsiad.crypto_to_eur('Ethereum') * ETH_amount
 ETH_EUR = Aktsiad.usd_to_eur_convert(ETH_USD)
 
-Kelly_raha = 0
+Kelly_raha = 100
 Kelly_Invest_raha = 391 + 313 - 500 #Emmele võlg ja textmagic
 Kelly_Invest_aktsiad = Aktsiad.stocks_value_combined(jur_eur_stocks, True)
 
