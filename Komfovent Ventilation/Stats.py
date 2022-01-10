@@ -1,5 +1,6 @@
 from openpyxl import Workbook
 from openpyxl import load_workbook
+from openpyxl.utils import get_column_letter
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -11,12 +12,10 @@ from datetime import date
 '''Check if the current version of chromedriver exists
 and if it doesn't exist, download it automatically,
 then add chromedriver to path'''
-chromedriver_autoinstaller.install()
+#chromedriver_autoinstaller.install()
 
 '# get today'
 today_str = str(date.today())
-'# how much extend excel columns'
-column_extender = 350
 
 # need find out what abbreviations means, like SP, EP, DX and so on TODO
 
@@ -59,16 +58,16 @@ def create_excel(excel_name, sheet_name):
     sheet1.freeze_panes = 'A2'
     sheet1.append(excel_headers)
 
-
-    '#lisab file type'
+    '#add file type'
     file_name = excel_name + ".xlsx"
     '#salvestab exceli'
     wb.save(filename=file_name)
 
-# The process cannot access the file because it is being used by another process" TODO
+
+'# makes columns length wider'
 
 
-def coulumn_width(excel_name, sheet_name, width):
+def column_width(excel_name, sheet_name):
     '# add file type'
     file_name = excel_name + ".xlsx"
 
@@ -76,11 +75,17 @@ def coulumn_width(excel_name, sheet_name, width):
     wb = load_workbook(workbook_name)
     sheet1 = wb.active
 
-    for col_value in excel_headers:
-        sheet1.column_dimensions[col_value].width = column_extender
+    '# 1 so enumerate, would start form 1, not 0'
+    for i, col_value in enumerate(excel_headers, 1):
+        '# if column length is very small (less then 5), then give static length of 10, else length of column'
+        if len(col_value) < 5:
+            column_extender = 10
+        else:
+            column_extender = len(col_value)
+        '# wants column letter for input, as i. Width input is in the end of it'
+        sheet1.column_dimensions[get_column_letter(i)].width = column_extender
 
     wb.save(filename=workbook_name)
-
 
 
 '# You need to know your Komfovent Local IP aadress'
@@ -91,7 +96,7 @@ def get_vent_stats(komfovent_local_ip):
     '# parse without displaying Chrome'
     options.add_argument("--headless")
     '# UPDATE 9.01.2021 to avoid cannot find Chrome binary error'
-    options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+    options.binary_location = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
     '# get Chrome driver with path'
     driver = webdriver.Chrome("chromedriver.exe", options=options)
     '# url we want to parse: Komfovent local IP'
@@ -151,7 +156,7 @@ def write_to_excel(excel_name, list_of_data):
 
 
 #print(get_vent_stats("http://192.168.1.60/"))
-create_excel('proov', 'sheet_name')
+#create_excel('proov', 'sheet_name')
 #write_to_excel("proov", get_vent_stats("http://192.168.1.60/"))
 
-#coulumn_width('proov', 'sheet_name', column_extender)
+column_width('proov', 'sheet_name')
