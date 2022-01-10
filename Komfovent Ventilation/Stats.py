@@ -159,4 +159,4 @@ def write_to_excel(excel_name, list_of_data):
 #create_excel('proov', 'sheet_name')
 #write_to_excel("proov", get_vent_stats("http://192.168.1.60/"))
 
-column_width('proov', 'sheet_name')
+column_width('proov', 'sheet_name' )
