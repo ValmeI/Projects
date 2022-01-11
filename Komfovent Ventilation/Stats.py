@@ -17,10 +17,11 @@ then add chromedriver to path'''
 '# get today'
 today_str = str(date.today())
 
-# need find out what abbreviations means, like SP, EP, DX and so on TODO
+# TODO need find out what abbreviations means, like SP, EP, DX and so on
 
 '# Excel headers'
-excel_headers = ["Reading Date",
+excel_headers = [  # Columns from url/det.asp
+                 "Reading Date",
                  "Supply temperature",
                  "Extract temperature",
                  "Outdoor temperature",
@@ -45,7 +46,47 @@ excel_headers = ["Reading Date",
                  "Filter clogging",
                  "Energy saving",
                  "OH",
-                 "Indoor humidity AH"]  # all keys to be extracted from xml
+                 "Indoor humidity AH",
+
+                 # Columns from url/i2.asp
+                 "Ventilation level i2",
+                 "Active hours i2",
+                 "Next Away",
+
+                 # Columns from url/i.asp
+                 "Ventilation level i",
+                 "Supply temperature",
+                 "Extract temperature",
+                 "Outdoor temperature",
+                 "SP",
+                 "SAF",
+                 "EAF",
+                 "SAFS",
+                 "EAFS",
+                 "Filter clogging",
+                 "Heat exchanger efficiency",
+                 "Heat recovery",
+                 "Power consumption",
+                 "Heating power",
+                 "Specific power Acutal",
+                 "Specific power Day",
+                 "Consumed energy Day",
+                 "Consumed energy Month",
+                 "Consumed energy Total",
+                 "Heating energy Day",
+                 "Heating energy Month",
+                 "Heating energy Total",
+                 "Recovered energy Day",
+                 "Recovered energy Month",
+                 "Recovered energy Total",
+                 "ST",
+                 "ET",
+                 "AQS",
+                 "AQ",
+                 "AHS",
+                 "AH",
+                 "VF"
+                 ]  # all keys to be extracted from xml
 
 
 def create_excel(excel_name, sheet_name):
@@ -67,7 +108,7 @@ def create_excel(excel_name, sheet_name):
 '# makes columns length wider'
 
 
-def column_width(excel_name, sheet_name):
+def column_width(excel_name):
     '# add file type'
     file_name = excel_name + ".xlsx"
 
@@ -88,10 +129,10 @@ def column_width(excel_name, sheet_name):
     wb.save(filename=workbook_name)
 
 
-'# You need to know your Komfovent Local IP aadress'
+'# You need to know your Komfovent Local IP aadress. det/i input need. As one is i.asp and other is det.asp'
 
 
-def get_vent_stats(komfovent_local_ip):
+def get_vent_stats(komfovent_local_ip, var):  # TODO PASSWORD from file and to gitignor it
     options = Options()
     '# parse without displaying Chrome'
     options.add_argument("--headless")
@@ -113,7 +154,7 @@ def get_vent_stats(komfovent_local_ip):
         driver.find_element_by_id('b_s').submit()
 
     '# get data from direct url API'
-    driver.get(url + '//det.asp')
+    driver.get(url + '//' + var + '.asp')#'//det.asp')
     '# get page source'
     data = driver.page_source
     '# Get XML part of the source'
@@ -127,10 +168,6 @@ def get_vent_stats(komfovent_local_ip):
     md_list = []
     for child in root:
         md_list.append(child.text.strip())
-
-    '# Add Date to begging of the list.'
-    '# pos and value added'
-    md_list.insert(0, today_str)
 
     return md_list
 
@@ -154,9 +191,21 @@ def write_to_excel(excel_name, list_of_data):
     wb.save(filename=workbook_name)
 
 
+'# So insert would not return NONE'
 
-#print(get_vent_stats("http://192.168.1.60/"))
+
+def add_xpos_in_list(var, pos, iput_list):
+    iput_list.insert(pos, var)
+
+    return iput_list
+
+
+data_combined_list = get_vent_stats("http://192.168.1.60/", 'det') + get_vent_stats("http://192.168.1.60/", 'i2') + get_vent_stats("http://192.168.1.60/", 'i')
+new_vent_data_list = add_xpos_in_list(today_str, 0, data_combined_list)
+#print(new_vent_data_list)
+
 #create_excel('proov', 'sheet_name')
-#write_to_excel("proov", get_vent_stats("http://192.168.1.60/"))
+#column_width('proov', 'sheet_name' )
+write_to_excel("proov", new_vent_data_list)
 
-column_width('proov', 'sheet_name')
+
