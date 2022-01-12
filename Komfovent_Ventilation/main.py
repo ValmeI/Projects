@@ -2,7 +2,7 @@ from Komfovent_Ventilation.functions import get_vent_stats, add_xpos_in_list, co
 import datetime
 
 '# get today-s datetime but without milliseconds'
-today_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+today_str = datetime.datetime.now().isoformat(' ', 'seconds')
 
 '# add data from api-s to one big list'
 combined_data_list = get_vent_stats("http://192.168.1.60/", 'det') + \
