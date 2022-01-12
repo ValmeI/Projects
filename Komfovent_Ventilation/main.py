@@ -1,8 +1,8 @@
 from Komfovent_Ventilation.functions import get_vent_stats, add_xpos_in_list, column_width, create_excel, write_to_excel
-from datetime import date
+import datetime
 
-'# get today'
-today_str = str(date.today())
+'# get today-s datetime but without milliseconds'
+today_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 '# add data from api-s to one big list'
 combined_data_list = get_vent_stats("http://192.168.1.60/", 'det') + \
