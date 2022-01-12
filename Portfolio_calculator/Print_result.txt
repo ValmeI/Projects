@@ -1,4 +1,4 @@
-2022-01-12 18:43:58.620781
+2022-01-12 18:55:09.455855
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Vilde 90-193 laenumakse: 155 € + kindlustus.
@@ -16,27 +16,27 @@ Hetkel korteri/krundi puhas väärtus kokku: 20641.0 €.
 Vilde peale makse Isale: [31m-8.08[0m €.
 
 
-Juriidilise isiku väärtus: 98927 €.
-Krüpto: [31m1140[0m €.
-Juriidilise isiku aktsiad: 63858 €.
+Juriidilise isiku väärtus: 77185 €.
+Krüpto: [31m1139[0m €.
+Juriidilise isiku aktsiad: 63817 €.
 Funderbeam Kokku: [31m23888.53[0m €.
 
 
-Füüsilise isiku aktsia portfell: 8822 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 107749 €.
-Vaba raha Jur/Füs Kokku: [31m11180[0m €.
+Füüsilise isiku aktsia portfell: 30522 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 107707 €.
+Vaba raha Jur/Füs Kokku: [31m11179[0m €.
 
 
-Terve portfell kokku: [31m128390.0[0m €.
+Terve portfell kokku: [31m128348.0[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-64478.0[0m €.
+Krooni miljonär veel minna: [31m-64436.0[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m371610.0[0m €.
-Mörr-i aktsiad: 23150 €.
+Veel minna: [31m371652.0[0m €.
+Mörr-i aktsiad: 23148 €.
 Mörr-i vaba raha: 30422.35 €.
-Mörr-i portfell kokku: [31m68722[0m €.
+Mörr-i portfell kokku: [31m68720[0m €.
 Kelly portfell: [31m1613[0m €.
-Pere portfell kokku: [31m198725.0[0m €.
+Pere portfell kokku: [31m198681.0[0m €.
 ========================
 Fail juba kaustas olemas.
 ========================
@@ -46,7 +46,7 @@ Fail juba kaustas olemas.
 2  2020-01-01                     33435               50223                 50 %
 3  2021-01-01                     50223               82751                 65 %
 4  2022-01-01                     82751              128823                 56 %
-5  2022-01-12                    128823              128390                  0 %
+5  2022-01-12                    128823              128348                  0 %
 ========================
-Tänane seis lisatud.
+Tänane seis muudetud.
 [32mE-maili saatmine: Pole reede[0m

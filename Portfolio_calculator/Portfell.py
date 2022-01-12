@@ -159,7 +159,8 @@ elif date.today().weekday() == 4:
 else:
     print(colored('E-maili saatmine: Pole reede', 'green'))
 
-
+'''
 from Komfovent_Ventilation import main, functions
 
 functions.write_to_excel("Data", main.new_vent_data_list)
+'''
