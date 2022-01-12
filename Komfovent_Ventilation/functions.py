@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 
 import xml.etree.ElementTree as ET
 import chromedriver_autoinstaller
-
+import time
 
 '''Check if the current version of chromedriver exists
 and if it doesn't exist, download it automatically,
@@ -142,31 +142,38 @@ def get_vent_stats(komfovent_local_ip, var):  # TODO PASSWORD from file and to g
     '# get url'
     driver.get(url)
 
-    '# If "CONTROL" are found on the top of the page then we are still logged in (previous session is still active) '
-    'so skip the login part and go straight to API, else log in'
-    if len(driver.find_elements_by_class_name('name')):
-        pass
-    else:
-        driver.find_element_by_id('i_p').send_keys('user')
-        driver.find_element_by_id('b_s').submit()
+    '# Pass file name'
+    password_file = 'password'
 
-    '# get data from direct url API'
-    driver.get(url + '//' + var + '.asp')#'//det.asp')
-    '# get page source'
-    data = driver.page_source
-    '# Get XML part of the source'
-    content = driver.find_element_by_id('webkit-xml-viewer-source-xml').get_attribute("innerHTML")
-    '# Make page source string to XML'
-    tree = ET.ElementTree(ET.fromstring(content))
-    '# Get root of xml for the loop'
-    root = tree.getroot()
+    '# get password form file, read only'
+    open_file = open(password_file + ".txt", 'r')
+    for password in open_file:
+        '# If "CONTROL" are found on the top of the page '
+        'then we are still logged in (previous session is still active)'
+        'so skip the login part and go straight to API, else log in'
+        if len(driver.find_elements_by_class_name('name')):
+            pass
+        else:
+            driver.find_element_by_id('i_p').send_keys(password)
+            driver.find_element_by_id('b_s').submit()
 
-    '# List to append the XML results'
-    md_list = []
-    for child in root:
-        md_list.append(child.text.strip())
+        '# get data from direct url API'
+        driver.get(url + '//' + var + '.asp')
+        '# get page source'
+        data = driver.page_source
+        '# Get XML part of the source'
+        content = driver.find_element_by_id('webkit-xml-viewer-source-xml').get_attribute("innerHTML")
+        '# Make page source string to XML'
+        tree = ET.ElementTree(ET.fromstring(content))
+        '# Get root of xml for the loop'
+        root = tree.getroot()
 
-    return md_list
+        '# List to append the XML results'
+        md_list = []
+        for child in root:
+            md_list.append(child.text.strip())
+
+        return md_list
 
 
 '# append new rows/info to excel'
@@ -195,14 +202,3 @@ def add_xpos_in_list(var, pos, iput_list):
     iput_list.insert(pos, var)
 
     return iput_list
-
-
-data_combined_list = get_vent_stats("http://192.168.1.60/", 'det') + get_vent_stats("http://192.168.1.60/", 'i2') + get_vent_stats("http://192.168.1.60/", 'i')
-new_vent_data_list = add_xpos_in_list(today_str, 0, data_combined_list)
-#print(new_vent_data_list)
-
-#create_excel('proov', 'sheet_name')
-#column_width('proov', 'sheet_name' )
-write_to_excel("proov", new_vent_data_list)
-
-
