@@ -12,7 +12,7 @@ import time
 '''Check if the current version of chromedriver exists
 and if it doesn't exist, download it automatically,
 then add chromedriver to path'''
-#chromedriver_autoinstaller.install()
+chromedriver_autoinstaller.install()
 
 # TODO need find out what abbreviations means, like SP, EP, DX and so on
 
@@ -134,7 +134,7 @@ def get_vent_stats(komfovent_local_ip, var):  # TODO PASSWORD from file and to g
     '# parse without displaying Chrome'
     options.add_argument("--headless")
     '# UPDATE 9.01.2021 to avoid cannot find Chrome binary error'
-    options.binary_location = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     '# get Chrome driver with path'
     driver = webdriver.Chrome("chromedriver.exe", options=options)
     '# url we want to parse: Komfovent local IP'
