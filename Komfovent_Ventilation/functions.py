@@ -129,7 +129,7 @@ def column_width(excel_name):
 '# You need to know your Komfovent Local IP aadress. det/i input need. As one is i.asp and other is det.asp'
 
 
-def get_vent_stats(komfovent_local_ip, var):  # TODO PASSWORD from file and to gitignor it
+def get_vent_stats(komfovent_local_ip, var):  # TODO gitignor
     options = Options()
     '# parse without displaying Chrome'
     options.add_argument("--headless")
