@@ -1,4 +1,4 @@
-2022-01-14 11:33:13.073439
+2022-01-14 17:54:02.411868
 
 Akadeemia 42-63 laenumakse: 115 € + kindlustus.
 Vilde 90-193 laenumakse: 155 € + kindlustus.
@@ -16,27 +16,27 @@ Hetkel korteri/krundi puhas väärtus kokku: 20641.0 €.
 Vilde peale makse Isale: [31m-8.08[0m €.
 
 
-Juriidilise isiku väärtus: 75059 €.
-Krüpto: [31m1102[0m €.
-Juriidilise isiku aktsiad: 62085 €.
-Funderbeam Kokku: [31m23531.61[0m €.
+Juriidilise isiku väärtus: 80550 €.
+Krüpto: [31m1121[0m €.
+Juriidilise isiku aktsiad: 60992 €.
+Funderbeam Kokku: [31m23535.63[0m €.
 
 
-Füüsilise isiku aktsia portfell: 30545 €.
-Aktsiad/Raha Jur ja Füs isikud kokku: 105604 €.
-Vaba raha Jur/Füs Kokku: [31m11142[0m €.
+Füüsilise isiku aktsia portfell: 30592 €.
+Aktsiad/Raha Jur ja Füs isikud kokku: 111142 €.
+Vaba raha Jur/Füs Kokku: [31m17722[0m €.
 
 
-Terve portfell kokku: [31m126245.0[0m €.
+Terve portfell kokku: [31m131783.0[0m €.
 Eesmärk krooni miljonär 63912 €.
-Krooni miljonär veel minna: [31m-62333.0[0m €.
+Krooni miljonär veel minna: [31m-67871.0[0m €.
 Eesmärk 35 aastaselt portfelli väärtus 500000 €.
-Veel minna: [31m373755.0[0m €.
-Mörr-i aktsiad: 23084 €.
-Mörr-i vaba raha: 30422.35 €.
-Mörr-i portfell kokku: [31m68656[0m €.
-Kelly portfell: [31m1613[0m €.
-Pere portfell kokku: [31m196514.0[0m €.
+Veel minna: [31m368217.0[0m €.
+Mörr-i aktsiad: 25429 €.
+Mörr-i vaba raha: 28343.33 €.
+Mörr-i portfell kokku: [31m68922[0m €.
+Kelly portfell: [31m1690[0m €.
+Pere portfell kokku: [31m202395.0[0m €.
 ========================
 Fail juba kaustas olemas.
 ========================
@@ -46,8 +46,8 @@ Fail juba kaustas olemas.
 2  2020-01-01                     33435               50223                 50 %
 3  2021-01-01                     50223               82751                 65 %
 4  2022-01-01                     82751              128823                 56 %
-5  2022-01-14                    128823              126245                 -2 %
+5  2022-01-14                    128823              131783                  2 %
 ========================
-Tänane seis lisatud.
+Tänane seis muudetud.
 [32m
 Mail Send Successfully[0m
