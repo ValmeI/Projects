@@ -198,7 +198,7 @@ def write_to_excel(excel_name, list_of_data):
 '# So insert would not return NONE'
 
 
-def add_xpos_in_list(var, pos, iput_list):
-    iput_list.insert(pos, var)
+def add_xpos_in_list(var, pos, input_list):
+    input_list.insert(pos, var)
 
-    return iput_list
+    return input_list
