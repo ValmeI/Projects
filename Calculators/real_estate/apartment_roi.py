@@ -1,11 +1,22 @@
-from Portfolio_calculator import Kinnisvara as re
+
+def apr_month(loan_sum, annual_interest_rate, years):
+    rate = annual_interest_rate / 1200
+    months = years * 12
+    '# upper par'
+    a = (loan_sum * rate * ((1 + rate) ** months))
+    '# lower part'
+    b = (((1+rate)**months)-1)
+    '# dividing'
+    monthly_payment = a/b
+
+    return round(monthly_payment)
 
 
 def apartment_roi(apartment_price, down_payment_percent, other_costs, interest, loan_years, rent, monthly_insurance, m2):
     '# ROI - apartment_price, down_payment_percent, other_costs, interest, loan_years, rent, monthly_insurance)'
     down_payment_amount = int(apartment_price * (down_payment_percent / 100))
     loan_amount = apartment_price - down_payment_amount
-    monthly_payment = re.apr_month(loan_amount, interest, loan_years)
+    monthly_payment = apr_month(loan_amount, interest, loan_years)
     monthly_sum = monthly_payment + monthly_insurance
     monthly_income = rent - monthly_sum
     year_income = monthly_income * 12

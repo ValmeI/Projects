@@ -1,6 +1,6 @@
-from Calculators.calender.plot import draw_plot
-from Calculators.calender.gather_data import create_fictitious_dates, get_data_from_table, get_data_for_dropdown
-from Calculators.calender.calender_form import CalenderFromDelete
+from Calculators-Website-Flask.calender.plot import draw_plot
+from Calculators-Website-Flask.calender.gather_data import create_fictitious_dates, get_data_from_table, get_data_for_dropdown
+from Calculators-Website-Flask.calender.calender_form import CalenderFromDelete
 from dateutil.parser import parse
 
 

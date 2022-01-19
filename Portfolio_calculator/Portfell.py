@@ -16,8 +16,8 @@ path = what_path_for_file()
 'copy to nas webserver'
 txt_source = path + r'Portfolio_calculator\Print_result.txt'
 excel_source = path + r'Portfolio_calculator\Portfell.xls'
-pc_des_path = path + r'Calculators\portfolio_result'
-nas_des_path = r'\\RMI_NAS\Python\Calculators\portfolio_result'
+pc_des_path = path + r'Calculators-Website-Flask\portfolio_result'
+nas_des_path = r'\\RMI_NAS\Python\Calculators-Website-Flask\portfolio_result'
 
 '# Copy txt result and excel file to Nas server, if all the files or path exists'
 if os.path.isfile(txt_source) and os.path.isfile(excel_source) and os.path.isdir(nas_des_path):

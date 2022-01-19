@@ -25,7 +25,7 @@ def str_date_to_list(str_list):
 
 '''
 from Portfolio_calculator.Funcions import what_path_for_file
-path = str(what_path_for_file()) + r'Calculators\portfolio_result/'
+path = str(what_path_for_file()) + r'Calculators-Website-Flask\portfolio_result/'
 portfolio_result = file_result_to_list(path, "Print_result.txt")
 for x in portfolio_result:
     print(x)

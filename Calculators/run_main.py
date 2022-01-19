@@ -2,24 +2,24 @@
 
 from flask import Flask, render_template, flash, request
 from flask_wtf.csrf import CSRFProtect
-from Calculators.work_time.forms import WorkForm
-from Calculators.work_time.work_funcions import WorkClass as Wc
+from Calculators-Website-Flask.work_time.forms import WorkForm
+from Calculators-Website-Flask.work_time.work_funcions import WorkClass as Wc
 
-from Calculators.real_estate.form import RealEstateFrom
-from Calculators.real_estate import apartment_roi as roi
+from Calculators-Website-Flask.real_estate.form import RealEstateFrom
+from Calculators-Website-Flask.real_estate import apartment_roi as roi
 from Portfolio_calculator import Kinnisvara as Re
 
-from Calculators.calender.calender_form import CalenderFrom, CalenderFromDelete
-#from Calculators.calender.months import total
+from Calculators-Website-Flask.calender.calender_form import CalenderFrom, CalenderFromDelete
+#from Calculators-Website-Flask.calender.months import total
 
 from datetime import date, timedelta
-from Calculators.calender.gather_data import table_exists, create_table, insert_data, backup_to_csv, get_data_for_dropdown, delete_row
-from Calculators.calender.plot import draw_plot
+from Calculators-Website-Flask.calender.gather_data import table_exists, create_table, insert_data, backup_to_csv, get_data_for_dropdown, delete_row
+from Calculators-Website-Flask.calender.plot import draw_plot
 
-from Calculators.portfolio_result.portfolio_funcion import file_result_to_list, str_date_to_list
+from Calculators-Website-Flask.portfolio_result.portfolio_funcion import file_result_to_list, str_date_to_list
 from Portfolio_calculator import Funcions
 
-from Calculators.calender.often_used import plot_often_calender, drop_down_often_calender
+from Calculators-Website-Flask.calender.often_used import plot_often_calender, drop_down_often_calender
 import os
 
 csrf = CSRFProtect()
@@ -121,9 +121,9 @@ def calender():
 @app.route('/portfolio', methods=['GET', 'POST'])
 def portfolio():
 
-    nas_path = '/volume1/Python/Calculators/portfolio_result/'
-    home_pc_path = r'D:\PycharmProjects\Projects\Calculators\portfolio_result/'
-    laptop_path = r'C:\PycharmProjects\Projects\Calculators\portfolio_result/'
+    nas_path = '/volume1/Python/Calculators-Website-Flask/portfolio_result/'
+    home_pc_path = r'D:\PycharmProjects\Projects\Calculators-Website-Flask\portfolio_result/'
+    laptop_path = r'C:\PycharmProjects\Projects\Calculators-Website-Flask\portfolio_result/'
 
     '# chooses path depending on the machine that it is on'
     if os.path.isdir(home_pc_path):
@@ -158,9 +158,9 @@ def real_estate():
     Korter2_Nimi = "Akadeemia 38-20"
     Korter3_Nimi = "Vilde 90-193"
 
-    Akad42_63 = roi.apartment_roi(Re.Korter1_Hind, 20, 1500, 3, 15, 220, 7, 12)
-    Akad38_20 = roi.apartment_roi(Re.Korter2_Hind, 20, 1000, 3, 15, 260, 7, 16)
-    Vilde90_193 = roi.apartment_roi(Re.Korter3_Hind, 40, 530, 2.39, 11, 230, 7, 16)
+    Akad42_63 = roi.apartment_roi(24500, 20, 1500, 3, 15, 220, 7, 12)
+    Akad38_20 = roi.apartment_roi(29900, 20, 1000, 3, 15, 260, 7, 16)
+    Vilde90_193 = roi.apartment_roi(29900, 40, 530, 2.39, 11, 230, 7, 16)
 
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -245,9 +245,9 @@ def work():
 
 if __name__ == "__main__":
 
-    nas_path = '/volume1/Python/Calculators/portfolio_result/'
-    home_pc_path = r'D:\PycharmProjects\Projects\Calculators\portfolio_result/'
-    laptop_path = r'C:\PycharmProjects\Projects\Calculators\portfolio_result/'
+    nas_path = '/volume1/Python/Calculators-Website-Flask/portfolio_result/'
+    home_pc_path = r'D:\PycharmProjects\Projects\Calculators-Website-Flask\portfolio_result/'
+    laptop_path = r'C:\PycharmProjects\Projects\Calculators-Website-Flask\portfolio_result/'
 
     '# chooses debug value depending on the machine that it is on'
     if os.path.isdir(home_pc_path):

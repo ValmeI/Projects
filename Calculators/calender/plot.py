@@ -1,6 +1,6 @@
 import plotly.graph_objs as go
 import plotly.offline as ply
-from Calculators.calender.gather_data import get_data_from_table, create_fictitious_dates
+from Calculators-Website-Flask.calender.gather_data import get_data_from_table, create_fictitious_dates
 
 
 def draw_plot(input_x1, input_y1, input_x2, input_y2, scatter_name1, scatter_name2):
