@@ -23,31 +23,3 @@ def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subj
 
         print(colored('\nMail Send Successfully', 'green'))
         server.quit()
-
-
-''' Testing gmail sending'
-Variables are: STMP, username, password file, send from, send to, email title and email body'''
-'''
-send_email('smtp.gmail.com', 
-           'ignarvalme', 
-           'D:\PycharmProjects\Projects\Send_Email\gmail_pass',
-           'email@valme.noip.me', 
-           'ignarvalme@gmail.com', 
-           'test', 
-           'body')
-
-'''
-'''
-Testing synolog local mail servers sending
-Variables are: STMP, username, password file, send from, send to, email title and email body
-'''
-'''
-send_email('192.168.1.172',
-           'email',
-           'synology_pass',
-           'email@valme.noip.me',
-           'ignarvalme@gmail.com',
-           'test',
-           'body')
-'''
-
