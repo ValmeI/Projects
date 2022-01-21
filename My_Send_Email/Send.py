@@ -2,6 +2,8 @@ import smtplib
 from email.message import EmailMessage
 from termcolor import colored
 
+# copy-d it to C:\Users\YOURUSER\AppData\Local\Programs\Python\Python36-32\Lib\site-packages
+
 
 def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subject, sent_body):
 
