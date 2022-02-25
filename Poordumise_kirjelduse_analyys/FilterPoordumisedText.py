@@ -9,7 +9,7 @@ def clearup(s, chars):
     return clean_strings
 
 
-est_stops = set(stopwords.words('estonian-stopwords – PRIS'))
+est_stops = set(stopwords.words('estonian-stopwords - PRIS'))
 f_open = open(r'C:\Users\ignar.valme\Desktop\pöördumise sisu.txt', 'r', encoding='utf-8')
 
 '# eemaldab laused või nimed mis pole olulised'
