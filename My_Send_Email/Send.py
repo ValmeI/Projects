@@ -2,7 +2,7 @@ import smtplib
 from email.message import EmailMessage
 from termcolor import colored
 
-# copy-d it to C:\Users\YOURUSER\AppData\Local\Programs\Python\Python36-32\Lib\site-packages
+# copy-d it to C:\Users\YOURUSER\AppData\Local\Programs\Python\PythonXX-XX\Lib\site-packages
 
 
 def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subject, sent_body):
@@ -26,9 +26,9 @@ def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subj
         print(colored('\nMail Send Successfully', 'green'))
         server.quit()
 
-'''send_email('192.168.50.235',
+'''send_email('valme.noip.me',
                'email',
-               'D:\PycharmProjects\Projects\My_Send_Email\synology_pass',
+               'C:\PycharmProjects\Projects\My_Send_Email\synology_pass',
                'email@valme.noip.me',
                'ignarvalme@gmail.com',
                'Portfelli seis: ',
