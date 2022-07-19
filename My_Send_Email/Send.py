@@ -31,7 +31,7 @@ def send_email(stmp_variable, user, password_file, sent_from, sent_to, sent_subj
         print(colored('\nMail Send Successfully', 'green'))
         server.quit()
 
-
+'''
 send_email(stmp_variable='valme.noip.me',
            user='email',
            password_file=r'D:\PycharmProjects\Projects\My_Send_Email\synology_pass',
@@ -39,3 +39,4 @@ send_email(stmp_variable='valme.noip.me',
            sent_to='ignarvalme@gmail.com',
            sent_subject='Portfelli seis: ',
            sent_body='Tulemus')
+'''
